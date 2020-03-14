@@ -53,7 +53,7 @@
             type = "tca"
             alt = true
             label = "WO0"
-            groups = ["TCA", "TCA-SPLIT"]
+            groups = ["TCA-ALT", "TCA", "TCA-SPLIT"]
 
 [[pins]]
     pin = 7
