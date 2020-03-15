@@ -4,6 +4,7 @@
   table-layout: fixed;
   width: 800px;
   border: 1px solid $green-font-color;
+  margin-bottom: 20px;
   .block-row {
     display: flex;
     div {
@@ -28,19 +29,8 @@
                         darken($green-font-color, 55%) 10px,
                         darken($green-font-color, 55%) 20px
         );
-        &:not(:first-child) {
-          border-left: 1px solid darken($green-font-color, 30%);
-        }
-        &:not(:last-child) {
-          border-right: 1px solid darken($green-font-color, 30%);
-        }
+
       }
-    }
-  }
-  td {
-    border: 1px solid white;
-    &.disabled {
-      background-color: #333333;
     }
   }
 }
@@ -49,5 +39,8 @@
     flex-grow: $i;
     flex-basis: 0;
     padding-right: $i - 1px;
+    &:not(:last-child) {
+      border-right: 1px solid darken($green-font-color, 30%);
+    }
   }
 }

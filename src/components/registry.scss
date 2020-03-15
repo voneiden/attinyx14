@@ -1,7 +1,9 @@
 .registry {
   display: flex;
   justify-content: center;
-
+  .title {
+    display: block;
+  }
   > div {
     text-align: left;
   }

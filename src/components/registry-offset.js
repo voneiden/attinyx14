@@ -8,17 +8,18 @@ import cls from "../utils/cls";
     const { offset } = props;
     let bits = 0;
 
-    const fieldNameBlocks = offset.fields.map((field) => {
+    const fieldNameBlocks = offset.fields.map((field, i) => {
         bits += field.size;
         const active = field.relatedGroups.includes(store.activeGroup);
         const disabled = !field.name;
+        const range = field.size > 1 && !disabled ? `[${i+field.size-1}:${i}]` : null;
         return (
             <div className={cls(
                 `field-size-${field.size}`,
                 active && `active`,
                 disabled && `disabled`,
             )}>
-                {field.name}
+                {field.name}{range}
             </div>
         )
     }).reverse();
