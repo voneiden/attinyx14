@@ -19,14 +19,14 @@ Lorem ipsum about voltages
     topic = "PORTA"
     title = "Port A IO pins"
     text = """
-Lorem ipsum about port a
+Port A IO pins are operated via the PORTA registry which follows the generic R:PORT layout
 """
 
 [[topics]]
     topic = "PORTB"
     title = "Port B IO pins"
     text = """
-Lorem ipsum about port b
+Port B IO pins are operated via the PORTB registry which follows the generic R:PORT layout
 """
 
 [[topics]]

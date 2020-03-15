@@ -1,0 +1,182 @@
+[[regs]]
+    name = "PORTMUX"
+    datasheetPage = 125
+    [[regs.offsets]]
+        name = "CTRLA"
+        [[regs.offsets.fields]]
+            name = "EVOUT0"
+            description = "Event output 0"
+        [[regs.offsets.fields]]
+            name = "EVOUT1"
+            description = "Event output 1"
+        [[regs.offsets.fields]]
+            size = 6
+    [[regs.offsets]]
+        name = "CTRLB"
+        [[regs.offsets.fields]]
+            name = "USART0"
+            description = "Enable to select alternative USART pin configuration"
+            relatedGroups = ["USART-ALT"]
+        [[regs.offsets.fields]]
+        [[regs.offsets.fields]]
+            name = "SPI0"
+            description = "Enable to select alternative SPI pin configuration"
+            relatedGroups = ["SPI-ALT"]
+        [[regs.offsets.fields]]
+        [[regs.offsets.fields]]
+            name = "TWI0"
+            description = "Enable to select alternative TWI pin configuration"
+            relatedGroups = ["TWI-ALT"]
+        [[regs.offsets.fields]]
+            size = 3
+
+    [[regs.offsets]]
+        name = "CTRLC"
+        [[regs.offsets.fields]]
+            name = "TCA0"
+            description = "Enable to select alternative TCA pin configuration"
+            relatedGroups = ["TCA-ALT"]
+        [[regs.offsets.fields]]
+            size = 7
+
+[[regs]]
+    name = "PORT"
+    datasheetPage = 135
+    [[regs.offsets]]
+        name = "DIR"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "DIR"
+    [[regs.offsets]]
+        name = "DIRSET"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "DIRSET"
+    [[regs.offsets]]
+        name = "DIRCLR"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "DIRCLR"
+    [[regs.offsets]]
+        name = "DIRTGL"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "DIRTGL"
+    [[regs.offsets]]
+        name = "OUT"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "OUT"
+    [[regs.offsets]]
+        name = "OUTSET"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "OUTSET"
+    [[regs.offsets]]
+        name = "OUTCLR"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "OUTCLR"
+    [[regs.offsets]]
+        name = "OUTTGL"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "OUTTGL"
+    [[regs.offsets]]
+        name = "IN"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "IN"
+    [[regs.offsets]]
+        name = "INTFLAGS"
+        [[regs.offsets.fields]]
+            size = 8
+            name = "INTFLAGS"
+    [[regs.offsets]]
+        name = "PIN0CTRL"
+        [[regs.offsets.fields]]
+            size = 3
+            name = "ISC"
+        [[regs.offsets.fields]]
+            name = "PULLUPEN"
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "INVEN"
+    [[regs.offsets]]
+        name = "PIN1CTRL"
+        [[regs.offsets.fields]]
+            size = 3
+            name = "ISC"
+        [[regs.offsets.fields]]
+            name = "PULLUPEN"
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "INVEN"
+    [[regs.offsets]]
+        name = "PIN2CTRL"
+        [[regs.offsets.fields]]
+            size = 3
+            name = "ISC"
+        [[regs.offsets.fields]]
+            name = "PULLUPEN"
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "INVEN"
+    [[regs.offsets]]
+        name = "PIN3CTRL"
+        [[regs.offsets.fields]]
+            size = 3
+            name = "ISC"
+        [[regs.offsets.fields]]
+            name = "PULLUPEN"
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "INVEN"
+    [[regs.offsets]]
+        name = "PIN4CTRL"
+        [[regs.offsets.fields]]
+            size = 3
+            name = "ISC"
+        [[regs.offsets.fields]]
+            name = "PULLUPEN"
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "INVEN"
+    [[regs.offsets]]
+        name = "PIN5CTRL"
+        [[regs.offsets.fields]]
+            size = 3
+            name = "ISC"
+        [[regs.offsets.fields]]
+            name = "PULLUPEN"
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "INVEN"
+    [[regs.offsets]]
+        name = "PIN6CTRL"
+        [[regs.offsets.fields]]
+            size = 3
+            name = "ISC"
+        [[regs.offsets.fields]]
+            name = "PULLUPEN"
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "INVEN"
+    [[regs.offsets]]
+        name = "PIN7CTRL"
+        [[regs.offsets.fields]]
+            size = 3
+            name = "ISC"
+        [[regs.offsets.fields]]
+            name = "PULLUPEN"
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "INVEN"

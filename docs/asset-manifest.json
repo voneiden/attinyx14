@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/attinyx14/static/css/main.190bddc8.chunk.css",
-    "main.js": "/attinyx14/static/js/main.01512e3d.chunk.js",
-    "main.js.map": "/attinyx14/static/js/main.01512e3d.chunk.js.map",
+    "main.css": "/attinyx14/static/css/main.2dc45ee5.chunk.css",
+    "main.js": "/attinyx14/static/js/main.2f797dc5.chunk.js",
+    "main.js.map": "/attinyx14/static/js/main.2f797dc5.chunk.js.map",
     "runtime-main.js": "/attinyx14/static/js/runtime-main.66e78f6c.js",
     "runtime-main.js.map": "/attinyx14/static/js/runtime-main.66e78f6c.js.map",
-    "static/js/2.8f4a59ab.chunk.js": "/attinyx14/static/js/2.8f4a59ab.chunk.js",
-    "static/js/2.8f4a59ab.chunk.js.map": "/attinyx14/static/js/2.8f4a59ab.chunk.js.map",
+    "static/js/2.22586509.chunk.js": "/attinyx14/static/js/2.22586509.chunk.js",
+    "static/js/2.22586509.chunk.js.map": "/attinyx14/static/js/2.22586509.chunk.js.map",
     "index.html": "/attinyx14/index.html",
-    "precache-manifest.e52f487d235c048c129ffd7ddc6c4bfa.js": "/attinyx14/precache-manifest.e52f487d235c048c129ffd7ddc6c4bfa.js",
+    "precache-manifest.edb1cf7bde29c7eb13a99280d8dfb499.js": "/attinyx14/precache-manifest.edb1cf7bde29c7eb13a99280d8dfb499.js",
     "service-worker.js": "/attinyx14/service-worker.js",
-    "static/css/main.190bddc8.chunk.css.map": "/attinyx14/static/css/main.190bddc8.chunk.css.map",
-    "static/js/2.8f4a59ab.chunk.js.LICENSE.txt": "/attinyx14/static/js/2.8f4a59ab.chunk.js.LICENSE.txt",
-    "static/media/attinyx14-pins.toml": "/attinyx14/static/media/attinyx14-pins.47edb17f.toml",
-    "static/media/attinyx14-registries.toml": "/attinyx14/static/media/attinyx14-registries.87a1f0fa.toml",
-    "static/media/attinyx14-topics.toml": "/attinyx14/static/media/attinyx14-topics.74a6c826.toml"
+    "static/css/main.2dc45ee5.chunk.css.map": "/attinyx14/static/css/main.2dc45ee5.chunk.css.map",
+    "static/js/2.22586509.chunk.js.LICENSE.txt": "/attinyx14/static/js/2.22586509.chunk.js.LICENSE.txt",
+    "static/media/attinyx14-pins.toml": "/attinyx14/static/media/attinyx14-pins.19be0681.toml",
+    "static/media/attinyx14-registries.toml": "/attinyx14/static/media/attinyx14-registries.57e8b529.toml",
+    "static/media/attinyx14-topics.toml": "/attinyx14/static/media/attinyx14-topics.b41aa9e2.toml"
   },
   "entrypoints": [
     "static/js/runtime-main.66e78f6c.js",
-    "static/js/2.8f4a59ab.chunk.js",
-    "static/css/main.190bddc8.chunk.css",
-    "static/js/main.01512e3d.chunk.js"
+    "static/js/2.22586509.chunk.js",
+    "static/css/main.2dc45ee5.chunk.css",
+    "static/js/main.2f797dc5.chunk.js"
   ]
 }
