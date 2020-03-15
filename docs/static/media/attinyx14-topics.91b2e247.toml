@@ -61,7 +61,7 @@ Lorem ipsum about split mode
     topic = "TCA-ALT"
     title = "16-bit Timer/Counter Type A (Alternative pin configuration)"
     text = """
-Alternative pin position for TCA0 waveform 0 (W0) output can be enable via R:PORTMUX.CTRLC.TCA0
+Alternative pin position for TCA0 waveform 0 (W0) output can be enabled via R:PORTMUX.CTRLC.TCA0
 """
 
 

@@ -116,7 +116,7 @@
             groups = ["PORTA"]
         [[pins.attributes]]
             type = "updi"
-            label = "RESET/UPDI"
+            label = "UPDI"
             groups = ["UPDI"]
 
 [[pins]]
