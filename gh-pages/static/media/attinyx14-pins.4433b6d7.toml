@@ -1,0 +1,152 @@
+[[pins]]
+    pin = 1
+        [[pins.attributes]]
+            type = "vcc"
+            label = "VCC"
+            groups = ["POWER"]
+
+[[pins]]
+    pin = 2
+        [[pins.attributes]]
+            type = "port"
+            label = "PA4"
+            groups = ["PORTA"]
+        [[pins.attributes]]
+            type = "tca"
+            label = "WO4"
+            groups = ["TCA-SPLIT"]
+
+[[pins]]
+    pin = 3
+        [[pins.attributes]]
+            type = "port"
+            label = "PA5"
+            groups = ["PORTA"]
+        [[pins.attributes]]
+            type = "tca"
+            label = "WO5"
+            groups = ["TCA-SPLIT"]
+
+
+[[pins]]
+    pin = 4
+        [[pins.attributes]]
+            type = "port"
+            label = "PA6"
+            groups = ["PORTA"]
+
+
+[[pins]]
+    pin = 5
+        [[pins.attributes]]
+            type = "port"
+            label = "PA7"
+            groups = ["PORTA"]
+
+[[pins]]
+    pin = 6
+        [[pins.attributes]]
+            type = "port"
+            label = "PB3"
+            groups = ["PORTB"]
+        [[pins.attributes]]
+            type = "tca"
+            alt = true
+            label = "WO0"
+            groups = ["TCA-ALT", "TCA", "TCA-SPLIT"]
+
+[[pins]]
+    pin = 7
+        [[pins.attributes]]
+            type = "port"
+            label = "PB2"
+            groups = ["PORTB"]
+        [[pins.attributes]]
+            type = "tca"
+            label = "WO2"
+            groups = ["TCA", "TCA-SPLIT"]
+
+[[pins]]
+    pin = 14
+        [[pins.attributes]]
+            type = "gnd"
+            label = "GND"
+            groups = ["POWER"]
+
+[[pins]]
+    pin = 13
+        [[pins.attributes]]
+            type = "port"
+            label = "PA3"
+            groups = ["PORTA"]
+        [[pins.attributes]]
+            type = "tca"
+            label = "WO3"
+            groups = ["TCA-SPLIT"]
+
+[[pins]]
+    pin = 12
+        [[pins.attributes]]
+            type = "port"
+            label = "PA2"
+            groups = ["PORTA"]
+        [[pins.attributes]]
+            type = "twi"
+            alt = true
+            label = "SCL"
+            groups = ["TWI-ALT", "TWI"]
+
+[[pins]]
+    pin = 11
+        [[pins.attributes]]
+            type = "port"
+            label = "PA1"
+            groups = ["PORTA"]
+        [[pins.attributes]]
+            type = "twi"
+            alt = true
+            label = "SDA"
+            groups = ["TWI-ALT", "TWI"]
+
+[[pins]]
+    pin = 10
+        [[pins.attributes]]
+            type = "port"
+            label = "PA0"
+            groups = ["PORTA"]
+        [[pins.attributes]]
+            type = "updi"
+            label = "RESET/UPDI"
+            groups = ["UPDI"]
+
+[[pins]]
+    pin = 9
+        [[pins.attributes]]
+            type = "port"
+            label = "PB0"
+            groups = ["PORTB"]
+        [[pins.attributes]]
+            type = "twi"
+            label = "SCL"
+            groups = ["TWI"]
+        [[pins.attributes]]
+            type = "tca"
+            label = "WO0"
+            groups = ["TCA", "TCA-SPLIT"]
+
+
+
+[[pins]]
+    pin = 8
+        [[pins.attributes]]
+            type = "port"
+            label = "PB1"
+            groups = ["PORTB"]
+        [[pins.attributes]]
+            type = "twi"
+            label = "SDA"
+            groups = ["TWI"]
+        [[pins.attributes]]
+            type = "tca"
+            label = "WO1"
+            groups = ["TCA", "TCA-SPLIT"]

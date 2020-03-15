@@ -1,0 +1,36 @@
+[[fuses]]
+    name = "WDTCFG"
+    [[fuses.bits]]
+        size = 3
+        name = "WINDOW"
+        text = "Loaded into {WDT.CTRLA.WINDOW} during reset"
+    [[fuses.bits]]
+        size = 3
+        name = "PERIOD"
+        text = "Loaded into {WDT.CTRLA.PERIOD} during reset"
+[[fuses]]
+    name = "BODCFG"
+    [[fuses.bits]]
+        size = 2
+        name = "LVL"
+    [[fuses.bits]]
+        name = "SAMPFREQ"
+    [[fuses.bits]]
+        size = 2
+        name = "ACTIVE"
+    [[fuses.bits]]
+        name = "SLEEP"
+    
+[[fuses]] 
+    name = "OSCCFG"
+    [[fuses.bits]]
+        name = "OSCLOCK"
+    [[fuses.bits]]
+        size = 5
+    [[fuses.bits]]
+        size = 2
+        name = "FREQSEL"
+
+[[fuses]]
+
+[[fuses]]

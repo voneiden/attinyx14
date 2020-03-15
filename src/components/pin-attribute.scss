@@ -1,0 +1,71 @@
+.pin-attribute {
+    border: 1px solid white;;
+    padding: 2px 5px 2px 5px;
+    margin: 1px 5px 1px 5px;
+    width: 40px;
+    border-radius: 5px;
+    background-color: red;
+    &.highlight-primary-pin {
+        margin: 0 4px 0 4px;
+        border: 2px solid cyan;
+        cursor: pointer;
+        &.alt-pin {
+            border: 2px dashed cyan;
+        }
+    }
+    &.highlight-secondary-pin {
+        margin: 1px 5px 1px 5px;
+        border: 1px dashed cyan;
+        cursor: pointer;
+    }
+    &.active-pin:not(.inactive-group) {
+        font-weight: bold;
+        margin: 0 4px 0 4px;
+        border: 2px solid white;
+    }
+    &.inactive-group {
+        opacity: 0.3;
+    }
+}
+
+.gnd-pin {
+    background-color: black;
+    color: white;
+}
+
+.vcc-pin {
+    background-color: #b55353;
+}
+.port-pin {
+    background-color: darken(#b5e853, 20%);
+}
+
+.twi-pin {
+    background-color: yellow;
+    &.alt-pin {
+        font-weight: lighter;
+        background: repeating-linear-gradient(
+                        45deg,
+                        yellow,
+                        yellow 10px,
+                        #aaaa00 10px,
+                        #aaaa00 20px
+        );
+    }
+}
+
+.tca-pin {
+    color: white;
+    background-color: purple;
+    &.alt-pin {
+        font-weight: lighter;
+        color: white;
+        background: repeating-linear-gradient(
+                        45deg,
+                        purple,
+                        purple 10px,
+                        #400040 10px,
+                        #400040 20px
+        );
+    }
+}

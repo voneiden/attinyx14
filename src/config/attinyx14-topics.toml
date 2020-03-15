@@ -1,0 +1,80 @@
+[[topics]]
+    topic = "default"
+    title = "Overview"
+    text = """
+- [Operating Frequency](Topic:frequency)
+- [TWI/I2C](Topic:twi)
+- [TCA](Topic:tca)
+- [How to implement a simple delay function?](Topic:delay)
+"""
+
+[[topics]]
+    topic = "POWER"
+    title = "Powering the ATtiny"
+    text = """
+Lorem ipsum about voltages
+"""
+
+[[topics]]
+    topic = "PORTA"
+    title = "Port A IO pins"
+    text = """
+Lorem ipsum about port a
+"""
+
+[[topics]]
+    topic = "PORTB"
+    title = "Port B IO pins"
+    text = """
+Lorem ipsum about port b
+"""
+
+[[topics]]
+    topic = "TWI"
+    title = "Two-Wire Interface (I2C)"
+    text = """
+Lorem ipsum about the horrors of I2C
+"""
+
+[[topics]]
+    topic = "TWI-ALT"
+    title = "Two-Wire Interface (I2C) (Alternative pin configuration)"
+    text = """
+Alternative pin position for TWI outputs can be enabled via R:PORTMUX.CTRLB
+"""
+
+[[topics]]
+    topic = "TCA"
+    title = "16-bit Timer/Counter Type A"
+    text = """
+Lorem ipsum about the joys of TCA
+"""
+
+[[topics]]
+    topic = "TCA-SPLIT"
+    title = "16-bit Timer/Counter Type A (Split Mode)"
+    text = """
+Lorem ipsum about split mode
+"""
+
+[[topics]]
+    topic = "TCA-ALT"
+    title = "16-bit Timer/Counter Type A (Alternative pin configuration)"
+    text = """
+Alternative pin position for TCA0 waveform 0 (W0) output can be enable via R:PORTMUX.CTRLC.TCA0
+"""
+
+
+
+[[topics]]
+    topic = "frequency"
+    title = "Frequency"
+    text = """
+The ATtiny boots up with the 16/20 MHz oscillator (OSC20M) and a prescaler
+division factor of 6 <sup>\[[datasheet](datasheet.pdf?page=74)\]</sup>.
+OSC20M frequency is set by frequency select bits (FREQSEL, default 0x0 = 20 MHz) of
+the oscillator configurator fuse (FUSE.OSCCFG). Shortly put, the ATtiny boots up by
+default running at 3.33 MHz. To get it to run at 20 MHz, the prescaler needs to be disabled
+via register [CLKCTRL](datasheet.pdf?page=78). And to do that, the configuration
+change protection must be disabled via [CPU register](datasheet.pdf?page=52).
+"""
