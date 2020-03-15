@@ -64,7 +64,44 @@ Lorem ipsum about split mode
 Alternative pin position for TCA0 waveform 0 (W0) output can be enabled via R:PORTMUX.CTRLC.TCA0
 """
 
+[[topics]]
+    topic = "ADC"
+    title = "Analog to digital converter"
+    text = """
+Lorem ipsum about ADC
+"""
 
+
+[[topics]]
+    topic = "UPDI"
+    title = "Unified Program and Debug Interface (UPDI)"
+    text = """
+Lorem ipsum about UPDI
+"""
+
+
+[[topics]]
+    topic = "RESET"
+    title = "Reset"
+    text = """
+Lorem ipsum about reset
+"""
+
+[[topics]]
+    topic = "Fuses"
+    chip = true
+    title = "Fuses"
+    text = """
+Lorem ipsum about fuses
+"""
+
+[[topics]]
+    topic = "RTC"
+    chip = true
+    title = "Real Time Clock (RTC)"
+    text = """
+Lorem ipsum about RTC
+"""
 
 [[topics]]
     topic = "frequency"
