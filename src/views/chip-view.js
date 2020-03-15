@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import PinRow from "../components/pin-row";
 import PinAttribute from "../components/pin-attribute";
 import store from "../store";
+import ChipLeg from "../components/chip-leg";
+import ChipTopic from "../components/chip-topic";
 
 const ChipView = function ChipView(props) {
     const { pins } = store;
@@ -16,7 +18,7 @@ const ChipView = function ChipView(props) {
         return (
             <PinRow pin={pin}>
                 {attributes}
-                <div className="chip-leg"/>
+                <ChipLeg pin={pin.pin}/>
             </PinRow>
         )
     });
@@ -26,19 +28,26 @@ const ChipView = function ChipView(props) {
         });
         return (
             <PinRow pin={pin}>
-                <div className="chip-leg"/>
+                <ChipLeg pin={pin.pin}/>
                 {attributes}
             </PinRow>
         )
     });
 
+    const chipTopics = store.chipTopics.map(topic => {
+        return <ChipTopic key={topic.topic} topic={topic.topic}/>
+    });
+
     return (
-        <div className="model-row">
+        <div className="model-row" onClick={() => store.setActivePinAndGroup(null, null)}>
             <div className="model-row--left-column">
                 {leftPins}
             </div>
             <div className="model-row--middle-column">
-                <div className="attiny"></div>
+                <div className="attiny">
+                    <div className="pin1marker"/>
+                    { chipTopics }
+                </div>
             </div>
             <div className="model-row--right-column">
                 {rightPins}

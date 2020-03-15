@@ -45,12 +45,6 @@ h3 {
 	align-items: flex-start;
 }
 
-.chip-leg {
-	width: 50px;
-	height: 20px;
-	background-color: #aaaaaa;
-	border: 1px solid black;
-}
 
 .pin-row {
 	display: flex;
@@ -64,10 +58,20 @@ h3 {
 	}
 }
 
+.model-row--middle-column {
+	display: flex;
+}
 .attiny {
-	width: 150px;
-	height: 100%;
+	width: 130px;
 	background-color: #222222;
+	padding: 20px;
+	.pin1marker {
+		width: 20px;
+		height: 20px;
+		background-color: white;
+		border-radius: 50%;
+
+	}
 }
 @keyframes App-logo-spin {
   from {

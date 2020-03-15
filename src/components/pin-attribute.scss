@@ -2,7 +2,7 @@
     border: 1px solid white;;
     padding: 2px 5px 2px 5px;
     margin: 1px 5px 1px 5px;
-    width: 40px;
+    width: 50px;
     border-radius: 5px;
     background-color: red;
     &.highlight-primary-pin {
@@ -37,10 +37,15 @@
     background-color: #b55353;
 }
 .port-pin {
-    background-color: darken(#b5e853, 20%);
+    color: black;
+    background-color: #b5e853;
+}
+.adc-pin {
+    background-color: cornflowerblue;
 }
 
 .twi-pin {
+    color: black;
     background-color: yellow;
     &.alt-pin {
         font-weight: lighter;

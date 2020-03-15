@@ -1,0 +1,17 @@
+.chip-topic {
+  margin: 5px 1px;
+  border: 1px solid white;
+  border-radius: 5px;
+  &:hover {
+    background-color: #333333;
+    cursor: pointer;
+  }
+  &.inactive-topic {
+    opacity: 0.3;
+  }
+  &.active-topic {
+    margin: 4px 0;
+    border-width: 2px;
+    background-color: #333333;
+  }
+}

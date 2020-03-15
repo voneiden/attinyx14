@@ -4,7 +4,7 @@ import store from "../store"
 import "./registry-offset.scss";
 import cls from "../utils/cls";
 
-const RegistryOffset = function RegistryOffset(props) {
+    const RegistryOffset = function RegistryOffset(props) {
     const { offset } = props;
     let bits = 0;
 
@@ -12,7 +12,6 @@ const RegistryOffset = function RegistryOffset(props) {
         bits += field.size;
         const active = field.relatedGroups.includes(store.activeGroup);
         const disabled = !field.name;
-        console.log("fff", field.relatedGroups, store.activeGroup);
         return (
             <div className={cls(
                 `field-size-${field.size}`,

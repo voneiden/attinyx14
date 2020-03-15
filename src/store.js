@@ -17,6 +17,7 @@ const TopicModel = types.model( {
     topic: types.string,
     title: types.string,
     text: types.string,
+    chip: types.optional(types.boolean, false)
 });
 
 const FieldModel = types.model({
@@ -91,6 +92,9 @@ const Store = types.model({
     },
     getRegistryDatasheetLink(registry) {
         return registry.datasheetPage ? `${self.datasheetUrl}#page=${registry.datasheetPage}` : null
+    },
+    get chipTopics() {
+        return self.topics.filter(t => t.chip)
     }
 
 }));

@@ -36,23 +36,23 @@ const TopicView = observer(function TopicView(props) {
     let formatted = null;
     if (activeGroup) {
         const topic = store.getTopic(activeGroup);
-        formatted = (
+        formatted = topic ? (
             <React.Fragment>
                 <h3>{topic.title}</h3>
                 <div>{formatText(topic.text)}</div>
             </React.Fragment>
-        )
+        ) : <span>Topic '{activeGroup}' not found</span>
     }
     if (!formatted) {
         const primaryHighlightGroup = store.primaryHighlightGroup;
-        const topicId = primaryHighlightGroup ? primaryHighlightGroup : "default";
-        const topic = store.getTopic(topicId);
-        //const text = store.topics.find((t) => t.topic === "default").text;
-        //let formatted = text.replace("\n", "<br/>");
-        formatted = topic ? topic.title : store.getTopic("default").title;
+        const topic = store.getTopic(primaryHighlightGroup);
+        formatted = topic ? <h3>{topic.title}</h3> : null;
     }
     return (
-        <div className="topic-view">
+        <div
+            className="topic-view"
+            onClick={ e => e.stopPropagation() }
+        >
             {formatted}
         </div>
     )

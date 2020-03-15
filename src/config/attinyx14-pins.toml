@@ -12,6 +12,10 @@
             label = "PA4"
             groups = ["PORTA"]
         [[pins.attributes]]
+            type = "adc"
+            label = "AIN4"
+            groups = ["ADC"]
+        [[pins.attributes]]
             type = "tca"
             label = "WO4"
             groups = ["TCA-SPLIT"]
@@ -22,6 +26,10 @@
             type = "port"
             label = "PA5"
             groups = ["PORTA"]
+        [[pins.attributes]]
+            type = "adc"
+            label = "AIN5"
+            groups = ["ADC"]
         [[pins.attributes]]
             type = "tca"
             label = "WO5"
@@ -34,6 +42,10 @@
             type = "port"
             label = "PA6"
             groups = ["PORTA"]
+        [[pins.attributes]]
+                    type = "adc"
+                    label = "AIN6"
+                    groups = ["ADC"]
 
 
 [[pins]]
@@ -42,6 +54,10 @@
             type = "port"
             label = "PA7"
             groups = ["PORTA"]
+        [[pins.attributes]]
+            type = "adc"
+            label = "AIN7"
+            groups = ["ADC"]
 
 [[pins]]
     pin = 6
@@ -80,6 +96,10 @@
             label = "PA3"
             groups = ["PORTA"]
         [[pins.attributes]]
+            type = "adc"
+            label = "AIN3"
+            groups = ["ADC"]
+        [[pins.attributes]]
             type = "tca"
             label = "WO3"
             groups = ["TCA-SPLIT"]
@@ -90,6 +110,10 @@
             type = "port"
             label = "PA2"
             groups = ["PORTA"]
+        [[pins.attributes]]
+            type = "adc"
+            label = "AIN2"
+            groups = ["ADC"]
         [[pins.attributes]]
             type = "twi"
             alt = true
@@ -103,6 +127,10 @@
             label = "PA1"
             groups = ["PORTA"]
         [[pins.attributes]]
+            type = "adc"
+            label = "AIN1"
+            groups = ["ADC"]
+        [[pins.attributes]]
             type = "twi"
             alt = true
             label = "SDA"
@@ -115,16 +143,28 @@
             label = "PA0"
             groups = ["PORTA"]
         [[pins.attributes]]
+            type = "adc"
+            label = "AIN0"
+            alt = true
+            groups = ["ADC"]
+        [[pins.attributes]]
             type = "updi"
             label = "UPDI"
-            groups = ["UPDI"]
-
+            groups = ["UPDI", "RESET"]
+        [[pins.attributes]]
+            type = "reset"
+            label = "RESET"
+            groups = ["RESET", "UPDI"]
 [[pins]]
     pin = 9
         [[pins.attributes]]
             type = "port"
             label = "PB0"
             groups = ["PORTB"]
+        [[pins.attributes]]
+            type = "adc"
+            label = "AIN11"
+            groups = ["ADC"]
         [[pins.attributes]]
             type = "twi"
             label = "SCL"
@@ -142,6 +182,10 @@
             type = "port"
             label = "PB1"
             groups = ["PORTB"]
+        [[pins.attributes]]
+            type = "adc"
+            label = "AIN10"
+            groups = ["ADC"]
         [[pins.attributes]]
             type = "twi"
             label = "SDA"

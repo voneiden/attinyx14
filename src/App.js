@@ -25,7 +25,7 @@ store.setRegistries(toml.parse(attinyx14registries).regs);
 
 function App() {
     return (
-        <div className="App" onClick={() => store.setActivePinAndGroup(null, null)}>
+        <div className="App">
 			<ChipView/>
             <TopicView/>
             <div className="data-row">

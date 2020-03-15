@@ -9,8 +9,10 @@
     div {
       text-align: center;
       &.bit-number:not(:last-child) {
-        background-color: darken($green-font-color, 55%);
         border-right: 1px solid darken($green-font-color, 30%);
+      }
+      &.bit-number {
+        background-color: darken($green-font-color, 55%);
         border-bottom: 1px solid darken($green-font-color, 30%);;
       }
 
@@ -26,6 +28,12 @@
                         darken($green-font-color, 55%) 10px,
                         darken($green-font-color, 55%) 20px
         );
+        &:not(:first-child) {
+          border-left: 1px solid darken($green-font-color, 30%);
+        }
+        &:not(:last-child) {
+          border-right: 1px solid darken($green-font-color, 30%);
+        }
       }
     }
   }
@@ -40,5 +48,6 @@
   .field-size-#{$i} {
     flex-grow: $i;
     flex-basis: 0;
+    padding-right: $i - 1px;
   }
 }
