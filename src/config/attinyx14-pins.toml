@@ -16,9 +16,17 @@
             label = "AIN4"
             groups = ["ADC"]
         [[pins.attributes]]
+            type = "spi"
+            label = "SS"
+            groups = ["SPI"]
+        [[pins.attributes]]
             type = "tca"
             label = "WO4"
             groups = ["TCA-SPLIT"]
+        [[pins.attributes]]
+            type = "tcd"
+            label = "WOA"
+            groups = ["TCD"]
 
 [[pins]]
     pin = 3
@@ -34,6 +42,14 @@
             type = "tca"
             label = "WO5"
             groups = ["TCA-SPLIT"]
+        [[pins.attributes]]
+            type = "tcb"
+            label = "WO"
+            groups = ["TCB"]
+        [[pins.attributes]]
+            type = "tcd"
+            label = "WOB"
+            groups = ["TCD"]
 
 
 [[pins]]
@@ -43,9 +59,14 @@
             label = "PA6"
             groups = ["PORTA"]
         [[pins.attributes]]
-                    type = "adc"
-                    label = "AIN6"
-                    groups = ["ADC"]
+            type = "adc"
+            label = "AIN6"
+            groups = ["ADC"]
+        [[pins.attributes]]
+            type = "spi"
+            alt = true
+            label = "MOSI"
+            groups = ["SPI-ALT", "SPI"]
 
 
 [[pins]]
@@ -58,6 +79,11 @@
             type = "adc"
             label = "AIN7"
             groups = ["ADC"]
+        [[pins.attributes]]
+            type = "spi"
+            alt = true
+            label = "MISO"
+            groups = ["SPI-ALT", "SPI"]
 
 [[pins]]
     pin = 6
@@ -70,6 +96,10 @@
             alt = true
             label = "WO0"
             groups = ["TCA-ALT", "TCA", "TCA-SPLIT"]
+        [[pins.attributes]]
+            type = "clk"
+            label = "TOSC1"
+            groups = ["TOSC", "EXTCLK"]
 
 [[pins]]
     pin = 7
@@ -81,6 +111,14 @@
             type = "tca"
             label = "WO2"
             groups = ["TCA", "TCA-SPLIT"]
+        [[pins.attributes]]
+            type = "clk"
+            label = "TOSC2"
+            groups = ["TOSC", "EXTCLK"]
+        [[pins.attributes]]
+            type = "evout"
+            label = "EVOUT1"
+            groups = ["EVOUT"]
 
 [[pins]]
     pin = 14
@@ -100,6 +138,10 @@
             label = "AIN3"
             groups = ["ADC"]
         [[pins.attributes]]
+            type = "spi"
+            label = "SCK"
+            groups = ["SPI"]
+        [[pins.attributes]]
             type = "tca"
             label = "WO3"
             groups = ["TCA-SPLIT"]
@@ -115,10 +157,23 @@
             label = "AIN2"
             groups = ["ADC"]
         [[pins.attributes]]
+            type = "spi"
+            label = "MISO"
+            groups = ["SPI"]
+        [[pins.attributes]]
             type = "twi"
             alt = true
             label = "SCL"
             groups = ["TWI-ALT", "TWI"]
+        [[pins.attributes]]
+            type = "evout"
+            label = "EVOUT0"
+            groups = ["EVOUT"]
+        [[pins.attributes]]
+            type = "clk"
+            label = "EXTCLK"
+            groups = ["EXTCLK", "TOSC"]
+
 
 [[pins]]
     pin = 11
@@ -131,16 +186,22 @@
             label = "AIN1"
             groups = ["ADC"]
         [[pins.attributes]]
+            type = "spi"
+            label = "MOSI"
+            groups = ["SPI"]
+        [[pins.attributes]]
             type = "twi"
             alt = true
             label = "SDA"
             groups = ["TWI-ALT", "TWI"]
+
 
 [[pins]]
     pin = 10
         [[pins.attributes]]
             type = "port"
             label = "PA0"
+            alt = true
             groups = ["PORTA"]
         [[pins.attributes]]
             type = "adc"

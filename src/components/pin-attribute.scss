@@ -2,7 +2,7 @@
     border: 1px solid white;;
     padding: 2px 5px 2px 5px;
     margin: 1px 5px 1px 5px;
-    width: 50px;
+    width: 55px;
     border-radius: 5px;
     background-color: red;
     &.highlight-primary-pin {
@@ -73,4 +73,47 @@
                         #400040 20px
         );
     }
+}
+
+
+.tcb-pin {
+    color: white;
+    background-color: #80274f;
+}
+
+
+.tcd-pin {
+    color: white;
+    background-color: #800107;
+}
+
+.spi-pin {
+    color: white;
+    background-color: #32a77d;
+    &.alt-pin {
+        font-weight: lighter;
+        color: white;
+        background: repeating-linear-gradient(
+                        45deg,
+                        #32a77d,
+                        #32a77d 10px,
+                        darken(#32a77d, 10%) 10px,
+                        darken(#32a77d, 10%) 20px
+        );
+    }
+}
+
+.clk-pin {
+    color: white;
+    background-color: #323595;
+}
+
+.evout-pin {
+    color: white;
+    background-color: #429500;
+}
+
+.updi-pin, .reset-pin {
+    color: white;
+    background-color: #790004;
 }

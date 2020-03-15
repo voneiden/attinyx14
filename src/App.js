@@ -26,6 +26,7 @@ store.setRegistries(toml.parse(attinyx14registries).regs);
 function App() {
     return (
         <div className="App">
+            <h1>ATtinyX14 Quick Reference</h1>
 			<ChipView/>
             <TopicView/>
             <div className="data-row">
