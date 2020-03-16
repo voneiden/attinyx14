@@ -4,23 +4,32 @@ import "./topic-view.scss"
 import {observer} from "mobx-react";
 import RegistryLink from "../components/registry-link";
 import Registry from "../components/registry";
+import DatasheetLink from "../components/datasheet-link";
 
-const splitter = new RegExp("\\bR:(\\w+)(?:\\.(\\w+)(?:\\.(\\w+))?)?\\b", "g");
+const rePlacer = new RegExp("<(\\w+):([\\w.]+)>");
+
 const formatText = function formatText(text) {
-    console.log(text);
-    console.log(splitter);
-    let content = [text];
+    let content = [text ? text : ""];
     let references = [];
-
-    for (const registryDefinition of text.matchAll(splitter)) {
-        console.log("registryDefinition", registryDefinition)
-        const [, registry, offset, field] = registryDefinition
-
-        const [before, after] = content[content.length - 1].split(splitter, 1);
+    let match;
+    while ((match = content[content.length - 1].match(rePlacer))) {
+        const [matchSegment, key, value] = match;
+        const segment = content[content.length - 1];
+        const before = segment.slice(0, match.index);
+        const after = segment.slice(match.index + matchSegment.length, segment.length);
+        let link = `(??? ${key} ???)`;
+        let reference = null;
+        if (key === "REG") {
+            const [registry, offset, field] = value.split(".");
+            link = <RegistryLink registry={registry} offset={offset} field={field}/>;
+            reference = <Registry registry={registry} offset={offset} field={field}/>;
+        } else if (key === "REF") {
+            link = <DatasheetLink page={value}/>
+        }
         content[content.length - 1] = before;
-        content.push(<RegistryLink registry={registry} offset={offset} field={field}/>);
+        content.push(link);
         content.push(after);
-        references.push(<Registry registry={registry} offset={offset} field={field}/>);
+        references.push(reference);
     }
     content.push(
         <div className="references">
@@ -39,7 +48,7 @@ const TopicView = observer(function TopicView(props) {
         formatted = topic ? (
             <React.Fragment>
                 <h3>{topic.title}</h3>
-                <div>{formatText(topic.text)}</div>
+                <div className="topic-text">{formatText(topic.text)}</div>
             </React.Fragment>
         ) : <span>Topic '{activeGroup}' not found</span>
     }
@@ -53,7 +62,9 @@ const TopicView = observer(function TopicView(props) {
             className="topic-view"
             onClick={ e => e.stopPropagation() }
         >
-            {formatted}
+            <div>
+                {formatted}
+            </div>
         </div>
     )
 });

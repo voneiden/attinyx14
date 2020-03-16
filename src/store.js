@@ -91,7 +91,10 @@ const Store = types.model({
         return self.registries.find((r) => r.name === registryName)
     },
     getRegistryDatasheetLink(registry) {
-        return registry.datasheetPage ? `${self.datasheetUrl}#page=${registry.datasheetPage}` : null
+        return self.getDatasheetPageLink(registry.datasheetPage)
+    },
+     getDatasheetPageLink(page) {
+        return page ? `${self.datasheetUrl}#page=${page}` : null
     },
     get chipTopics() {
         return self.topics.filter(t => t.chip)

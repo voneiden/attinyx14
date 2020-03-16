@@ -1,11 +1,13 @@
 [[topics]]
-    topic = "default"
-    title = "Overview"
+    topic = "Frequency"
+    chip = true
+    title = "Operating Frequency"
     text = """
-- [Operating Frequency](Topic:frequency)
-- [TWI/I2C](Topic:twi)
-- [TCA](Topic:tca)
-- [How to implement a simple delay function?](Topic:delay)
+The ATtiny boots up with the 16/20 MHz oscillator (OSC20M) running at 20 MHz as the clock source and a prescaler division factor of 6 giving a frequency of at 3.333 MHz <REF:74>.
+
+The clock source can be configured by temporarily disabling I/O register Configuration Change Protection (CCP) by setting 0xD8 as the value of <REG:CPU.CCP> register, followed by setting the desired value to <REG:CLKCTRL.MCLKCTRLA.CLKSEL> register.
+
+OSC20M frequency is defined by frequency select bits (FREQSEL, default 0x0 = 20 MHz) of the oscillator configurator fuse (FUSE.OSCCFG <REF:30>).
 """
 
 [[topics]]
@@ -103,15 +105,3 @@ Lorem ipsum about fuses
 Lorem ipsum about RTC
 """
 
-[[topics]]
-    topic = "frequency"
-    title = "Frequency"
-    text = """
-The ATtiny boots up with the 16/20 MHz oscillator (OSC20M) and a prescaler
-division factor of 6 <sup>\[[datasheet](datasheet.pdf?page=74)\]</sup>.
-OSC20M frequency is set by frequency select bits (FREQSEL, default 0x0 = 20 MHz) of
-the oscillator configurator fuse (FUSE.OSCCFG). Shortly put, the ATtiny boots up by
-default running at 3.33 MHz. To get it to run at 20 MHz, the prescaler needs to be disabled
-via register [CLKCTRL](datasheet.pdf?page=78). And to do that, the configuration
-change protection must be disabled via [CPU register](datasheet.pdf?page=52).
-"""

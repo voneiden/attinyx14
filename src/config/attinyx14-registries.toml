@@ -1,4 +1,132 @@
 [[regs]]
+    name = "CPU"
+    datasheetPage = 52
+    [[regs.offsets]]
+        name = "CCP"
+        #offset = 0x04
+        [[regs.offsets.fields]]
+            name = "CCP"
+            size = 8
+    [[regs.offsets]]
+        name = "SP"
+        #offset = 0x0D
+        [[regs.offsets.fields]]
+            name = "SP"
+            size = 16
+    [[regs.offsets]]
+        name = "SREG"
+        #offset = 0x0F
+        [[regs.offsets.fields]]
+            name = "I"
+        [[regs.offsets.fields]]
+            name = "T"
+        [[regs.offsets.fields]]
+            name = "H"
+        [[regs.offsets.fields]]
+            name = "S"
+        [[regs.offsets.fields]]
+            name = "V"
+        [[regs.offsets.fields]]
+            name = "N"
+        [[regs.offsets.fields]]
+            name = "Z"
+        [[regs.offsets.fields]]
+            name = "C"
+
+[[regs]]
+    name = "CLKCTRL"
+    datasheetPage = 78
+    [[regs.offsets]]
+        name = "MCLKCTRLA"
+        [[regs.offsets.fields]]
+            name = "CLKSEL"
+            size = 2
+        [[regs.offsets.fields]]
+            size = 6
+    [[regs.offsets]]
+        name = "MCLKCTRLB"
+        [[regs.offsets.fields]]
+            name = "PEN"
+        [[regs.offsets.fields]]
+            name = "PDIV"
+            size = 4
+        [[regs.offsets.fields]]
+            size = 3
+    [[regs.offsets]]
+        name = "MCLKLOCK"
+        [[regs.offsets.fields]]
+            name = "LOCKEN"
+        [[regs.offsets.fields]]
+            size = 7
+    [[regs.offsets]]
+        name = "MCLKSTATUS"
+        [[regs.offsets.fields]]
+            name = "SOSC"
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "OSC20MS"
+        [[regs.offsets.fields]]
+            name = "OSC32KS"
+        [[regs.offsets.fields]]
+            name = "XOSC32KS"
+        [[regs.offsets.fields]]
+            name = "EXTS"
+
+    [[regs.offsets]]
+        name = "OSC20MCTRLA"
+        #offset = 0x10
+        [[regs.offsets.fields]]
+        [[regs.offsets.fields]]
+            name = "RUNSTDBY"
+        [[regs.offsets.fields]]
+            size = 6
+    [[regs.offsets]]
+        name = "OSC20MCALIBA"
+        [[regs.offsets.fields]]
+            name = "CAL20M"
+            size = 6
+        [[regs.offsets.fields]]
+            size = 2
+
+    [[regs.offsets]]
+        name = "OSC20MCALIB"
+        [[regs.offsets.fields]]
+            name = "TEMPCAL20M"
+            size = 4
+        [[regs.offsets.fields]]
+            size = 3
+        [[regs.offsets.fields]]
+            name = "LOCK"
+    [[regs.offsets]]
+        name = "OSC32KCTRLA"
+        #offset = 0x18
+
+        [[regs.offsets.fields]]
+        [[regs.offsets.fields]]
+            name = "RUNSTDBY"
+        [[regs.offsets.fields]]
+            size = 6
+
+    [[regs.offsets]]
+        name = "XOSC32KCTRLA"
+        #offset = 0x1c
+
+        [[regs.offsets.fields]]
+            name = "ENABLE"
+        [[regs.offsets.fields]]
+            name = "RUNSTDBY"
+        [[regs.offsets.fields]]
+            name = "SEL"
+        [[regs.offsets.fields]]
+
+        [[regs.offsets.fields]]
+            name = "CSUT"
+            size = 2
+        [[regs.offsets.fields]]
+            size = 2
+
+[[regs]]
     name = "PORTMUX"
     datasheetPage = 125
     [[regs.offsets]]

@@ -1,29 +1,27 @@
-import React, {useState} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import store from "../store"
 import RegistryOffset from "./registry-offset";
 import "./registry.scss"
 import RegistryOffsets from "./registry-offsets";
+import DatasheetLink from "./datasheet-link";
 
 const Registry = function Registry(props) {
-    const [offsetName, setOffsetName] = useState(props.offset)
-    const [fieldName, setFieldName] = useState(props.field)
     const registry = store.getRegistry(props.registry);
     if (!registry) {
-        return <span>Registry definition for '{props.registry}' is missing</span>
+        return <div>Registry definition for '{props.registry}' is missing</div>
     }
 
 
     const offset = registry.offsets.find(o => o.name === props.offset);
-    console.log("offset", offset, props.offset, registry.offsets)
+    console.log("offset", offset, props.offset, registry.offsets);
     const title = offset ? `${registry.name} > ${offset.name}` : registry.name;
-    const link = store.getRegistryDatasheetLink(registry);
-    const linkElement = link ? <a href={link} target="_blank" rel="noopener noreferrer">🗎</a> : null;
+    const linkElement = <DatasheetLink registry={registry}/>;
     if (!props.offset) {
         return (
             <div className="registry">
                 <div>
-                    <span className="title">{ title } {linkElement}</span>
+                    <span className="title">{title} {linkElement}</span>
                     <RegistryOffsets registry={registry}/>
                 </div>
 
@@ -33,8 +31,8 @@ const Registry = function Registry(props) {
     return (
         <div className="registry">
             <div>
-                <span className="title">{ title } {linkElement}</span>
-                { offset && <RegistryOffset offset={offset}/> }
+                <span className="title">{title} {linkElement}</span>
+                {offset && <RegistryOffset offset={offset}/>}
             </div>
         </div>
     )
