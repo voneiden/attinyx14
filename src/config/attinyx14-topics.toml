@@ -21,14 +21,14 @@ Lorem ipsum about voltages
     topic = "PORTA"
     title = "Port A IO pins"
     text = """
-Port A IO pins are operated via the PORTA registry which follows the generic R:PORT layout
+Port A IO pins are operated via the PORTA registry which follows the generic <REG:PORT> layout
 """
 
 [[topics]]
     topic = "PORTB"
     title = "Port B IO pins"
     text = """
-Port B IO pins are operated via the PORTB registry which follows the generic R:PORT layout
+Port B IO pins are operated via the PORTB registry which follows the generic <REG:PORT> layout
 """
 
 [[topics]]
@@ -42,7 +42,7 @@ Lorem ipsum about the horrors of I2C
     topic = "TWI-ALT"
     title = "Two-Wire Interface (I2C) (Alternative pin configuration)"
     text = """
-Alternative pin position for TWI outputs can be enabled via R:PORTMUX.CTRLB
+Alternative pin position for TWI outputs can be enabled via <REG:PORTMUX.CTRLB>
 """
 
 [[topics]]
@@ -51,6 +51,7 @@ Alternative pin position for TWI outputs can be enabled via R:PORTMUX.CTRLB
     text = """
 Lorem ipsum about the joys of TCA
 """
+
 
 [[topics]]
     topic = "TCA-SPLIT"
@@ -63,12 +64,42 @@ Lorem ipsum about split mode
     topic = "TCA-ALT"
     title = "16-bit Timer/Counter Type A (Alternative pin configuration)"
     text = """
-Alternative pin position for TCA0 waveform 0 (W0) output can be enabled via R:PORTMUX.CTRLC.TCA0
+Alternative pin position for TCA0 waveform 0 (W0) output can be enabled via <REG:PORTMUX.CTRLC.TCA0>
+"""
+
+
+[[topics]]
+    topic = "TCB"
+    title = "16-bit Timer/Counter Type B"
+    text = """
+Lorem ipsum about the joys of TCB
+"""
+
+[[topics]]
+    topic = "TCD"
+    title = "12-bit Timer/Counter Type D"
+    text = """
+Lorem ipsum about the joys of TCD
 """
 
 [[topics]]
     topic = "ADC"
     title = "Analog to digital converter"
+    text = """
+Lorem ipsum about ADC
+"""
+
+[[topics]]
+    topic = "SPI"
+    title = "Serial Peripheral Interface (SPI)"
+    text = """
+Lorem ipsum about SPI
+"""
+
+
+[[topics]]
+    topic = "SPI-ALT"
+    title = "Serial Peripheral Interface (SPI) (Alternative pin configuration)"
     text = """
 Lorem ipsum about ADC
 """
@@ -90,6 +121,28 @@ Lorem ipsum about reset
 """
 
 [[topics]]
+    topic = "EVOUT"
+    title = "Event system output"
+    text = """
+Lorem ipsum about event system
+"""
+
+[[topics]]
+    topic = "TOSC"
+    title = "External Crystal Oscillator"
+    text = """
+Lorem ipsum about TOSC
+"""
+
+[[topics]]
+    topic = "EXTCLK"
+    title = "External Clock Source"
+    text = """
+Lorem ipsum about EXTCLK
+"""
+
+
+[[topics]]
     topic = "Fuses"
     chip = true
     title = "Fuses"
@@ -100,7 +153,7 @@ Lorem ipsum about fuses
 [[topics]]
     topic = "RTC"
     chip = true
-    title = "Real Time Clock (RTC)"
+    title = "16-bit Real Time Clock (RTC)"
     text = """
 Lorem ipsum about RTC
 """
