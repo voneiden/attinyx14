@@ -3,11 +3,21 @@
     chip = true
     title = "Operating Frequency"
     text = """
-The ATtiny boots up with the 16/20 MHz oscillator (OSC20M) running at 20 MHz as the clock source and a prescaler division factor of 6 giving a frequency of at 3.333 MHz <REF:74>.
+The ATtiny boots up with the 16/20 MHz oscillator (OSC20M) running at 20 MHz as the clock source and a prescaler division factor of 6 giving a frequency of at 3.333 MHz <ref>74</ref>.
 
-The clock source can be configured by temporarily disabling I/O register Configuration Change Protection (CCP) by setting 0xD8 as the value of <REG:CPU.CCP> register, followed by setting the desired value to <REG:CLKCTRL.MCLKCTRLA.CLKSEL> register.
+The clock source can be configured by temporarily disabling I/O register Configuration Change Protection (CCP) by setting 0xD8 as the value of <reg>CPU.CCP</reg> register, followed by setting the desired value to <reg>CLKCTRL.MCLKCTRLA.CLKSEL</reg> register.
 
-OSC20M frequency is defined by frequency select bits (FREQSEL, default 0x0 = 20 MHz) of the oscillator configurator fuse (FUSE.OSCCFG <REF:30>).
+OSC20M frequency is defined by frequency select bits (FREQSEL, default 0x0 = 20 MHz) of the oscillator configurator fuse (FUSE.OSCCFG <ref>30</ref>).
+
+
+
+Ex 1: Disable prescaler
+```C
+#include <avr/io.h>
+CPU_CCP = CCP_IOREG_gc; // 0xD8
+CLKCTRL_MCLKCTRLB = 0;
+```
+
 """
 
 [[topics]]
@@ -21,14 +31,14 @@ Lorem ipsum about voltages
     topic = "PORTA"
     title = "Port A IO pins"
     text = """
-Port A IO pins are operated via the PORTA registry which follows the generic <REG:PORT> layout
+Port A IO pins are operated via the PORTA registry which follows the generic <reg>PORT</reg> layout
 """
 
 [[topics]]
     topic = "PORTB"
     title = "Port B IO pins"
     text = """
-Port B IO pins are operated via the PORTB registry which follows the generic <REG:PORT> layout
+Port B IO pins are operated via the PORTB registry which follows the generic <reg>PORT</reg> layout
 """
 
 [[topics]]
@@ -42,7 +52,7 @@ Lorem ipsum about the horrors of I2C
     topic = "TWI-ALT"
     title = "Two-Wire Interface (I2C) (Alternative pin configuration)"
     text = """
-Alternative pin position for TWI outputs can be enabled via <REG:PORTMUX.CTRLB>
+Alternative pin position for TWI outputs can be enabled via <reg>PORTMUX.CTRLB</reg>
 """
 
 [[topics]]
@@ -64,7 +74,7 @@ Lorem ipsum about split mode
     topic = "TCA-ALT"
     title = "16-bit Timer/Counter Type A (Alternative pin configuration)"
     text = """
-Alternative pin position for TCA0 waveform 0 (W0) output can be enabled via <REG:PORTMUX.CTRLC.TCA0>
+Alternative pin position for TCA0 waveform 0 (W0) output can be enabled via <reg>PORTMUX.CTRLC.TCA0</reg>
 """
 
 
