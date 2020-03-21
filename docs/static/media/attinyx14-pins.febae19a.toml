@@ -16,22 +16,23 @@
             label = "AIN4"
             groups = ["ADC"]
         [[pins.attributes]]
-            type = "spi"
-            label = "SS"
-            groups = ["SPI"]
-        [[pins.attributes]]
             type = "tca"
             label = "WO4"
             groups = ["TCA-SPLIT"]
         [[pins.attributes]]
-            type = "tcd"
-            label = "WOA"
-            groups = ["TCD"]
+            type = "spi"
+            label = "SS"
+            groups = ["SPI"]
+
         [[pins.attributes]]
             type = "usart"
             label = "XDIR"
             alt = true
             groups = ["USART-ALT", "USART"]
+        [[pins.attributes]]
+            type = "tcd"
+            label = "WOA"
+            groups = ["TCD"]
         [[pins.attributes]]
             type = "ccl"
             label = "LUT0-OUT"
@@ -56,13 +57,14 @@
             label = "WO"
             groups = ["TCB"]
         [[pins.attributes]]
+            type = "ac"
+            label = "AC-OUT"
+            groups = ["AC"]
+        [[pins.attributes]]
             type = "tcd"
             label = "WOB"
             groups = ["TCD"]
-        [[pins.attributes]]
-            type = "ac"
-            label = "OUT"
-            groups = ["AC"]
+
 
 
 [[pins]]
@@ -76,18 +78,19 @@
             label = "AIN6"
             groups = ["ADC"]
         [[pins.attributes]]
+            type = "ac"
+            label = "AINN0"
+            groups = ["AC"]
+        [[pins.attributes]]
             type = "spi"
             alt = true
             label = "MOSI"
             groups = ["SPI-ALT", "SPI"]
             exclude = ["attiny814"]
-        [[pins.attributes]]
-            type = "ac"
-            label = "AINN0"
-            groups = ["AC"]
+
         [[pins.attributes]]
             type = "dac"
-            label = "OUT"
+            label = "DAC-OUT"
             groups = ["DAC"]
 
 
@@ -102,15 +105,16 @@
             label = "AIN7"
             groups = ["ADC"]
         [[pins.attributes]]
+            type = "ac"
+            label = "AINP0"
+            groups = ["AC"]
+        [[pins.attributes]]
             type = "spi"
             alt = true
             label = "MISO"
             groups = ["SPI-ALT", "SPI"]
             exclude = ["attiny814"]
-        [[pins.attributes]]
-            type = "ac"
-            label = "AINP0"
-            groups = ["AC"]
+
         [[pins.attributes]]
             type = "ccl"
             label = "LUT1-OUT"
@@ -123,18 +127,20 @@
             label = "PB3"
             groups = ["PORTB"]
         [[pins.attributes]]
+            type = "clk"
+            label = "TOSC1"
+            groups = ["TOSC", "EXTCLK"]
+        [[pins.attributes]]
             type = "tca"
             alt = true
             label = "WO0"
             groups = ["TCA-ALT", "TCA", "TCA-SPLIT"]
         [[pins.attributes]]
-            type = "clk"
-            label = "TOSC1"
-            groups = ["TOSC", "EXTCLK"]
-        [[pins.attributes]]
             type = "usart"
             label = "RxD"
             groups = ["USART"]
+
+
 
 [[pins]]
     pin = 7
@@ -143,21 +149,22 @@
             label = "PB2"
             groups = ["PORTB"]
         [[pins.attributes]]
-            type = "tca"
-            label = "WO2"
-            groups = ["TCA", "TCA-SPLIT"]
-        [[pins.attributes]]
             type = "clk"
             label = "TOSC2"
             groups = ["TOSC", "EXTCLK"]
         [[pins.attributes]]
-            type = "evout"
-            label = "EVOUT1"
-            groups = ["EVOUT"]
+            type = "tca"
+            label = "WO2"
+            groups = ["TCA", "TCA-SPLIT"]
         [[pins.attributes]]
             type = "usart"
             label = "TxD"
             groups = ["USART"]
+        [[pins.attributes]]
+            type = "evout"
+            label = "EVOUT1"
+            groups = ["EVOUT"]
+
 
 [[pins]]
     pin = 14
@@ -210,6 +217,11 @@
             label = "SCL"
             groups = ["TWI-ALT", "TWI"]
         [[pins.attributes]]
+            type = "usart"
+            label = "RxD"
+            alt = true
+            groups = ["USART-ALT", "USART"]
+        [[pins.attributes]]
             type = "evout"
             label = "EVOUT0"
             groups = ["EVOUT"]
@@ -217,11 +229,7 @@
             type = "clk"
             label = "EXTCLK"
             groups = ["EXTCLK", "TOSC"]
-        [[pins.attributes]]
-            type = "usart"
-            label = "RxD"
-            alt = true
-            groups = ["USART-ALT", "USART"]
+
         [[pins.attributes]]
             type = "ccl"
             label = "LUT0-IN2"
