@@ -4,19 +4,24 @@ import cls from "../utils/cls";
 import store from "../store";
 import { observer } from 'mobx-react'
 import {getSnapshot} from "mobx-state-tree";
+import {useParams} from "react-router";
+import {Link} from "react-router-dom";
 
 const PinAttribute = observer(function PinAttribute(props) {
     const { pin, attribute } = props;
     const { label, type, alt, groups } = attribute;
-    const { activeGroup, activePin } = store;
+    const params = useParams();
+    const activeGroup = params.activeGroup;
+    const activePin = parseInt(params.activePin);
     const pinPrimaryGroup = groups.length ? groups[0] : null;
-    const pinActive = activePin && activePin === pin.pin
+
+    const pinActive = activePin && activePin === pin.pin;
     const pinInActiveGroup = groups.includes(activeGroup);
-    const pinInactive =  activeGroup && !pinInActiveGroup
+    const pinInactive =  activeGroup && !pinInActiveGroup;
     const pinPrimaryHighlight =  groups.includes(store.primaryHighlightGroup);
     const pinSecondaryHighlight = !pinPrimaryHighlight && store.secondaryHighlightGroups.filter((g) => groups.includes(g)).length;
     return (
-        <div className={
+        <Link to={`/topic/${pinPrimaryGroup}/${pin.pin}`} className={
             cls(
                 `pin-attribute`,
                 `${type}-pin`,
@@ -30,12 +35,12 @@ const PinAttribute = observer(function PinAttribute(props) {
              onMouseEnter={() => store.setHighlightGroups(getSnapshot(groups))}
              onMouseLeave={() => store.setHighlightGroups([])}
              onClick={(e) => {
-                 store.setActivePinAndGroup(pin.pin, pinPrimaryGroup);
+                 //store.setActivePinAndGroup(pin.pin);
                  e.stopPropagation()}
              }
         >
             { label }
-        </div>
+        </Link>
     )
 })
 

@@ -43,8 +43,6 @@ const Store = types.model({
     registries: types.array(RegistryModel),
     pins: types.array(PinModel),
     highlightGroups: types.array(types.string),
-    activeGroup: types.maybeNull(types.string),
-    activePin: types.maybeNull(types.number),
     datasheetUrl: types.optional(types.string, "http://ww1.microchip.com/downloads/en/DeviceDoc/ATtiny214-414-814-DataSheet-DS40001912C.pdf")
 
 }).actions(self => ({
@@ -64,19 +62,6 @@ const Store = types.model({
             self.highlightGroups = highlightGroups ? highlightGroups : []
         }
     },
-    setActiveGroup(activeGroup) {
-        if (activeGroup !== self.activeGroup) {
-            self.activeGroup = activeGroup
-        }
-    },
-    setActivePinAndGroup(activePin, activeGroup) {
-        if (activePin !== self.activePin) {
-            self.activePin = activePin
-        }
-        if (activeGroup !== self.activeGroup) {
-            self.activeGroup = activeGroup
-        }
-    }
 })).views(self => ({
     get primaryHighlightGroup() {
         return self.highlightGroups.length ? self.highlightGroups[0] : null

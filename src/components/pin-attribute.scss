@@ -1,11 +1,17 @@
+
+
 .pin-attribute {
+    text-decoration: none;
     border: 1px solid white;;
     padding: 2px 5px 2px 5px;
     margin: 1px 5px 1px 5px;
     min-width: 55px;
     border-radius: 5px;
-    background-color: red;
     text-align: center;
+    color: white;
+    &:visited {
+        color: white;
+    }
     &.highlight-primary-pin {
         margin: 0 4px 0 4px;
         border: 2px solid cyan;
@@ -38,8 +44,14 @@
     background-color: #951318;
 }
 .port-pin {
-    color: black;
-    background-color: #b5e853;
+    $fg: black;
+    $bg: #b5e853;
+    color: $fg;
+    background-color: $bg;
+    &:visited {
+        color: $fg;
+        background-color: $bg;
+    }
 }
 .adc-pin {
     background-color: #495EA9;
@@ -62,17 +74,20 @@
 
 .tca-pin {
     color: white;
-    $tca-base-color: #204f26;
-    background-color: $tca-base-color;
+    $tca-bg: #204f26;
+    background-color: $tca-bg;
+    &:visited {
+        background-color: $tca-bg
+    }
     &.alt-pin {
         font-weight: lighter;
         color: white;
         background: repeating-linear-gradient(
                         45deg,
-                        $tca-base-color,
-                        $tca-base-color 10px,
-                        darken($tca-base-color, 10%) 10px,
-                        darken($tca-base-color, 10%) 20px
+                        $tca-bg,
+                        $tca-bg 10px,
+                        darken($tca-bg, 10%) 10px,
+                        darken($tca-bg, 10%) 20px
         );
     }
 }
@@ -80,13 +95,21 @@
 
 .tcb-pin {
     color: white;
-    background-color: #2d7335;
+    $tcb-bg: #2d7335;
+    background-color: $tcb-bg;
+    &:visited {
+        background-color: $tcb-bg
+    }
 }
 
 
 .tcd-pin {
     color: white;
-    background-color: #3e9d49;
+    $tcd-bg: #3e9d49;
+    background-color: $tcd-bg;
+    &:visited {
+        background-color: $tcd-bg
+    }
 }
 
 .spi-pin {

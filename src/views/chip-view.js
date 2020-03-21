@@ -5,6 +5,7 @@ import PinAttribute from "../components/pin-attribute";
 import store from "../store";
 import ChipLeg from "../components/chip-leg";
 import ChipTopic from "../components/chip-topic";
+import {withRouter} from "react-router";
 
 const ChipView = function ChipView(props) {
     const { pins } = store;
@@ -38,8 +39,11 @@ const ChipView = function ChipView(props) {
         return <ChipTopic key={topic.topic} topic={topic.topic}/>
     });
 
+    const { history } = props;
+    console.warn("HISTORYY", history)
+
     return (
-        <div className="model-row" onClick={() => store.setActivePinAndGroup(null, null)}>
+        <div className="model-row" onClick={() => history.push("/")}>
             <div className="model-row--left-column">
                 {leftPins}
             </div>
@@ -57,4 +61,4 @@ const ChipView = function ChipView(props) {
 };
 ChipView.propTypes = {
 };
-export default ChipView;
+export default withRouter(ChipView);

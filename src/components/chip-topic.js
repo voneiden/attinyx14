@@ -5,14 +5,17 @@ import cls from "../utils/cls"
 import store from "../store"
 import "./chip-topic.scss"
 import {observer} from "mobx-react";
+import {useParams} from "react-router";
+import {Link} from "react-router-dom";
 
 const ChipTopic = observer(function ChipTopic(props) {
     const {topic} = props;
-    const active = store.activeGroup === topic;
-    const inactive = store.activeGroup && !active;
+    const {activeGroup} = useParams();
+    const active = activeGroup === topic;
+    const inactive = activeGroup && !active;
 
     return (
-        <div className={
+        <Link to={`/topic/${topic}`} className={
             cls(
                 `chip-topic`,
                 active && `active-topic`,
@@ -21,13 +24,13 @@ const ChipTopic = observer(function ChipTopic(props) {
              onMouseEnter={() => store.setHighlightGroups([topic])}
              onMouseLeave={() => store.setHighlightGroups([])}
              onClick={(e) => {
-                 store.setActivePinAndGroup(null, topic);
+                 //store.setActivePinAndGroup(null);
                  e.stopPropagation()
              }
              }
         >
             {topic}
-        </div>
+        </Link>
     )
 });
 ChipTopic.propTypes = {

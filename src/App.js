@@ -7,6 +7,8 @@ import * as toml from "toml";
 import ChipView from "./views/chip-view";
 import store from './store';
 import TopicView from "./views/topic-view";
+import {HashRouter} from "react-router-dom";
+import {Route, Switch} from "react-router";
 
 function httpGet(theUrl)
 {
@@ -25,13 +27,22 @@ store.setRegistries(toml.parse(attinyx14registries).regs);
 
 function App() {
     return (
-        <div className="App">
-            <h1>ATtinyX14 Quick Reference</h1>
-			<ChipView/>
-            <TopicView/>
-            <div className="data-row">
+        <HashRouter>
+            <div className="App">
+                <h1>ATtinyX14 Quick Reference</h1>
+                <Switch>
+                    <Route path="/topic/:activeGroup?/:activePin?">
+                        <ChipView/>
+                        <TopicView/>
+                    </Route>
+                    <Route path="/">
+                        <ChipView/>
+                    </Route>
+                </Switch>
+                <div className="data-row">
+                </div>
             </div>
-        </div>
+        </HashRouter>
     );
 }
 

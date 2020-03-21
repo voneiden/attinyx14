@@ -3,6 +3,12 @@
   margin: 5px 1px;
   border: 1px solid white;
   border-radius: 5px;
+  display: block;
+  color: white;
+  &:visited {
+    color: white;
+  }
+  text-decoration: none;
   &:hover {
     background-color: #333333;
     cursor: pointer;

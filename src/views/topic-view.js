@@ -10,6 +10,7 @@ import * as hljs from "highlight.js";
 import "highlight.js/styles/dracula.css";
 import ReactHtmlParser from 'react-html-parser';
 import TopicLink from "../components/topic-link";
+import {useParams} from "react-router";
 
 const md = new MarkdownIt({
   highlight: function (str, lang) {
@@ -52,7 +53,8 @@ const formatText = function formatText(text) {
 };
 
 const TopicView = observer(function TopicView(props) {
-  const {activeGroup} = store;
+  const {activeGroup} = useParams();
+  console.log("")
   let formatted = null;
   if (activeGroup) {
     const topic = store.getTopic(activeGroup);

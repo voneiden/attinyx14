@@ -1,18 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import store from "../store"
 import "./registry-offset.scss";
 import cls from "../utils/cls";
+import {useParams} from "react-router";
 
-    const RegistryOffset = function RegistryOffset(props) {
-    const { offset } = props;
+const RegistryOffset = function RegistryOffset(props) {
+    const {offset} = props;
     let bits = 0;
+    const {activeGroup} = useParams();
 
     const fieldNameBlocks = offset.fields.map((field, i) => {
         bits += field.size;
-        const active = field.relatedGroups.includes(store.activeGroup);
+        const active = field.relatedGroups.includes(activeGroup);
         const disabled = !field.name;
-        const range = field.size > 1 && !disabled ? `[${i+field.size-1}:${i}]` : null;
+        const range = field.size > 1 && !disabled ? `[${i + field.size - 1}:${i}]` : null;
         return (
             <div className={cls(
                 `field-size-${field.size}`,
@@ -42,10 +43,9 @@ import cls from "../utils/cls";
     });
 
 
-
     return (
         <div className='registry-offset offset-fields'>
-            { rows }
+            {rows}
         </div>
     )
 };
