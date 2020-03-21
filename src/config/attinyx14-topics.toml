@@ -1,7 +1,7 @@
 [[topics]]
-    topic = "Frequency"
+    topic = "Clock rate"
     chip = true
-    title = "Operating Frequency"
+    title = "Clock rate"
     text = """
 The ATtiny boots up with the 16/20 MHz oscillator (OSC20M) running at 20 MHz as the clock source and a prescaler division factor of 6 giving a frequency of at 3.333 MHz <ref>74</ref>.
 
@@ -56,10 +56,18 @@ Alternative pin position for TWI outputs can be enabled via <reg>PORTMUX.CTRLB</
 """
 
 [[topics]]
+    topic = "PWM"
+    title = "Pulse Width Modulation"
+    chip = true
+    text = """
+The best option for PWM is the <topic>TCA</topic> for 3 PWM outputs, or <topic>TCA-SPLIT</topic> for 6 PWM outputs.
+"""
+
+[[topics]]
     topic = "TCA"
     title = "16-bit Timer/Counter Type A"
     text = """
-Lorem ipsum about the joys of TCA
+This timer/counter comes with three compare channels and is able to generate PWM waveforms. In normal 16-bit mode it can output to three pins and in 8-bit split mode it can drive up to 6 PWM pins.
 """
 
 

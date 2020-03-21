@@ -9,6 +9,7 @@ import MarkdownIt from 'markdown-it';
 import * as hljs from "highlight.js";
 import "highlight.js/styles/dracula.css";
 import ReactHtmlParser from 'react-html-parser';
+import TopicLink from "../components/topic-link";
 
 const md = new MarkdownIt({
   highlight: function (str, lang) {
@@ -34,6 +35,8 @@ const formatText = function formatText(text) {
         return <RegistryLink registry={registry} offset={offset} field={field}/>;
       } else if (node.parent && node.parent.name === 'ref' && node.type === 'text') {
         return <DatasheetLink page={node.data}/>
+      } else if (node.parent && node.parent.name === 'topic' && node.type ==='text') {
+        return <TopicLink topic={node.data}/>
       }
       return undefined
     }

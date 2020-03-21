@@ -35,7 +35,7 @@
 }
 
 .vcc-pin {
-    background-color: #95125A;
+    background-color: #951318;
 }
 .port-pin {
     color: black;
@@ -47,31 +47,32 @@
 
 .twi-pin {
     color: white;
-    background-color: #B91616;
+    background-color: #b9418f;
     &.alt-pin {
         font-weight: lighter;
         background: repeating-linear-gradient(
                         45deg,
-                        #B91616,
-                        #B91616 10px,
-                        darken(#B91616, 10%) 10px,
-                        darken(#B91616, 10%) 20px
+                        #b9418f,
+                        #b9418f 10px,
+                        darken(#b9418f, 10%) 10px,
+                        darken(#b9418f, 10%) 20px
         );
     }
 }
 
 .tca-pin {
     color: white;
-    background-color: #216976;
+    $tca-base-color: #204f26;
+    background-color: $tca-base-color;
     &.alt-pin {
         font-weight: lighter;
         color: white;
         background: repeating-linear-gradient(
                         45deg,
-                        #216976,
-                        #216976 10px,
-                        darken(#216976, 10%) 10px,
-                        darken(#216976, 10%) 20px
+                        $tca-base-color,
+                        $tca-base-color 10px,
+                        darken($tca-base-color, 10%) 10px,
+                        darken($tca-base-color, 10%) 20px
         );
     }
 }
@@ -79,13 +80,13 @@
 
 .tcb-pin {
     color: white;
-    background-color: #397B87;
+    background-color: #2d7335;
 }
 
 
 .tcd-pin {
     color: white;
-    background-color: #5E96A1;
+    background-color: #3e9d49;
 }
 
 .spi-pin {
@@ -106,12 +107,12 @@
 
 .clk-pin {
     color: white;
-    background-color: #323595;
+    background-color: #2d3063;
 }
 
 .evout-pin {
     color: white;
-    background-color: #429500;
+    background-color: #54576c;
 }
 
 .updi-pin, .reset-pin {
@@ -122,10 +123,21 @@
 .usart-pin {
     color: white;
     background-color: #A43741;
+    &.alt-pin {
+        font-weight: lighter;
+        color: white;
+        background: repeating-linear-gradient(
+                        45deg,
+                        #A43741,
+                        #A43741 10px,
+                        darken(#A43741, 10%) 10px,
+                        darken(#A43741, 10%) 20px
+        );
+    }
 }
 
 .ccl-pin {
-    background-color: #422E84;
+    background-color: #4a6c5c;
 }
 
 .ac-pin {
@@ -134,5 +146,5 @@
 
 .dac-pin {
     color: white;
-    background-color: #004ab2;
+    background-color: #47606c;
 }
