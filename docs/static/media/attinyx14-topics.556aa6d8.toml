@@ -31,14 +31,35 @@ Lorem ipsum about voltages
     topic = "PORTA"
     title = "Port A IO pins"
     text = """
-Port A IO pins are operated via the PORTA registry which follows the generic <reg>PORT</reg> layout
+Port A IO pins are operated via the PORTA registry which follows the generic <reg>PORT</reg> layout. `DIRSET`, `DIRCLR` and `DIRTGL` provide convinience methods for manipulating individual bits without disturbing other pins.
+
+* <topic>EX_DIGITAL_INPUT</topic>
+
+"""
+
+[[topics]]
+    topic = "EX_DIGITAL_INPUT"
+    title = "Example: Digital input"
+    text = """
+
+In this example PORTA pin 2 (PA2) is used with an internal pull-up resistor to read a digital value. To use a pin as an input, <reg>PORT.DIR.2</reg> for the corresponding pin must be zero (use <reg>PORT.DIRCLR.2</reg>). To use the internal pull-up resistor <reg>PORT.PIN2CTRL.PULLUPEN</reg> must be set to one. Finally the input value can be read from <reg>PORT.IN.2</reg>.
+
+Example
+
+```C
+PORTA_DIRCLR = 1<<2;
+PORTA_PIN2CTRL = PORT_PULLUPEN_bm;
+byte value = PORTA_IN & 1<<2;
+```
 """
 
 [[topics]]
     topic = "PORTB"
     title = "Port B IO pins"
     text = """
-Port B IO pins are operated via the PORTB registry which follows the generic <reg>PORT</reg> layout
+Port B IO pins are operated via the PORTB registry which follows the generic <reg>PORT</reg> layout.
+
+See <topic>PORTA</topic> for generic examples on how to work with standard port IO.
 """
 
 [[topics]]
@@ -61,6 +82,14 @@ Alternative pin position for TWI outputs can be enabled via <reg>PORTMUX.CTRLB</
     chip = true
     text = """
 The best option for PWM is the <topic>TCA</topic> for 3 PWM outputs, or <topic>TCA-SPLIT</topic> for 6 PWM outputs.
+
+TCA-Split example.. TODO
+```C
+TCA0_SPLIT_CTRLD = TCA_SPLIT_SPLITM_bm; // Enable split mode
+TCA0_SPLIT_CTRLB = TCA_SPLIT_HCMP0EN_bm; // Enable PWM for high-byte compare 0 (WO3)
+TCA0_SPLIT_HPER = PERIOD;
+TCA0_SPLIT_CTRLA = TCA_SPLIT_CLKSEL_DIV64_gc;
+```
 """
 
 [[topics]]
@@ -75,7 +104,9 @@ This timer/counter comes with three compare channels and is able to generate PWM
     topic = "TCA-SPLIT"
     title = "16-bit Timer/Counter Type A (Split Mode)"
     text = """
-Lorem ipsum about split mode
+The <topic>TCA</topic> can also be run in split mode. Split mode gives three extra outputs by splitting the 16 bit timer into two 8 bit timers. For typical PWM purposes, like controlling LED intensity, 8-bits is still plenty.
+
+See <topic>PWM</topic> for examples on different PWM setups using TCA.
 """
 
 [[topics]]
