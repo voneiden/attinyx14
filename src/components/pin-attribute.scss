@@ -2,9 +2,10 @@
     border: 1px solid white;;
     padding: 2px 5px 2px 5px;
     margin: 1px 5px 1px 5px;
-    width: 55px;
+    min-width: 55px;
     border-radius: 5px;
     background-color: red;
+    text-align: center;
     &.highlight-primary-pin {
         margin: 0 4px 0 4px;
         border: 2px solid cyan;
@@ -34,43 +35,43 @@
 }
 
 .vcc-pin {
-    background-color: #b55353;
+    background-color: #95125A;
 }
 .port-pin {
     color: black;
     background-color: #b5e853;
 }
 .adc-pin {
-    background-color: cornflowerblue;
+    background-color: #495EA9;
 }
 
 .twi-pin {
-    color: black;
-    background-color: yellow;
+    color: white;
+    background-color: #B91616;
     &.alt-pin {
         font-weight: lighter;
         background: repeating-linear-gradient(
                         45deg,
-                        yellow,
-                        yellow 10px,
-                        #aaaa00 10px,
-                        #aaaa00 20px
+                        #B91616,
+                        #B91616 10px,
+                        darken(#B91616, 10%) 10px,
+                        darken(#B91616, 10%) 20px
         );
     }
 }
 
 .tca-pin {
     color: white;
-    background-color: purple;
+    background-color: #216976;
     &.alt-pin {
         font-weight: lighter;
         color: white;
         background: repeating-linear-gradient(
                         45deg,
-                        purple,
-                        purple 10px,
-                        #400040 10px,
-                        #400040 20px
+                        #216976,
+                        #216976 10px,
+                        darken(#216976, 10%) 10px,
+                        darken(#216976, 10%) 20px
         );
     }
 }
@@ -78,27 +79,27 @@
 
 .tcb-pin {
     color: white;
-    background-color: #80274f;
+    background-color: #397B87;
 }
 
 
 .tcd-pin {
     color: white;
-    background-color: #800107;
+    background-color: #5E96A1;
 }
 
 .spi-pin {
     color: white;
-    background-color: #32a77d;
+    background-color: #E23333;
     &.alt-pin {
         font-weight: lighter;
         color: white;
         background: repeating-linear-gradient(
                         45deg,
-                        #32a77d,
-                        #32a77d 10px,
-                        darken(#32a77d, 10%) 10px,
-                        darken(#32a77d, 10%) 20px
+                        #E23333,
+                        #E23333 10px,
+                        darken(#E23333, 10%) 10px,
+                        darken(#E23333, 10%) 20px
         );
     }
 }
@@ -116,4 +117,22 @@
 .updi-pin, .reset-pin {
     color: white;
     background-color: #790004;
+}
+
+.usart-pin {
+    color: white;
+    background-color: #A43741;
+}
+
+.ccl-pin {
+    background-color: #422E84;
+}
+
+.ac-pin {
+    background-color: #007bb2;
+}
+
+.dac-pin {
+    color: white;
+    background-color: #004ab2;
 }

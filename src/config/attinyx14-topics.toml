@@ -168,3 +168,38 @@ Lorem ipsum about fuses
 Lorem ipsum about RTC
 """
 
+
+[[topics]]
+    topic = "AC"
+    title = "Analog converter"
+    text = """
+Lorem ipsum about AC
+"""
+
+[[topics]]
+    topic = "DAC"
+    title = "Digital to analog converter"
+    text = """
+Lorem ipsum about DAC
+"""
+
+[[topics]]
+    topic = "USART"
+    title = "Universal Serial A...?"
+    text = """
+Lorem ipsum about USART
+"""
+
+[[topics]]
+    topic = "USART-ALT"
+    title = "Universal Serial A...? (Alternative pin configuration)"
+    text = """
+Alternative pin configuration for the USART is available on all chips except ATTiny814. These can be enabled via <reg>PORTMUX.CTRLB.SPI0</reg>
+"""
+
+[[topics]]
+    topic = "CCL"
+    title = "Custom Chip Logic"
+    text = """
+Lorem ipsum about CCL
+"""
