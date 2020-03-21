@@ -54,10 +54,8 @@ const Store = types.model({
     },
     setPins(pins) {
         self.pins = pins;
-        console.log("Set pins", pins)
     },
     setHighlightGroups(highlightGroups) {
-        console.log("set", highlightGroups)
         if (highlightGroups !== self.highlightGroups) {
             self.highlightGroups = highlightGroups ? highlightGroups : []
         }

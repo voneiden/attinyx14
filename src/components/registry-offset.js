@@ -5,22 +5,23 @@ import cls from "../utils/cls";
 import {useParams} from "react-router";
 
 const RegistryOffset = function RegistryOffset(props) {
-    const {offset} = props;
+    const {offset, field} = props;
+    const fieldInt = parseInt(field);
     let bits = 0;
     const {activeGroup} = useParams();
 
-    const fieldNameBlocks = offset.fields.map((field, i) => {
-        bits += field.size;
-        const active = field.relatedGroups.includes(activeGroup);
-        const disabled = !field.name;
-        const range = field.size > 1 && !disabled ? `[${i + field.size - 1}:${i}]` : null;
+    const fieldNameBlocks = offset.fields.map((fieldObj, i) => {
+        bits += fieldObj.size;
+        const active = fieldObj.relatedGroups.includes(activeGroup) || field === fieldObj.name;
+        const disabled = !fieldObj.name;
+        const range = fieldObj.size > 1 && !disabled ? `[${i + fieldObj.size - 1}:${i}]` : null;
         return (
             <div className={cls(
-                `field-size-${field.size}`,
+                `field-size-${fieldObj.size}`,
                 active && `active`,
                 disabled && `disabled`,
             )}>
-                {field.name}{range}
+                {fieldObj.name}{range}
             </div>
         )
     }).reverse();
@@ -29,7 +30,8 @@ const RegistryOffset = function RegistryOffset(props) {
         return (
             <div className={cls(
                 `field-size-1`,
-                `bit-number`
+                `bit-number`,
+                fieldInt === bit && `active`
             )}>
                 {bit}
             </div>

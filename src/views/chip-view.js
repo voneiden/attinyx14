@@ -10,7 +10,6 @@ import {withRouter} from "react-router";
 const ChipView = function ChipView(props) {
     const { pins } = store;
     const pinsPerSide = pins.length / 2;
-    console.log("PINS", pins);
     const leftPins = pins.slice(0, pinsPerSide).map(pin => {
         const attributes = pin.attributes.map((a, i) => {
             return <PinAttribute key={i} attribute={a} pin={pin}/>

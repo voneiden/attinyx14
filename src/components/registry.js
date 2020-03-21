@@ -14,7 +14,7 @@ const Registry = function Registry(props) {
 
 
     const offset = registry.offsets.find(o => o.name === props.offset);
-    console.log("offset", offset, props.offset, registry.offsets);
+    const { field } = props;
     const title = offset ? `${registry.name} > ${offset.name}` : registry.name;
     const linkElement = <DatasheetLink registry={registry}/>;
     if (!props.offset) {
@@ -32,7 +32,7 @@ const Registry = function Registry(props) {
         <div className="registry">
             <div>
                 <span className="title">{title} {linkElement}</span>
-                {offset && <RegistryOffset offset={offset}/>}
+                {offset && <RegistryOffset offset={offset} field={field}/>}
             </div>
         </div>
     )

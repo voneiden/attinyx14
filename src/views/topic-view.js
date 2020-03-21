@@ -54,7 +54,6 @@ const formatText = function formatText(text) {
 
 const TopicView = observer(function TopicView(props) {
   const {activeGroup} = useParams();
-  console.log("")
   let formatted = null;
   if (activeGroup) {
     const topic = store.getTopic(activeGroup);
