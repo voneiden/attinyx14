@@ -27,6 +27,15 @@
             type = "tcd"
             label = "WOA"
             groups = ["TCD"]
+        [[pins.attributes]]
+            type = "usart"
+            label = "XDIR"
+            alt = true
+            groups = ["USART-ALT", "USART"]
+        [[pins.attributes]]
+            type = "ccl"
+            label = "LUT0-OUT"
+            groups = ["CCL"]
 
 [[pins]]
     pin = 3
@@ -50,6 +59,10 @@
             type = "tcd"
             label = "WOB"
             groups = ["TCD"]
+        [[pins.attributes]]
+            type = "ac"
+            label = "OUT"
+            groups = ["AC"]
 
 
 [[pins]]
@@ -67,6 +80,15 @@
             alt = true
             label = "MOSI"
             groups = ["SPI-ALT", "SPI"]
+            exclude = ["attiny814"]
+        [[pins.attributes]]
+            type = "ac"
+            label = "AINN0"
+            groups = ["AC"]
+        [[pins.attributes]]
+            type = "dac"
+            label = "OUT"
+            groups = ["DAC"]
 
 
 [[pins]]
@@ -84,6 +106,15 @@
             alt = true
             label = "MISO"
             groups = ["SPI-ALT", "SPI"]
+            exclude = ["attiny814"]
+        [[pins.attributes]]
+            type = "ac"
+            label = "AINP0"
+            groups = ["AC"]
+        [[pins.attributes]]
+            type = "ccl"
+            label = "LUT1-OUT"
+            groups = ["CCL"]
 
 [[pins]]
     pin = 6
@@ -100,6 +131,10 @@
             type = "clk"
             label = "TOSC1"
             groups = ["TOSC", "EXTCLK"]
+        [[pins.attributes]]
+            type = "usart"
+            label = "RxD"
+            groups = ["USART"]
 
 [[pins]]
     pin = 7
@@ -119,6 +154,10 @@
             type = "evout"
             label = "EVOUT1"
             groups = ["EVOUT"]
+        [[pins.attributes]]
+            type = "usart"
+            label = "TxD"
+            groups = ["USART"]
 
 [[pins]]
     pin = 14
@@ -145,6 +184,11 @@
             type = "tca"
             label = "WO3"
             groups = ["TCA-SPLIT"]
+        [[pins.attributes]]
+            type = "usart"
+            label = "XCK"
+            alt = true
+            groups = ["USART-ALT", "USART"]
 
 [[pins]]
     pin = 12
@@ -173,6 +217,15 @@
             type = "clk"
             label = "EXTCLK"
             groups = ["EXTCLK", "TOSC"]
+        [[pins.attributes]]
+            type = "usart"
+            label = "RxD"
+            alt = true
+            groups = ["USART-ALT", "USART"]
+        [[pins.attributes]]
+            type = "ccl"
+            label = "LUT0-IN2"
+            groups = ["CCL"]
 
 
 [[pins]]
@@ -194,6 +247,15 @@
             alt = true
             label = "SDA"
             groups = ["TWI-ALT", "TWI"]
+        [[pins.attributes]]
+            type = "usart"
+            label = "TxD"
+            alt = true
+            groups = ["USART-ALT", "USART"]
+        [[pins.attributes]]
+            type = "ccl"
+            label = "LUT0-IN1"
+            groups = ["CCL"]
 
 
 [[pins]]
@@ -216,6 +278,10 @@
             type = "reset"
             label = "RESET"
             groups = ["RESET", "UPDI"]
+        [[pins.attributes]]
+            type = "ccl"
+            label = "LUT0-IN0"
+            groups = ["CCL"]
 [[pins]]
     pin = 9
         [[pins.attributes]]
@@ -234,6 +300,10 @@
             type = "tca"
             label = "WO0"
             groups = ["TCA", "TCA-SPLIT"]
+        [[pins.attributes]]
+            type = "usart"
+            label = "XDIR"
+            groups = ["USART"]
 
 
 
@@ -255,3 +325,7 @@
             type = "tca"
             label = "WO1"
             groups = ["TCA", "TCA-SPLIT"]
+        [[pins.attributes]]
+            type = "usart"
+            label = "XCK"
+            groups = ["USART"]
