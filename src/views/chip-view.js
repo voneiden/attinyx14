@@ -12,11 +12,11 @@ const ChipView = function ChipView(props) {
     const pinsPerSide = pins.length / 2;
     const leftPins = pins.slice(0, pinsPerSide).map(pin => {
         const attributes = pin.attributes.map((a, i) => {
-            return <PinAttribute key={i} attribute={a} pin={pin}/>
+            return <PinAttribute key={`attr-${i}`} attribute={a} pin={pin}/>
         });
         attributes.reverse();
         return (
-            <PinRow pin={pin}>
+            <PinRow pin={pin} key={`pin-${pin.pin}`}>
                 {attributes}
                 <ChipLeg pin={pin.pin}/>
             </PinRow>
@@ -27,7 +27,7 @@ const ChipView = function ChipView(props) {
             return <PinAttribute key={i} attribute={a} pin={pin}/>
         });
         return (
-            <PinRow pin={pin}>
+            <PinRow pin={pin} key={`pin-${pin.pin}`}>
                 <ChipLeg pin={pin.pin}/>
                 {attributes}
             </PinRow>
@@ -39,7 +39,6 @@ const ChipView = function ChipView(props) {
     });
 
     const { history } = props;
-    console.warn("HISTORYY", history)
 
     return (
         <div className="model-row" onClick={() => history.push("/")}>
@@ -59,5 +58,6 @@ const ChipView = function ChipView(props) {
     )
 };
 ChipView.propTypes = {
+    history: PropTypes.object.isRequired,
 };
 export default withRouter(ChipView);

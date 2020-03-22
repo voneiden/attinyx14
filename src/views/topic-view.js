@@ -8,7 +8,7 @@ import DatasheetLink from "../components/datasheet-link";
 import MarkdownIt from 'markdown-it';
 import * as hljs from "highlight.js";
 import "highlight.js/styles/dracula.css";
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser, {convertNodeToElement} from 'react-html-parser';
 import TopicLink from "../components/topic-link";
 import {useParams} from "react-router";
 
@@ -25,23 +25,30 @@ const md = new MarkdownIt({
   html: true,
 });
 
+
+
 const formatText = function formatText(text) {
   const references = [];
-  const html = md.render(text);
-  const jsx = ReactHtmlParser(html, {
-    transform: (node, index) => {
-      if (node.parent && node.parent.name === 'reg' && node.type === 'text') {
-        const [registry, offset, field] = node.data.split(".");
-        references.push(<Registry registry={registry} offset={offset} field={field}/>);
-        return <RegistryLink registry={registry} offset={offset} field={field}/>;
-      } else if (node.parent && node.parent.name === 'ref' && node.type === 'text') {
-        return <DatasheetLink page={node.data}/>
-      } else if (node.parent && node.parent.name === 'topic' && node.type ==='text') {
-        return <TopicLink topic={node.data}/>
-      }
-      return undefined
+  const transform = function transform(node, index) {
+    if (node && node.name === 'reg') {
+      const [registry, offset, field] = node.children[0].data.split(".");
+      references.push(<Registry key={`registry-${registry}-${offset}-${field}`} registry={registry} offset={offset} field={field}/>);
+      return <RegistryLink registry={registry} offset={offset} field={field}/>;
+    } else if (node && node.name === 'ref') {
+      return <DatasheetLink page={node.children[0].data}/>
+    } else if (node && node.name === 'topic') {
+      return <TopicLink topic={node.children[0].data}/>
+    } else if (node && node.name === 'example') {
+      node.name = 'div';
+      node.attribs = {
+        'class': 'code-example',
+      };
+      return convertNodeToElement(node, index, transform);
     }
-  });
+    return undefined
+  };
+  const html = md.render(text);
+  const jsx = ReactHtmlParser(html, {transform: transform});
   return (
     <React.Fragment>
       {jsx}

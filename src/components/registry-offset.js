@@ -15,13 +15,16 @@ const RegistryOffset = function RegistryOffset(props) {
         const active = fieldObj.relatedGroups.includes(activeGroup) || field === fieldObj.name;
         const disabled = !fieldObj.name;
         const range = fieldObj.size > 1 && !disabled ? `[${i + fieldObj.size - 1}:${i}]` : null;
+        const name = fieldObj.name ? `${fieldObj.name}${range}` : '';
         return (
             <div className={cls(
                 `field-size-${fieldObj.size}`,
                 active && `active`,
                 disabled && `disabled`,
-            )}>
-                {fieldObj.name}{range}
+            )}
+                 key={name}
+            >
+                {name}
             </div>
         )
     }).reverse();
@@ -32,15 +35,17 @@ const RegistryOffset = function RegistryOffset(props) {
                 `field-size-1`,
                 `bit-number`,
                 fieldInt === bit && `active`
-            )}>
+            )}
+                 key={`bit-${bit}`}
+            >
                 {bit}
             </div>
         )
     }).reverse();
 
-    const rows = [bitBlocks, fieldNameBlocks].map(block => {
+    const rows = [bitBlocks, fieldNameBlocks].map((block, i) => {
         return (
-            <div className="block-row">{block}</div>
+            <div key={`block-${i}`} className="block-row">{block}</div>
         )
     });
 
