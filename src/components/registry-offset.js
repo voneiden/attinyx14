@@ -14,7 +14,7 @@ const RegistryOffset = function RegistryOffset(props) {
         bits += fieldObj.size;
         const active = fieldObj.relatedGroups.includes(activeGroup) || field === fieldObj.name;
         const disabled = !fieldObj.name;
-        const range = fieldObj.size > 1 && !disabled ? `[${i + fieldObj.size - 1}:${i}]` : null;
+        const range = fieldObj.size > 1 && !disabled ? `[${i + fieldObj.size - 1}:${i}]` : '';
         const name = fieldObj.name ? `${fieldObj.name}${range}` : '';
         return (
             <div className={cls(
