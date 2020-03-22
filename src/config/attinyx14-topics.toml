@@ -24,7 +24,13 @@ CLKCTRL_MCLKCTRLB = 0;
     topic = "POWER"
     title = "Powering the ATtiny"
     text = """
-Lorem ipsum about voltages
+The device can be powered with 1.8 - 5.5 volts. It's worth noting that <topic>BOD</topic> may limit the lower bound. Also the safe clock speed is limited based on voltage and temperature as follows
+
+* [1.8 .. 5.5]V, [-40 .. 105]C: 5 MHz
+* [2.7 .. 5.5]V, [-40 .. 105]C: 10 MHz
+* [4.5 .. 5.5]V, [-40 .. 105]C: 20 MHz
+* [2.7 .. 5.5]V, [-40 .. 125]C: 8 MHz
+* [4.5 .. 5.5]V, [-40 .. 125]C: 16 MHz
 """
 
 [[topics]]
@@ -34,6 +40,7 @@ Lorem ipsum about voltages
 Port A IO pins are operated via the PORTA registry which follows the generic <reg>PORT</reg> layout. `DIRSET`, `DIRCLR` and `DIRTGL` provide convinience methods for manipulating individual bits without disturbing other pins.
 
 * <topic>EX_DIGITAL_INPUT</topic>
+* <topic>EX_DIGITAL_OUTPUT</topic>
 
 """
 
@@ -50,6 +57,22 @@ Example
 PORTA_DIRCLR = 1<<2;
 PORTA_PIN2CTRL = PORT_PULLUPEN_bm;
 byte value = PORTA_IN & 1<<2;
+```
+"""
+
+[[topics]]
+    topic = "EX_DIGITAL_OUTPUT"
+    title = "Example: Digital output"
+    text = """
+
+In this example PORTA pin 2 (PA2) is used as an output. To use a pin as an output, <reg>PORT.DIR.2</reg> for the corresponding pin must be one (use <reg>PORT.DIRSET.2</reg>). The output value can be set via <reg>PORT.OUT.2</reg> (use <reg>PORT.OUTSET.2</reg>, <reg>PORT.OUTCLR.2</reg> or <reg>PORT.OUTTGL.2</reg>).
+
+Example
+
+```C
+PORTA_DIRSET = 1<<2;
+PORTA_OUTSET = 1<<2; // output high
+PORTA_OUTCLR = 1<<2; // output low
 ```
 """
 
@@ -81,15 +104,11 @@ Alternative pin position for TWI outputs can be enabled via <reg>PORTMUX.CTRLB</
     title = "Pulse Width Modulation"
     chip = true
     text = """
-The best option for PWM is the <topic>TCA</topic> for 3 PWM outputs, or <topic>TCA-SPLIT</topic> for 6 PWM outputs.
+The best option for PWM is the <topic>TCA</topic>. It provides 3 PWM outputs in standard mode, and 3 extra WM outputs in <topic>TCA-SPLIT</topic>.
 
-TCA-Split example.. TODO
-```C
-TCA0_SPLIT_CTRLD = TCA_SPLIT_SPLITM_bm; // Enable split mode
-TCA0_SPLIT_CTRLB = TCA_SPLIT_HCMP0EN_bm; // Enable PWM for high-byte compare 0 (WO3)
-TCA0_SPLIT_HPER = PERIOD;
-TCA0_SPLIT_CTRLA = TCA_SPLIT_CLKSEL_DIV64_gc;
-```
+The timer can be configured in various ways, but the bottom line in PWM is that it counts from some number (typically zero) to another number (period) with a ratio relative to clock speed and then rolls over back to beginning. At each increment/decrement the compare channel checks if the current value of the counter is greater than the set value for the comparator and toggles corresponding output accordingly.
+
+For example to get a 25% duty cycle, we could set the timer period to 100 ticks and the compare value to 75. The timer would then loop from 0 to 99 and turn on the output during the duration the counter is between 75 and 99.  The actual frequency of the PWM is defined by the <topic>Clock rate</topic> and clock divisor of the timer module.
 """
 
 [[topics]]
@@ -104,9 +123,20 @@ This timer/counter comes with three compare channels and is able to generate PWM
     topic = "TCA-SPLIT"
     title = "16-bit Timer/Counter Type A (Split Mode)"
     text = """
-The <topic>TCA</topic> can also be run in split mode. Split mode gives three extra outputs by splitting the 16 bit timer into two 8 bit timers. For typical PWM purposes, like controlling LED intensity, 8-bits is still plenty.
+The <topic>TCA</topic> can run in split mode. Split mode gives three extra outputs by splitting the 16 bit timer into two 8 bit timers. For typical PWM purposes, like controlling LED intensity, 8-bits is still plenty.
 
-See <topic>PWM</topic> for examples on different PWM setups using TCA.
+Split mode example to output a 80% duty cycle <topic>PWM</topic> signal on WO3. When running at 20 MHz, this would produce a frequency of approximately `1.23 kHz` (`20 MHz / 255 / 64`).
+```C
+uint8_t period = 255;
+uint8_t duty_cycle = 204;
+
+TCA0_SPLIT_CTRLD = TCA_SPLIT_SPLITM_bm; // Set TCA to split mode
+TCA0_SPLIT_CTRLB = TCA_SPLIT_HCMP0EN_bm; // Enable PWM for high-byte compare 0 (WO3)
+TCA0_SPLIT_HPER = period; // Set the high-byte counter period
+TCA0_SPLIT_CTRLA = TCA_SPLIT_CLKSEL_DIV64_gc; // Use a clock divisor of 64
+TCA0_SPLIT_HCMP0 = duty_cycle * period / 255; // Set the high-byte compare value, a bit redundant since period is 255.
+TCA0_SPLIT_CTRLA |= TCA_SPLIT_ENABLE_bm; // Turn the counter on
+```
 """
 
 [[topics]]

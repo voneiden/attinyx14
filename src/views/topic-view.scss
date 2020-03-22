@@ -12,5 +12,18 @@
   }
   .topic-text {
     white-space: pre-wrap;
+
+    > pre {
+      display: inline-block;
+      border: 1px dashed #b5e853;
+      padding: 10px;
+      line-height: 1;
+      > code {
+        font-size: 80%;
+      }
+    }
   }
+}
+
+code > * {
 }

@@ -6,10 +6,12 @@ import {Link} from "react-router-dom";
 const TopicLink = function TopicLink(props) {
     const {topic} = props;
     const topicObj = store.getTopic(topic);
-    return (
+    return topicObj ? (
         <Link className="topic-link" to={`/topic/${topic}`}>
             {topicObj.title}
         </Link>
+    ) : (
+        <span>{`"${topic}" (topic missing)`}</span>
     )
 };
 

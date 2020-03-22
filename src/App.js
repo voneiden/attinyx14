@@ -37,6 +37,7 @@ function App() {
                     </Route>
                     <Route path="/">
                         <ChipView/>
+                        <TopicView/>
                     </Route>
                 </Switch>
                 <div className="data-row">
