@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/attinyx14/static/css/main.004b6643.chunk.css",
-    "main.js": "/attinyx14/static/js/main.e6d9fb5a.chunk.js",
-    "main.js.map": "/attinyx14/static/js/main.e6d9fb5a.chunk.js.map",
+    "main.css": "/attinyx14/static/css/main.1025ccb4.chunk.css",
+    "main.js": "/attinyx14/static/js/main.d361c85e.chunk.js",
+    "main.js.map": "/attinyx14/static/js/main.d361c85e.chunk.js.map",
     "runtime-main.js": "/attinyx14/static/js/runtime-main.66e78f6c.js",
     "runtime-main.js.map": "/attinyx14/static/js/runtime-main.66e78f6c.js.map",
     "static/css/2.01fbdc85.chunk.css": "/attinyx14/static/css/2.01fbdc85.chunk.css",
-    "static/js/2.6b9deffc.chunk.js": "/attinyx14/static/js/2.6b9deffc.chunk.js",
-    "static/js/2.6b9deffc.chunk.js.map": "/attinyx14/static/js/2.6b9deffc.chunk.js.map",
+    "static/js/2.203ef1a6.chunk.js": "/attinyx14/static/js/2.203ef1a6.chunk.js",
+    "static/js/2.203ef1a6.chunk.js.map": "/attinyx14/static/js/2.203ef1a6.chunk.js.map",
     "index.html": "/attinyx14/index.html",
-    "precache-manifest.52e6eb3a9631e23d48e7e3eadbe50a2f.js": "/attinyx14/precache-manifest.52e6eb3a9631e23d48e7e3eadbe50a2f.js",
+    "precache-manifest.04ab11ddc3e03ba2190974231bf14595.js": "/attinyx14/precache-manifest.04ab11ddc3e03ba2190974231bf14595.js",
     "service-worker.js": "/attinyx14/service-worker.js",
     "static/css/2.01fbdc85.chunk.css.map": "/attinyx14/static/css/2.01fbdc85.chunk.css.map",
-    "static/css/main.004b6643.chunk.css.map": "/attinyx14/static/css/main.004b6643.chunk.css.map",
-    "static/js/2.6b9deffc.chunk.js.LICENSE.txt": "/attinyx14/static/js/2.6b9deffc.chunk.js.LICENSE.txt",
+    "static/css/main.1025ccb4.chunk.css.map": "/attinyx14/static/css/main.1025ccb4.chunk.css.map",
+    "static/js/2.203ef1a6.chunk.js.LICENSE.txt": "/attinyx14/static/js/2.203ef1a6.chunk.js.LICENSE.txt",
     "static/media/attinyx14-pins.toml": "/attinyx14/static/media/attinyx14-pins.febae19a.toml",
     "static/media/attinyx14-registries.toml": "/attinyx14/static/media/attinyx14-registries.53cdde4c.toml",
     "static/media/attinyx14-topics.toml": "/attinyx14/static/media/attinyx14-topics.4cf4d200.toml"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.66e78f6c.js",
     "static/css/2.01fbdc85.chunk.css",
-    "static/js/2.6b9deffc.chunk.js",
-    "static/css/main.004b6643.chunk.css",
-    "static/js/main.e6d9fb5a.chunk.js"
+    "static/js/2.203ef1a6.chunk.js",
+    "static/css/main.1025ccb4.chunk.css",
+    "static/js/main.d361c85e.chunk.js"
   ]
 }
