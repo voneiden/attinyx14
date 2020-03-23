@@ -1,0 +1,124 @@
+[[regs]]
+name = "GPIOR"
+datasheetPage = 20
+
+[[regs]]
+name = "SIGROW"
+datasheetPage = 22
+
+[[regs]]
+name = "FUSE"
+datasheetPage = 30
+
+
+[[regs]]
+name = "SYSCFG"
+datasheetPage = 43
+
+[[regs]]
+name = "CPU"
+datasheetPage = 52
+
+[[regs]]
+name = "NVMCTRL"
+datasheetPage = 63
+
+[[regs]]
+name = "CLKCTRL"
+datasheetPage = 78
+
+[[regs]]
+name = "SLPCTRL"
+datasheetPage = 92
+
+[[regs]]
+name = "RSTCTRL"
+datasheetPage = 97
+
+[[regs]]
+name = "CPUINT"
+datasheetPage = 107
+
+[[regs]]
+name = "EVSYS"
+datasheetPage = 117
+
+[[regs]]
+name = "PORTMUX"
+datasheetPage = 125
+
+[[regs]]
+name = "PORT"
+datasheetPage = 135
+
+[[regs]]
+name = "VPORT"
+datasheetPage = 147
+
+[[regs]]
+name = "BOD"
+datasheetPage = 156
+
+[[regs]]
+name = "VREF"
+datasheetPage = 164
+
+[[regs]]
+name = "WDT"
+datasheetPage = 172
+
+[[regs]]
+name = "TCA"
+datasheetPage = 188
+
+[[regs]]
+name = "TCA-SPLIT"
+datasheetPage = 208
+
+[[regs]]
+name = "TCB"
+datasheetPage = 234
+
+[[regs]]
+name = "TCD"
+datasheetPage = 269
+
+[[regs]]
+name = "RTC"
+datasheetPage = 295
+
+[[regs]]
+name = "USART"
+datasheetPage = 327
+
+[[regs]]
+name = "SPI"
+datasheetPage = 353
+
+[[regs]]
+name = "TWI"
+datasheetPage = 373
+
+[[regs]]
+name = "CRCSCAN"
+datasheetPage = 395
+
+[[regs]]
+name = "CCL"
+datasheetPage = 410
+
+[[regs]]
+name = "AC"
+datasheetPage = 421
+
+[[regs]]
+name = "ADC"
+datasheetPage = 437
+
+[[regs]]
+name = "DAC"
+datasheetPage = 458
+
+[[regs]]
+name = "UPDI"
+datasheetPage = 485

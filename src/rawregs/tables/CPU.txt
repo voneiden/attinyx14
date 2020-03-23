@@ -1,0 +1,13 @@
+0x00
+...
+0x03
+Reserved
+0x04 CCP 7:0 CCP[7:0]
+0x05
+...
+0x0C
+Reserved
+0x0D SP
+7:0 SP[7:0]
+15:8 SP[15:8]
+0x0F SREG 7:0 I T H S V N Z C
