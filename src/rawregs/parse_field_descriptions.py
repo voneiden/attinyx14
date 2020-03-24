@@ -75,10 +75,11 @@ class Parser(object):
                 if match:
                     offset_name = match.groupdict()['offset_name']
                     print(" - Parsing offset:", offset_name)
+                    if offset_name[-1] == 'n':
+                        offset_name = offset_name[:-1]
                     self.offsets = [offset for offset in self.registry['offsets'] \
                                if offset['name'] == offset_name or \
                                offset['name'][:-1] == offset_name or \
-                               offset['name'][:-1] == offset_name[:-1] or \
                                re.sub(r'\d', '', offset['name']) == offset_name]
                     if not self.offsets:
 

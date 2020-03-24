@@ -452,7 +452,7 @@
               "description": "If the device is locked, the EEPROM is always erased by a chip erase, regardless of this bit. \n | Value | Description |\n | ----- | ----------- |\n | 0|EEPROM erased during chip erase |\n | 1|EEPROM not erased under chip erase |\n"
             }
           ],
-          "title": "System Configuration 1",
+          "title": "System Configuration 0",
           "description": null
         },
         {
@@ -642,7 +642,7 @@
               "description": "Write this bit field to issue a command. The Configuration Change Protection key for self-programming (SPM) has to be written within four instructions before this write. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|-|No command |\n | 0x1|WP|Write page buffer to memory (NVMCTRL.ADDR selects which memory) |\n | 0x2|ER|Erase page (NVMCTRL.ADDR selects which memory) |\n | 0x3|ERWP|Erase and write page (NVMCTRL.ADDR selects which memory) |\n | 0x4|PBC|Page buffer clear |\n | 0x5|CHER|Chip erase: erase Flash and EEPROM (unless EESAVE in FUSE.SYSCFG is '1') |\n | 0x6|EEER|EEPROM Erase |\n | 0x7|WFU|Write fuse (only accessible through UPDI) |\n"
             }
           ],
-          "title": "Control B",
+          "title": "Control A",
           "description": null
         },
         {
@@ -776,7 +776,7 @@
               "description": "This bit field selects the source for the Main Clock (CLK_MAIN). \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|OSC20M|16/20 MHz internal oscillator |\n | 0x1|OSCULP32K|32 KHz internal ultra low-power oscillator |\n | 0x2|XOSC32K|32.768 kHz external crystal oscillator |\n | 0x3|EXTCLK|External clock |\n"
             }
           ],
-          "title": "Main Clock Control B",
+          "title": "Main Clock Control A",
           "description": null
         },
         {
@@ -883,7 +883,7 @@
               "description": "These bits change the frequency around the current center frequency of the OSC20M for fine tuning. At Reset factory calibrated values are loaded based on FREQSEL bits in FUSE.OSCCFG."
             }
           ],
-          "title": "16/20MHz Oscillator Calibration B",
+          "title": "16/20MHz Oscillator Calibration A",
           "description": null
         },
         {
@@ -1320,7 +1320,7 @@
               "description": "Write this bit to '1' to enable event output 0."
             }
           ],
-          "title": "Control C",
+          "title": "Control A",
           "description": null
         },
         {
@@ -1348,7 +1348,7 @@
               "description": "Write this bit to '1' to select alternative communication pins for USART 0."
             }
           ],
-          "title": "Control C",
+          "title": "Control B",
           "description": null
         },
         {
@@ -1822,7 +1822,7 @@
               "description": "These bits select the BOD operation mode when the device is in standby or power-down sleep mode. These bits are under Configuration Change Protection (CCP). The Reset value is loaded from the SLEEP bits in FUSE.BODCFG. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|Disabled |\n | 0x1|Enabled |\n | 0x2|Sampled |\n | 0x3|Reserved |\n"
             }
           ],
-          "title": "Control B",
+          "title": "Control A",
           "description": null
         },
         {
@@ -1940,7 +1940,7 @@
               "description": "These bits select reference voltage for the DAC0 and AC0. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|0.55V |\n | 0x1|1.1V |\n | 0x2|2.5V |\n | 0x3|4.3V |\n | 0x4|1.5V\nother Reserved |\n"
             }
           ],
-          "title": "Control B",
+          "title": "Control A",
           "description": null
         },
         {
@@ -2036,7 +2036,7 @@
               "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|The peripheral is disabled |\n | 1|The peripheral is enabled |\n"
             }
           ],
-          "title": "Control D",
+          "title": "Control A",
           "description": null
         },
         {
@@ -2067,7 +2067,7 @@
               "description": "These bits select the waveform generation mode, and control the counting sequence of the counter, TOP value, UPDATE condition, interrupt condition, and type of waveform that is generated. No waveform generation is performed in the normal mode of operation. For all other modes, the result from the waveform generator will only be directed to the PORT pins if the corresponding CMPnEN bit has been set to enable this. The port pin direction must be set as output. Table 20-5.\u2000Timer Waveform Generation Mode WGMODE[2:0] Group Configuration Mode of Operation Top Update OVF"
             }
           ],
-          "title": "Control D",
+          "title": "Control B - Normal Mode",
           "description": null
         },
         {
@@ -2093,7 +2093,7 @@
               "description": "The CMPnOV bits allow direct access to the waveform generator's output compare value when the timer/counter is not enabled. This is used to set or clear the WG output value when the timer/counter is not running."
             }
           ],
-          "title": "Control D",
+          "title": "Control C - Normal Mode",
           "description": null
         },
         {
@@ -2552,7 +2552,7 @@
               "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|The peripheral is disabled |\n | 1|The peripheral is enabled |\n"
             }
           ],
-          "title": "Control D",
+          "title": "Control A",
           "description": null
         },
         {
@@ -2593,7 +2593,7 @@
               "description": "Setting the LCMPnEN/HCMPnEN bits in the FRQ or PWM waveform generation mode of operation will override the port output register for the corresponding WOn pin."
             }
           ],
-          "title": "Control D",
+          "title": "Control B - Split Mode",
           "description": null
         },
         {
@@ -2634,7 +2634,7 @@
               "description": "The LCMPnOV/HCMPn bits allow direct access to the waveform generator's output compare value when the timer/ counter is not enabled. This is used to set or clear the WOn output value when the timer/counter is not running."
             }
           ],
-          "title": "Control D",
+          "title": "Control C - Split Mode",
           "description": null
         },
         {
@@ -2958,7 +2958,7 @@
               "description": "Writing this bit to '1' enables the Timer/Counter type B peripheral."
             }
           ],
-          "title": "Control B",
+          "title": "Control A",
           "description": null
         },
         {
@@ -3178,7 +3178,7 @@
               "description": "When this bit is written to, it will automatically be synchronized to the TCD clock domain. This bit can be changed as long as synchronization of this bit is not ongoing, see Enable Ready bit (ENRDY) in Status register (STATUS). This bit is not enable-protected. \n | Value | Description |\n | ----- | ----------- |\n | 0|The TCD is disabled. |\n | 1|The TCD is enabled and running. |\n"
             }
           ],
-          "title": "Control E",
+          "title": "Control A",
           "description": null
         },
         {
@@ -3195,7 +3195,7 @@
               "description": "These bits select the waveform generation \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|ONERAMP|One ramp mode |\n | 0x1|TWORAMP|Two ramp mode |\n | 0x2|FOURRAMP|Four ramp mode |\n | 0x3|DS|Dual-slope mode |\n"
             }
           ],
-          "title": "Control E",
+          "title": "Control B",
           "description": null
         },
         {
@@ -3232,7 +3232,7 @@
               "description": "When this bit is written, default values of the Waveform Outputs A and B are overridden by the values written in the Compare x Value in active state bit fields in the Control D register (CTRLD.CMPnxVAL). See the Control D register description for more details."
             }
           ],
-          "title": "Control E",
+          "title": "Control C",
           "description": null
         },
         {
@@ -3248,7 +3248,7 @@
               "size": 4
             }
           ],
-          "title": "Control E",
+          "title": "Control D",
           "description": null
         },
         {
@@ -4022,12 +4022,11 @@
             {
               "name": "DATA",
               "size": 8,
-              "title": "Receiver Data Register",
-              "description": "When USART receiver is set to LINAUTO mode, this bit indicates if the received data is within the response space of a LIN frame. If the received data is the Protected identifier field, this bit will be read as zero. Otherwise the bit will be read as one. For receiver mode other than LINAUTO mode, DATA[8] holds the ninth data bit in the received character when operating with serial frames with nine data bits."
+              "title": "Receiver Data Register"
             }
           ],
-          "title": "Receiver Data Register High Byte",
-          "description": "Reading the RXDATAH Register location will return the contents of the ninth DATA bit plus status bits.\nThe receive buffer consists of a two level FIFO. The FIFO and the corresponding flags in the high byte of\nUSART.RXDATAH will change state whenever the receive buffer is accessed (read). If CHSIZE in USART.CTRLC is\nset to 9BIT Low byte first, read USART.RXDATAL before USART.RXDATAH, otherwise always read\nUSART.RXDATAH before USART.RXDATAL in order to get the correct flags."
+          "title": "Receiver Data Register Low Byte",
+          "description": "Reading the RXDATAL Register location will return the contents of the Receive Data Buffer Register (RXB).\nThe receive buffer consists of a two level FIFO. The FIFO and the corresponding flags in the high byte of RXDATA\nwill change state whenever the receive buffer is accessed (read). If CHSIZE in USART.CTRLC is set to 9BIT Low\nbyte first, read USART.RXDATAL before USART.RXDATAH, otherwise always read USART.RXDATAH before\nUSART.RXDATAL in order to get the correct flags."
         },
         {
           "offset": "0x01",
@@ -4070,12 +4069,11 @@
             {
               "name": "DATA",
               "size": 8,
-              "title": "Transmit Data Register",
-              "description": "This bit is used when CHSIZE=9BIT in USART.CTRLC."
+              "title": "Transmit Data Register"
             }
           ],
-          "title": "Transmit Data Register High Byte",
-          "description": "USART.TXDATAH holds the ninth data bit in the character to be transmitted when operating with serial frames with\nnine data bits. When used this bit must be written before writing to USART.TXDATAL except if CHSIZE in\nUSART.CTRLC is set to 9BIT Low byte first where USART.TXDATAL should be written first.\nThis bit is unused in Master SPI mode of operation."
+          "title": "Transmit Data Register Low Byte",
+          "description": "The Transmit Data Buffer Register (TXB) will be the destination for data written to the USART.TXDATAL Register\nlocation.\nFor 5-, 6-, or 7-bit characters the upper unused bits will be ignored by the Transmitter and set to zero by the Receiver.\nThe transmit buffer can only be written when the DREIF Flag in the USART.STATUS Register is set. Data written to\nDATA when the DREIF Flag is not set, will be ignored by the USART Transmitter. When data is written to the transmit\nbuffer, and the Transmitter is enabled, the Transmitter will load the data into the Transmit Shift Register when the\nShift Register is empty. The data is then transmitted on the TxD pin."
         },
         {
           "offset": "0x03",
@@ -4176,8 +4174,8 @@
               "description": "These bits enable the RS485 and select the operation mode. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|OFF|Disabled. |\n | 0x1|EXT|Enables RS485 mode with control of an external line driver through a dedicated Transmit\nEnable (TE) pin. |\n | 0x2|INT|Enables RS485 mode with control of the internal USART transmitter. |\n | 0x3|-|Reserved. |\n"
             }
           ],
-          "title": "Control C - Master SPI Mode",
-          "description": "This register description is only valid when the USART is in Master SPI mode (CMODE written to MSPI). For other\nCMODE values, see Control C - Async Mode the correct description.\nSee 24.3.2.5 USART in Master SPI mode for full description of the Master SPI Mode operation."
+          "title": "Control A",
+          "description": null
         },
         {
           "offset": "0x06",
@@ -4216,8 +4214,8 @@
               "description": "Writing a \u20181\u2019 to this bit enables the Multi-Processor Communication mode: the USART receiver ignores all the incoming frames that do not contain address information. The transmitter is unaffected by the MPCM setting. For more detailed information see 24.3.2.10 Multiprocessor Communication Mode."
             }
           ],
-          "title": "Control C - Master SPI Mode",
-          "description": "This register description is only valid when the USART is in Master SPI mode (CMODE written to MSPI). For other\nCMODE values, see Control C - Async Mode the correct description.\nSee 24.3.2.5 USART in Master SPI mode for full description of the Master SPI Mode operation."
+          "title": "Control B",
+          "description": null
         },
         {
           "offset": "0x07",
@@ -4404,7 +4402,7 @@
               "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|SPI is disabled. |\n | 1|SPI is enabled. |\n"
             }
           ],
-          "title": "Control B",
+          "title": "Control A",
           "description": null
         },
         {
@@ -4611,7 +4609,7 @@
               "description": "Writing this bit to '1' enables the TWI as Master."
             }
           ],
-          "title": "Master Control B",
+          "title": "Master Control A",
           "description": null
         },
         {
@@ -4765,7 +4763,7 @@
               "description": "Writing this bit to '1' enables the TWI slave."
             }
           ],
-          "title": "Slave Control B",
+          "title": "Slave Control A",
           "description": null
         },
         {
@@ -4914,8 +4912,8 @@
               "description": "Writing this bit to '1' enables the CRCSCAN peripheral with the current settings. It will stay '1' even after a CRC check has completed, but writing it to \u20181\u2019 again will start a new check. Writing the bit to '0' will disable the CRCSCAN after the ongoing check is completed (after reaching the end of the section it is set up to check). A failure in the ongoing check will still be detected and can cause an NMI if the NMIEN bit is '1'. The CRCSCAN can be enabled during the internal Reset initialization to verify Flash sections before letting the CPU start normal code execution (see the device data sheet fuse description). If the CRCSCAN is enabled during the internal Reset initialization, the ENABLE bit will read as '1' when normal code execution starts. To see whether the CRCSCAN peripheral is busy with an ongoing check, poll the Busy bit (BUSY) in the STATUS register (CRCSCAN.STATUS)."
             }
           ],
-          "title": "Control B",
-          "description": "The CTRLB register contains the mode and source settings for the CRC. It is not writable when the CRC is busy or\nwhen an NMI has been triggered."
+          "title": "Control A",
+          "description": "If an NMI has been triggered, this register is not writable."
         },
         {
           "offset": "0x01",
@@ -5329,7 +5327,7 @@
               "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|ADC is disabled. |\n | 1|ADC is enabled. |\n"
             }
           ],
-          "title": "Control E",
+          "title": "Control A",
           "description": null
         },
         {
@@ -5346,7 +5344,7 @@
               "description": "These bits select how many consecutive ADC sampling results are accumulated automatically. When this bit is written to a value greater than 0x0, the according number of consecutive ADC sampling results are accumulated into the ADC Result register (RES) in one complete conversion. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|NONE|No accumulation. |\n | 0x1|ACC2|2 results accumulated. |\n | 0x2|ACC4|4 results accumulated. |\n | 0x3|ACC8|8 results accumulated. |\n | 0x4|ACC16|16 results accumulated. |\n | 0x5|ACC32|32 results accumulated. |\n | 0x6|ACC64|64 results accumulated. |\n | 0x7|-|Reserved. |\n"
             }
           ],
-          "title": "Control E",
+          "title": "Control B",
           "description": null
         },
         {
@@ -5375,7 +5373,7 @@
               "description": "These bits defines the division factor from peripheral clock (CLK_PER) to the ADC clock (CLK_ADC). \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|DIV2|CLK_PER divided by 2 |\n | 0x1|DIV4|CLK_PER divided by 4 |\n | 0x2|DIV8|CLK_PER divided by 8 |\n | 0x3|DIV16|CLK_PER divided by 16 |\n | 0x4|DIV32|CLK_PER divided by 32 |\n | 0x5|DIV64|CLK_PER divided by 64 |\n | 0x6|DIV128|CLK_PER divided by 128 |\n | 0x7|DIV256|CLK_PER divided by 256 |\n"
             }
           ],
-          "title": "Control E",
+          "title": "Control C",
           "description": null
         },
         {
@@ -5400,7 +5398,7 @@
               "description": "These bits define the delay between consecutive ADC samples. The programmable Sampling Delay allows modifying the sampling frequency during hardware accumulation, to suppress periodic noise sources that may otherwise disturb the sampling. The SAMPDLY field can be also modified automatically from sampling cycle to another, by setting the ASDV bit. The delay is expressed as CLK_ADC cycles and is given directly by the bitfield setting. The sampling cap is kept open during the delay."
             }
           ],
-          "title": "Control E",
+          "title": "Control D",
           "description": null
         },
         {
@@ -5700,7 +5698,7 @@
               "description": "These bits are read-only and contain the revision of the current UPDI implementation."
             }
           ],
-          "title": "Status B",
+          "title": "Status A",
           "description": null
         },
         {
@@ -5752,7 +5750,7 @@
               "description": "This bit field selects the Guard Time Value that will be used by the UPDI when the transmission mode switches from RX to TX. The Guard time is equal to the Baud Rate used in 1-Wire mode. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|UPDI Guard Time: 128 cycles (default) |\n | 0x1|UPDI Guard Time: 64 cycles |\n | 0x2|UPDI Guard Time: 32 cycles |\n | 0x3|UPDI Guard Time: 16 cycles |\n | 0x4|UPDI Guard Time: 8 cycles |\n | 0x5|UPDI Guard Time: 4 cycles |\n | 0x6|UPDI Guard Time: 2 cycles |\n | 0x7|GT off (no extra Idle bits inserted) |\n"
             }
           ],
-          "title": "Control B",
+          "title": "Control A",
           "description": null
         },
         {
