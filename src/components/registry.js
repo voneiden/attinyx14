@@ -32,7 +32,7 @@ const Registry = function Registry(props) {
         <div className="registry">
             <div>
                 <span className="title">{title} {linkElement}</span>
-                {offset && <RegistryOffset offset={offset} field={field}/>}
+                {offset && <RegistryOffset registry={registry} offset={offset} field={field}/>}
             </div>
         </div>
     )

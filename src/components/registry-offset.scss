@@ -29,11 +29,14 @@
                         darken($green-font-color, 55%) 10px,
                         darken($green-font-color, 55%) 20px
         );
-
       }
     }
   }
 }
+.field-description {
+  font-size: 12px;
+}
+
 @for $i from 1 through 16 {
   .field-size-#{$i} {
     flex-grow: $i;

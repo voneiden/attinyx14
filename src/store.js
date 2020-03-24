@@ -22,6 +22,7 @@ const TopicModel = types.model( {
 
 const FieldModel = types.model({
     name: types.maybeNull(types.string),
+    title: types.maybeNull(types.string),
     size: types.optional(types.number, 1),
     description: types.maybeNull(types.string),
     relatedGroups: types.array(types.string),
@@ -29,7 +30,9 @@ const FieldModel = types.model({
 
 const OffsetModel = types.model({
     name: types.string,
-    fields: types.array(FieldModel)
+    title: types.string,
+    fields: types.array(FieldModel),
+    description: types.maybeNull(types.string),
 });
 
 const RegistryModel = types.model({

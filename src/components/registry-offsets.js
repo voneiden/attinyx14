@@ -8,13 +8,8 @@ import RegistryOffset from "./registry-offset";
 const RegistryOffsets = observer(function RegistryOffsets(props) {
     const {registry} = props;
     const offsets = registry.offsets.map((offset, i) => {
-        const title = offset ? `${registry.name}.${offset.name}` : registry.name;
         return (
-            <React.Fragment key={i}>
-                <span className="title">{title}</span>
-                <RegistryOffset offset={offset}/>
-            </React.Fragment>
-
+            <RegistryOffset key={i} registry={registry} offset={offset}/>
         )
     });
 
