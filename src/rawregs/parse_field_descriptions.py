@@ -1,6 +1,13 @@
 import json
 import re
 import time
+from enum import auto, Enum
+
+
+class FieldTableMode(Enum):
+    INACTIVE = auto()
+    DOUBLE = auto()
+    TRIPLE = auto()
 
 re_registry_name = r'.+ Summary - (?P<registry_name>.+)'
 re_offset_name = r'Name:\u2000 (?P<offset_name>.+)'
@@ -24,7 +31,8 @@ def run():
     description_buffer = False
     last_line = None
     skip_related_links = False
-    field_table_mode = False
+    field_table_mode = FieldTableMode.INACTIVE
+    field_table_row_buffer = []
     field_description_buffer = False
     with open('datasheet.txt', 'r', encoding='utf-8') as f:
         for line in f.readlines():
@@ -101,27 +109,58 @@ def run():
                 for field in fields:
                     field['title'] = field_title
                 field_description_buffer = []
+                field_table_row_buffer = []
+                field_table_mode = FieldTableMode.INACTIVE
+                # TODO should probably do something here, huh?
                 continue
 
-            if line == 'ATtiny214/414/814' or (re.match(r'\d', line) and not field_table_mode):
+            if line == 'ATtiny214/414/814' or (re.match(r'\d', line) and field_table_mode == FieldTableMode.INACTIVE):
+                if field_table_row_buffer:
+                    buf = [f'| {"|".join(row)} |\n' for row in field_table_row_buffer]
+                    field_description_buffer += buf
+                    field_table_row_buffer = []
                 if field_description_buffer:
                     for field in fields:
-                        field['description'] = '\n'.join(field_description_buffer)
+                        field['description'] = ' '.join(field_description_buffer)
                     field_description_buffer = None
-                field_table_mode = False
+                field_table_mode = FieldTableMode.INACTIVE
+
                 fields = None
 
             if fields:
                 print("       - accu field desc:", line)
-                if field_table_mode:
-                    ftok = line.split(' ')
-                    description = ' '.join(ftok[1:])
-                    field_description_buffer.append(f'| {ftok[0]} | {description} |')
+                if line == "Value Division":
+                    continue # hack
+                if field_table_mode == FieldTableMode.DOUBLE:
+                    if re.match(r'\d', line):
+                        ftok = line.split(' ')
+                        description = ' '.join(ftok[1:])
+                        field_table_row_buffer.append([ftok[0], description])
+                    else:
+                        print("LINE IS" ,line)
+                        print("BUFFER", field_table_row_buffer)
+                        field_table_row_buffer[-1][-1] += f'\n{line}'
+                    #field_description_buffer.append(f'| {ftok[0]} | {description} |\n')
+                elif field_table_mode == FieldTableMode.TRIPLE:
+                    if re.match(r'\d', line):
+                        ftok = line.split(' ')
+                        description = ' '.join(ftok[2:])
+                        print("FTOK", ftok)
+                        field_table_row_buffer.append([ftok[0], ftok[1], description])
+                    else:
+                        field_table_row_buffer[-1][-1] += f'\n{line}'
+                    #field_description_buffer.append(f'| {ftok[0]} | {ftok[1]} | {description} |\n')
+
                 elif re.match('Value Description', line):
-                    field_table_mode = True
-                    field_description_buffer.append('')
-                    field_description_buffer.append('| Value | Description |')
-                    field_description_buffer.append('| ----- | ----------- |')
+                    field_table_mode = FieldTableMode.DOUBLE
+                    field_description_buffer.append('\n')
+                    field_description_buffer.append('| Value | Description |\n')
+                    field_description_buffer.append('| ----- | ----------- |\n')
+                elif re.match('Value Name Description', line):
+                    field_table_mode = FieldTableMode.TRIPLE
+                    field_description_buffer.append('\n')
+                    field_description_buffer.append('| Value | Name | Description |\n')
+                    field_description_buffer.append('| ----- | ---- | ----------- |\n')
                 else:
                     field_description_buffer.append(line)
                     # TODO table mode
