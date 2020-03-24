@@ -14,7 +14,7 @@ const RegistryOffset = function RegistryOffset(props) {
         bits += fieldObj.size;
         const active = fieldObj.relatedGroups.includes(activeGroup) || field === fieldObj.name;
         const disabled = !fieldObj.name;
-        const range = fieldObj.size > 1 && !disabled ? `[${i + fieldObj.size - 1}:${i}]` : '';
+        const range = fieldObj.size > 1 && !disabled ? `[${7 - bits + fieldObj.size}:${7-bits+1}]` : '';
         const name = fieldObj.name ? `${fieldObj.name}${range}` : '';
         return (
             <div className={cls(
@@ -27,7 +27,7 @@ const RegistryOffset = function RegistryOffset(props) {
                 {name}
             </div>
         )
-    }).reverse();
+    });
 
     const bitBlocks = [...Array(bits).keys()].map(bit => {
         return (

@@ -6,7 +6,7 @@ re_registry_name = r'.+ Summary - (?P<registry_name>.+)'
 re_offset_name = r'Name:\u2000 (?P<offset_name>.+)'
 re_property = r'Property:\u2000'
 re_bit_match = r'Bit \d \d \d'
-re_field_title = r'Bits? \d(:\d)?\s–\s(?P<field_name>.+?)(?:\[.+?\])?\s(?P<field_title>.+)'
+re_field_title = r'Bits? \d(:\d)?\s–\s(?P<field_name>.+?)(?:\[.+?\])?\s+(?P<field_title>.+)'
 re_number_start = r'\d'
 def fix_registry_names(registry_name):
     if registry_name == 'TCA in Split Mode (CTRLD.SPLITM=1)':
@@ -24,6 +24,8 @@ def run():
     description_buffer = False
     last_line = None
     skip_related_links = False
+    field_table_mode = False
+    field_description_buffer = False
     with open('datasheet.txt', 'r', encoding='utf-8') as f:
         for line in f.readlines():
             line = line.strip()
@@ -31,6 +33,7 @@ def run():
                 continue
             if line == 'Related Links':
                 skip_related_links = True
+                continue
             elif skip_related_links:
                 if re.match(r'^\d', line):
                     continue
@@ -78,9 +81,12 @@ def run():
                 for offset in offsets:
                     print(" - Set description: ", description)
                     offset['description'] = description
+                # No continue here, gotta keep processing the line
+                description_buffer = False
 
             if description_buffer is not False:
                 description_buffer.append(line)
+                continue
 
             match = re.match(re_field_title, line)
             if match:
@@ -94,6 +100,33 @@ def run():
                     time.sleep(1)
                 for field in fields:
                     field['title'] = field_title
+                field_description_buffer = []
+                continue
+
+            if line == 'ATtiny214/414/814' or (re.match(r'\d', line) and not field_table_mode):
+                if field_description_buffer:
+                    for field in fields:
+                        field['description'] = '\n'.join(field_description_buffer)
+                    field_description_buffer = None
+                field_table_mode = False
+                fields = None
+
+            if fields:
+                print("       - accu field desc:", line)
+                if field_table_mode:
+                    ftok = line.split(' ')
+                    description = ' '.join(ftok[1:])
+                    field_description_buffer.append(f'| {ftok[0]} | {description} |')
+                elif re.match('Value Description', line):
+                    field_table_mode = True
+                    field_description_buffer.append('')
+                    field_description_buffer.append('| Value | Description |')
+                    field_description_buffer.append('| ----- | ----------- |')
+                else:
+                    field_description_buffer.append(line)
+                    # TODO table mode
+                #time.sleep(1)
+                continue
 
             last_line = line
     with open('rich-output.json', 'w', encoding='utf-8') as f:

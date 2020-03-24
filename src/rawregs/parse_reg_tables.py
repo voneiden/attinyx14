@@ -46,7 +46,7 @@ def parse_fields(raw_fields):
 
     total_size = sum([f.get('size', 1) for f in fields])
     if total_size < 8:
-        fields = [{}] * (8 - total_size) + fields
+        fields = [{'size': (8 - total_size)}] + fields
     return fields
 
 

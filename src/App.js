@@ -1,7 +1,7 @@
 import React from 'react';
 import attinyx14pinsPath from './config/attinyx14-pins.toml';
 import attinyx14topicsPath from './config/attinyx14-topics.toml';
-import attinyx14registriesPath from './config/attinyx14-registries.toml';
+import attinyx14registries from './config/attinyx14-registries.json';
 import './App.scss';
 import * as toml from "toml";
 import ChipView from "./views/chip-view";
@@ -19,12 +19,10 @@ function httpGet(theUrl)
 }
 const attinyx14pins = httpGet(attinyx14pinsPath);
 const attinyx14topics = httpGet(attinyx14topicsPath);
-const attinyx14registries = httpGet(attinyx14registriesPath);
-
+//const attinyx14registries = httpGet(attinyx14registriesPath);
 store.setPins(toml.parse(attinyx14pins).pins);
 store.setTopics(toml.parse(attinyx14topics).topics);
-store.setRegistries(toml.parse(attinyx14registries).regs);
-
+store.setRegistries(attinyx14registries.regs);
 function App() {
     return (
         <HashRouter>

@@ -227,6 +227,7 @@ Lorem ipsum about EXTCLK
     title = "Fuses"
     text = """
 Lorem ipsum about fuses
+<reg>FUSE</reg>
 """
 
 [[topics]]
