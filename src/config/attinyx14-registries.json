@@ -567,7 +567,7 @@
             }
           ],
           "title": "Stack Pointer",
-          "description": "The CPU.SP holds the Stack Pointer (SP) that points to the top of the Stack. After Reset, the Stack Pointer points to\nthe highest internal SRAM address.\nOnly the number of bits required to address the available data memory including external memory (up to 64KB) is\nimplemented for each device. Unused bits will always read as zero.\nThe CPU.SPL and CPU.SPH register pair represents the 16-bit value, CPU.SP. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nTo prevent corruption when updating the Stack Pointer from software, a write to CPU.SPL will automatically disable\ninterrupts for the next four instructions or until the next I/O memory write.\nBit 15 14 13 12 11 10 9 8\nSP[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset x x x x x x x x"
+          "description": "The CPU.SP holds the Stack Pointer (SP) that points to the top of the Stack. After Reset, the Stack Pointer points to\nthe highest internal SRAM address.\nOnly the number of bits required to address the available data memory including external memory (up to 64KB) is\nimplemented for each device. Unused bits will always read as zero.\nThe CPU.SPL and CPU.SPH register pair represents the 16-bit value, CPU.SP. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nTo prevent corruption when updating the Stack Pointer from software, a write to CPU.SPL will automatically disable\ninterrupts for the next four instructions or until the next I/O memory write."
         },
         {
           "offset": "0x0F",
@@ -723,7 +723,7 @@
             }
           ],
           "title": "Data",
-          "description": "The NVMCTRL.DATAL and NVMCTRL.DATAH register pair represents the 16-bit value, NVMCTRL.DATA. The low\nbyte [7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset\n+ 0x01. For more details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nDATA[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "The NVMCTRL.DATAL and NVMCTRL.DATAH register pair represents the 16-bit value, NVMCTRL.DATA. The low\nbyte [7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset\n+ 0x01. For more details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x08",
@@ -739,7 +739,7 @@
             }
           ],
           "title": "Address",
-          "description": "The NVMCTRL.ADDRL and NVMCTRL.ADDRH register pair represents the 16-bit value, NVMCTRL.ADDR. The low\nbyte [7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset\n+ 0x01. For more details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nADDR[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "The NVMCTRL.ADDRL and NVMCTRL.ADDRH register pair represents the 16-bit value, NVMCTRL.ADDR. The low\nbyte [7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset\n+ 0x01. For more details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         }
       ]
     },
@@ -2291,7 +2291,7 @@
             }
           ],
           "title": "Counter Register - Normal Mode",
-          "description": "The TCA.CNTL and TCA.CNTH register pair represents the 16-bit value, TCA.CNT. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nCPU and UPDI write access has priority over internal updates of the register.\nBit 15 14 13 12 11 10 9 8\nCNT[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "The TCA.CNTL and TCA.CNTH register pair represents the 16-bit value, TCA.CNT. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nCPU and UPDI write access has priority over internal updates of the register."
         },
         {
           "offset": "0x26",
@@ -2311,7 +2311,7 @@
             }
           ],
           "title": "Period Register - Normal Mode",
-          "description": "TCA.PER contains the 16-bit TOP value in the timer/counter.\nThe TCA.PERL and TCA.PERH register pair represents the 16-bit value, TCA.PER. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nPER[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 1 1 1 1 1 1 1 1"
+          "description": "TCA.PER contains the 16-bit TOP value in the timer/counter.\nThe TCA.PERL and TCA.PERH register pair represents the 16-bit value, TCA.PER. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x28",
@@ -2331,7 +2331,7 @@
             }
           ],
           "title": "Compare n Register - Normal Mode",
-          "description": "This register is continuously compared to the counter value. Normally, the outputs from the comparators are then\nused for generating waveforms.\nTCA.CMPn registers are updated with the buffer value from their corresponding CMPnBUF register when an\nUPDATE condition occurs.\nThe TCA.CMPnL and TCA.CMPnH register pair represents the 16-bit value, TCA.CMPn. The low byte [7:0] (suffix L)\nis accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details\non reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nCMP[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "This register is continuously compared to the counter value. Normally, the outputs from the comparators are then\nused for generating waveforms.\nTCA.CMPn registers are updated with the buffer value from their corresponding CMPnBUF register when an\nUPDATE condition occurs.\nThe TCA.CMPnL and TCA.CMPnH register pair represents the 16-bit value, TCA.CMPn. The low byte [7:0] (suffix L)\nis accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details\non reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x2A",
@@ -2351,7 +2351,7 @@
             }
           ],
           "title": "Compare n Register - Normal Mode",
-          "description": "This register is continuously compared to the counter value. Normally, the outputs from the comparators are then\nused for generating waveforms.\nTCA.CMPn registers are updated with the buffer value from their corresponding CMPnBUF register when an\nUPDATE condition occurs.\nThe TCA.CMPnL and TCA.CMPnH register pair represents the 16-bit value, TCA.CMPn. The low byte [7:0] (suffix L)\nis accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details\non reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nCMP[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "This register is continuously compared to the counter value. Normally, the outputs from the comparators are then\nused for generating waveforms.\nTCA.CMPn registers are updated with the buffer value from their corresponding CMPnBUF register when an\nUPDATE condition occurs.\nThe TCA.CMPnL and TCA.CMPnH register pair represents the 16-bit value, TCA.CMPn. The low byte [7:0] (suffix L)\nis accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details\non reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x2C",
@@ -2371,7 +2371,7 @@
             }
           ],
           "title": "Compare n Register - Normal Mode",
-          "description": "This register is continuously compared to the counter value. Normally, the outputs from the comparators are then\nused for generating waveforms.\nTCA.CMPn registers are updated with the buffer value from their corresponding CMPnBUF register when an\nUPDATE condition occurs.\nThe TCA.CMPnL and TCA.CMPnH register pair represents the 16-bit value, TCA.CMPn. The low byte [7:0] (suffix L)\nis accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details\non reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nCMP[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "This register is continuously compared to the counter value. Normally, the outputs from the comparators are then\nused for generating waveforms.\nTCA.CMPn registers are updated with the buffer value from their corresponding CMPnBUF register when an\nUPDATE condition occurs.\nThe TCA.CMPnL and TCA.CMPnH register pair represents the 16-bit value, TCA.CMPn. The low byte [7:0] (suffix L)\nis accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details\non reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x36",
@@ -2391,7 +2391,7 @@
             }
           ],
           "title": "Period Buffer Register",
-          "description": "This register serves as the buffer for the period register (TCA.PER). Accessing this register using the CPU or UPDI\nwill affect the PERBV flag.\nThe TCA.PERBUFL and TCA.PERBUFH register pair represents the 16-bit value, TCA.PERBUF. The low byte [7:0]\n(suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more\ndetails on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nPERBUF[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 1 1 1 1 1 1 1 1"
+          "description": "This register serves as the buffer for the period register (TCA.PER). Accessing this register using the CPU or UPDI\nwill affect the PERBV flag.\nThe TCA.PERBUFL and TCA.PERBUFH register pair represents the 16-bit value, TCA.PERBUF. The low byte [7:0]\n(suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more\ndetails on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x38",
@@ -2411,7 +2411,7 @@
             }
           ],
           "title": "Compare n Buffer Register",
-          "description": "This register serves as the buffer for the associated compare registers (TCA.CMPn). Accessing any of these\nregisters using the CPU or UPDI will affect the corresponding CMPnBV status bit.\nThe TCA.CMPnBUFL and TCA.CMPnBUFH register pair represents the 16-bit value, TCA.CMPnBUF. The low byte\n[7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For\nmore details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nCMPBUF[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "This register serves as the buffer for the associated compare registers (TCA.CMPn). Accessing any of these\nregisters using the CPU or UPDI will affect the corresponding CMPnBV status bit.\nThe TCA.CMPnBUFL and TCA.CMPnBUFH register pair represents the 16-bit value, TCA.CMPnBUF. The low byte\n[7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For\nmore details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x3A",
@@ -2431,7 +2431,7 @@
             }
           ],
           "title": "Compare n Buffer Register",
-          "description": "This register serves as the buffer for the associated compare registers (TCA.CMPn). Accessing any of these\nregisters using the CPU or UPDI will affect the corresponding CMPnBV status bit.\nThe TCA.CMPnBUFL and TCA.CMPnBUFH register pair represents the 16-bit value, TCA.CMPnBUF. The low byte\n[7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For\nmore details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nCMPBUF[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "This register serves as the buffer for the associated compare registers (TCA.CMPn). Accessing any of these\nregisters using the CPU or UPDI will affect the corresponding CMPnBV status bit.\nThe TCA.CMPnBUFL and TCA.CMPnBUFH register pair represents the 16-bit value, TCA.CMPnBUF. The low byte\n[7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For\nmore details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x3C",
@@ -2451,7 +2451,7 @@
             }
           ],
           "title": "Compare n Buffer Register",
-          "description": "This register serves as the buffer for the associated compare registers (TCA.CMPn). Accessing any of these\nregisters using the CPU or UPDI will affect the corresponding CMPnBV status bit.\nThe TCA.CMPnBUFL and TCA.CMPnBUFH register pair represents the 16-bit value, TCA.CMPnBUF. The low byte\n[7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For\nmore details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nCMPBUF[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "This register serves as the buffer for the associated compare registers (TCA.CMPn). Accessing any of these\nregisters using the CPU or UPDI will affect the corresponding CMPnBV status bit.\nThe TCA.CMPnBUFL and TCA.CMPnBUFH register pair represents the 16-bit value, TCA.CMPnBUF. The low byte\n[7:0] (suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For\nmore details on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         }
       ]
     },
@@ -3021,7 +3021,7 @@
             }
           ],
           "title": "Count",
-          "description": "The TCB.CNTL and TCB.CNTH register pair represents the 16-bit value TCB.CNT. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nCPU and UPDI write access has priority over internal updates of the register.\nBit 15 14 13 12 11 10 9 8\nCNT[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "The TCB.CNTL and TCB.CNTH register pair represents the 16-bit value TCB.CNT. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nCPU and UPDI write access has priority over internal updates of the register."
         },
         {
           "offset": "0x0C",
@@ -3041,7 +3041,7 @@
             }
           ],
           "title": "Capture/Compare",
-          "description": "The TCB.CCMPL and TCB.CCMPH register pair represents the 16-bit value TCB.CCMP. The low byte [7:0] (suffix L)\nis accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details\non reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nThis register has different functions depending on the mode of operation:\n\u2022 For capture operation, these registers contain the captured value of the counter at the time the capture occurs\n\u2022 In periodic interrupt/timeout and single shot mode this register acts as the TOP value.\n\u2022 In 8-bit PWM mode, TCB.CCMPL and TCB.CCMPH act as two independent registers.\nBit 15 14 13 12 11 10 9 8\nCCMP[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "The TCB.CCMPL and TCB.CCMPH register pair represents the 16-bit value TCB.CCMP. The low byte [7:0] (suffix L)\nis accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details\non reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nThis register has different functions depending on the mode of operation:\n\u2022 For capture operation, these registers contain the captured value of the counter at the time the capture occurs\n\u2022 In periodic interrupt/timeout and single shot mode this register acts as the TOP value.\n\u2022 In 8-bit PWM mode, TCB.CCMPL and TCB.CCMPH act as two independent registers."
         }
       ]
     },
@@ -3501,7 +3501,7 @@
             }
           ],
           "title": "Capture x",
-          "description": "For capture operation, these registers constitute the second buffer level and access point for the CPU. The\nTCD.CAPTUREx registers are updated with the buffer value when an UPDATE condition occurs. CAPTURE A\nregister contains the value from the TCD counter when a Trigger A or a software capture A occurs. CAPTURE B\nregister contain the value from the TCD counter when Trigger B or software capture B occurs.\nThe TCD counter value is synchronized to CAPTUREx by either software or an event.\nThe capture register is blocked for update of new capture data until TCDn.CAPTURExH is read.\nBit 15 14 13 12 11 10 9 8\nCAPTURE[11:8]\nAccess R R R R\nReset 0 0 0 0"
+          "description": "For capture operation, these registers constitute the second buffer level and access point for the CPU. The\nTCD.CAPTUREx registers are updated with the buffer value when an UPDATE condition occurs. CAPTURE A\nregister contains the value from the TCD counter when a Trigger A or a software capture A occurs. CAPTURE B\nregister contain the value from the TCD counter when Trigger B or software capture B occurs.\nThe TCD counter value is synchronized to CAPTUREx by either software or an event.\nThe capture register is blocked for update of new capture data until TCDn.CAPTURExH is read."
         },
         {
           "offset": "0x24",
@@ -3520,7 +3520,7 @@
             }
           ],
           "title": "Capture x",
-          "description": "For capture operation, these registers constitute the second buffer level and access point for the CPU. The\nTCD.CAPTUREx registers are updated with the buffer value when an UPDATE condition occurs. CAPTURE A\nregister contains the value from the TCD counter when a Trigger A or a software capture A occurs. CAPTURE B\nregister contain the value from the TCD counter when Trigger B or software capture B occurs.\nThe TCD counter value is synchronized to CAPTUREx by either software or an event.\nThe capture register is blocked for update of new capture data until TCDn.CAPTURExH is read.\nBit 15 14 13 12 11 10 9 8\nCAPTURE[11:8]\nAccess R R R R\nReset 0 0 0 0"
+          "description": "For capture operation, these registers constitute the second buffer level and access point for the CPU. The\nTCD.CAPTUREx registers are updated with the buffer value when an UPDATE condition occurs. CAPTURE A\nregister contains the value from the TCD counter when a Trigger A or a software capture A occurs. CAPTURE B\nregister contain the value from the TCD counter when Trigger B or software capture B occurs.\nThe TCD counter value is synchronized to CAPTUREx by either software or an event.\nThe capture register is blocked for update of new capture data until TCDn.CAPTURExH is read."
         },
         {
           "offset": "0x28",
@@ -3539,7 +3539,7 @@
             }
           ],
           "title": "Compare Set x",
-          "description": "For compare operation, these registers are continuously compared to the counter value. Normally, the outputs form\nthe comparators are then used for generating waveforms.\nBit 15 14 13 12 11 10 9 8\nCMPSET[11:8]\nAccess R/W R/W R/W R/W\nReset 0 0 0 0"
+          "description": "For compare operation, these registers are continuously compared to the counter value. Normally, the outputs form\nthe comparators are then used for generating waveforms."
         },
         {
           "offset": "0x2A",
@@ -3558,7 +3558,7 @@
             }
           ],
           "title": "Compare Clear x",
-          "description": "For compare operation, these registers are continuously compared to the counter value. Normally, the outputs form\nthe comparators are then used for generating waveforms.\nBit 15 14 13 12 11 10 9 8\nCMPCLR[11:8]\nAccess R/W R/W R/W R/W\nReset 0 0 0 0"
+          "description": "For compare operation, these registers are continuously compared to the counter value. Normally, the outputs form\nthe comparators are then used for generating waveforms."
         },
         {
           "offset": "0x2C",
@@ -3577,7 +3577,7 @@
             }
           ],
           "title": "Compare Set x",
-          "description": "For compare operation, these registers are continuously compared to the counter value. Normally, the outputs form\nthe comparators are then used for generating waveforms.\nBit 15 14 13 12 11 10 9 8\nCMPSET[11:8]\nAccess R/W R/W R/W R/W\nReset 0 0 0 0"
+          "description": "For compare operation, these registers are continuously compared to the counter value. Normally, the outputs form\nthe comparators are then used for generating waveforms."
         },
         {
           "offset": "0x2E",
@@ -3596,7 +3596,7 @@
             }
           ],
           "title": "Compare Clear x",
-          "description": "For compare operation, these registers are continuously compared to the counter value. Normally, the outputs form\nthe comparators are then used for generating waveforms.\nBit 15 14 13 12 11 10 9 8\nCMPCLR[11:8]\nAccess R/W R/W R/W R/W\nReset 0 0 0 0"
+          "description": "For compare operation, these registers are continuously compared to the counter value. Normally, the outputs form\nthe comparators are then used for generating waveforms."
         }
       ]
     },
@@ -3761,7 +3761,7 @@
             }
           ],
           "title": "Count",
-          "description": "The RTC.CNTL and RTC.CNTH register pair represents the 16-bit value, RTC.CNT. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nDue to synchronization between the RTC clock and system clock domains, there is a latency of two RTC clock cycles\nfrom updating the register until this has an effect. Application software needs to check that the STATUS.CNTBUSY\nflag is cleared before writing to this register.\nBit 15 14 13 12 11 10 9 8\nCNT[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "The RTC.CNTL and RTC.CNTH register pair represents the 16-bit value, RTC.CNT. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nDue to synchronization between the RTC clock and system clock domains, there is a latency of two RTC clock cycles\nfrom updating the register until this has an effect. Application software needs to check that the STATUS.CNTBUSY\nflag is cleared before writing to this register."
         },
         {
           "offset": "0x0A",
@@ -3781,7 +3781,7 @@
             }
           ],
           "title": "Period",
-          "description": "The RTC.PERL and RTC.PERH register pair represents the 16-bit value, RTC.PER. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nDue to synchronization between the RTC clock and system clock domains, there is a latency of two RTC clock cycles\nfrom updating the register until this has an effect. Application software needs to check that the STATUS.PERBUSY\nflag is cleared before writing to this register.\nBit 15 14 13 12 11 10 9 8\nPER[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 1 1 1 1 1 1 1 1"
+          "description": "The RTC.PERL and RTC.PERH register pair represents the 16-bit value, RTC.PER. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nDue to synchronization between the RTC clock and system clock domains, there is a latency of two RTC clock cycles\nfrom updating the register until this has an effect. Application software needs to check that the STATUS.PERBUSY\nflag is cleared before writing to this register."
         },
         {
           "offset": "0x0C",
@@ -3801,7 +3801,7 @@
             }
           ],
           "title": "Compare",
-          "description": "The RTC.CMPL and RTC.CMPH register pair represents the 16-bit value, RTC.CMP. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nCMP[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "The RTC.CMPL and RTC.CMPH register pair represents the 16-bit value, RTC.CMP. The low byte [7:0] (suffix L) is\naccessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on\nreading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x10",
@@ -4159,7 +4159,7 @@
             }
           ],
           "title": "Baud Register",
-          "description": "The USART.BAUDL and USART.BAUDH register pair represents the 16-bit value, USART.BAUD. The low byte [7:0]\n(suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more\ndetails on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nOngoing transmissions of the Transmitter and Receiver will be corrupted if the baud rate is changed. Writing this\nregister will trigger an immediate update of the baud rate prescaler. For more information of how to set the baud rate,\nsee Table 24-2\nBit 15 14 13 12 11 10 9 8\nBAUD[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "The USART.BAUDL and USART.BAUDH register pair represents the 16-bit value, USART.BAUD. The low byte [7:0]\n(suffix L) is accessible at the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more\ndetails on reading and writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nOngoing transmissions of the Transmitter and Receiver will be corrupted if the baud rate is changed. Writing this\nregister will trigger an immediate update of the baud rate prescaler. For more information of how to set the baud rate,\nsee Table 24-2"
         },
         {
           "offset": "0x0B",
@@ -5376,7 +5376,7 @@
             }
           ],
           "title": "Result",
-          "description": "The RESL and RESH register pair represents the 16-bit value, RES. The low byte [7:0] (suffix L) is accessible at the\noriginal offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on reading and\nwriting 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nIf the analog input is higher than the reference level of the ADC, the 10 bit ADC result will be equal the max value of\n0x3FF. Likewise, if the input is below 0V, the ADC result will be 0x000. As the ADC cannot produce a result above\n0x3FF values, the accumulated value will never exceed 0xFFC0 even after maximum allowed 64 accumulations.\nBit 15 14 13 12 11 10 9 8\nRES[15:8]\nAccess R R R R R R R R\nReset 0 0 0 0 0 0 0 0"
+          "description": "The RESL and RESH register pair represents the 16-bit value, RES. The low byte [7:0] (suffix L) is accessible at the\noriginal offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on reading and\nwriting 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nIf the analog input is higher than the reference level of the ADC, the 10 bit ADC result will be equal the max value of\n0x3FF. Likewise, if the input is below 0V, the ADC result will be 0x000. As the ADC cannot produce a result above\n0x3FF values, the accumulated value will never exceed 0xFFC0 even after maximum allowed 64 accumulations."
         },
         {
           "offset": "0x12",
@@ -5396,7 +5396,7 @@
             }
           ],
           "title": "Window Comparator Low Threshold",
-          "description": "This register is the 16-bit Low Threshold for the digital comparator monitoring the RES register. The ADC itself has\n10-bit output, RES[9:0], where the msb is RES[9]. The data format in ADC and Digital Accumulation is one\u2019s\ncomplement, where 0x0000 represents the zero and 0xFFFF represent the largest number (full scale).\nThe WINLTH and WINLTL register pair represent the 16-bit value, WINLT. The low byte [7:0] (suffix L) is accessible at\nthe original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on reading and\nwriting 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nWhen accumulating samples, the window comparator thresholds are applied on the accumulated value and not on\neach sample.\nBit 15 14 13 12 11 10 9 8\nWINLT[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "This register is the 16-bit Low Threshold for the digital comparator monitoring the RES register. The ADC itself has\n10-bit output, RES[9:0], where the msb is RES[9]. The data format in ADC and Digital Accumulation is one\u2019s\ncomplement, where 0x0000 represents the zero and 0xFFFF represent the largest number (full scale).\nThe WINLTH and WINLTL register pair represent the 16-bit value, WINLT. The low byte [7:0] (suffix L) is accessible at\nthe original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on reading and\nwriting 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nWhen accumulating samples, the window comparator thresholds are applied on the accumulated value and not on\neach sample."
         },
         {
           "offset": "0x14",
@@ -5416,7 +5416,7 @@
             }
           ],
           "title": "Window Comparator High Threshold",
-          "description": "This register is the 16-bit High Threshold for the digital comparator monitoring the RES register. The ADC itself has\n10-bit output, RES[9:0], where the msb is RES[9]. The data format in ADC and Digital Accumulation is one\u2019s\ncomplement, where 0x0000 represents the zero and 0xFFFF represent the largest number (full scale).\nThe WINHTH and WINHTL register pair represent the 16-bit value, WINHT. The low byte [7:0] (suffix L) is accessible\nat the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on reading\nand writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers.\nBit 15 14 13 12 11 10 9 8\nWINHT[15:8]\nAccess R/W R/W R/W R/W R/W R/W R/W R/W\nReset 0 0 0 0 0 0 0 0"
+          "description": "This register is the 16-bit High Threshold for the digital comparator monitoring the RES register. The ADC itself has\n10-bit output, RES[9:0], where the msb is RES[9]. The data format in ADC and Digital Accumulation is one\u2019s\ncomplement, where 0x0000 represents the zero and 0xFFFF represent the largest number (full scale).\nThe WINHTH and WINHTL register pair represent the 16-bit value, WINHT. The low byte [7:0] (suffix L) is accessible\nat the original offset. The high byte [15:8] (suffix H) can be accessed at offset + 0x01. For more details on reading\nand writing 16-bit registers, refer to 8.5.6 Accessing 16-bit Registers."
         },
         {
           "offset": "0x16",

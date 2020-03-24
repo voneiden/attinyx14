@@ -5,7 +5,7 @@ import time
 re_registry_name = r'.+ Summary - (?P<registry_name>.+)'
 re_offset_name = r'Name:\u2000 (?P<offset_name>.+)'
 re_property = r'Property:\u2000'
-re_bit_match = r'Bit \d \d \d'
+re_bit_match = r'Bit \d+ \d+ \d+'
 re_field_title = r'Bits? \d(:\d)?\s–\s(?P<field_name>.+?)(?:\[.+?\])?\s+(?P<field_title>.+)'
 re_number_start = r'\d'
 def fix_registry_names(registry_name):
