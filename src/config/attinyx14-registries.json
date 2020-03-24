@@ -349,7 +349,7 @@
               "name": "LVL",
               "size": 3,
               "title": "BOD Level",
-              "description": "This value is loaded into the LVL bit field of the BOD Control B register (BOD.CTRLB) during Reset. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|BODLEVEL0|1.8V |\n | 0x2|BODLEVEL2|2.6V |\n | 0x7|BODLEVEL7|4.2V\nNote:\n\u2022 Values in the description are typical values.\n\u2022 Refer to the BOD and POR Characteristics in Electrical Characteristics for maximum and minimum values. |\n"
+              "description": "This value is loaded into the LVL bit field of the BOD Control B register (BOD.CTRLB) during Reset. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|BODLEVEL0|1.8V |\n | 0x2|BODLEVEL2|2.6V |\n | 0x7|BODLEVEL7|4.2V<br>Note:<br>\u2022 Values in the description are typical values.<br>\u2022 Refer to the BOD and POR Characteristics in Electrical Characteristics for maximum and minimum values. |\n"
             },
             {
               "name": "SAMPFREQ",
@@ -388,7 +388,7 @@
               "name": "FREQSEL",
               "size": 2,
               "title": "Frequency Select",
-              "description": "These bits selects the operation frequency of the 16/20MHz internal oscillator (OSC20M), and determine the respective factory calibration values to be written to CAL20M in CLKCTRL.OSC20MCALIBA and TEMPCAL20M in CLKCTRL.OSC20MCALIBB. \n | Value | Description |\n | ----- | ----------- |\n | 0x1|Run at 16MHz with corresponding factory calibration |\n | 0x2|Run at 20MHz with corresponding factory calibration\nOther Reserved |\n"
+              "description": "These bits selects the operation frequency of the 16/20MHz internal oscillator (OSC20M), and determine the respective factory calibration values to be written to CAL20M in CLKCTRL.OSC20MCALIBA and TEMPCAL20M in CLKCTRL.OSC20MCALIBB. \n | Value | Description |\n | ----- | ----------- |\n | 0x1|Run at 16MHz with corresponding factory calibration |\n | 0x2|Run at 20MHz with corresponding factory calibration |\n | Other|Reserved |\n"
             }
           ],
           "title": "Oscillator Configuration",
@@ -443,7 +443,7 @@
               "name": "RSTPINCFG",
               "size": 2,
               "title": "Reset Pin Configuration",
-              "description": "These bits select the Reset/UPDI pin configuration. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|GPIO |\n | 0x1|UPDI |\n | 0x2|RESET |\n | 0x3|Reserved\nNote:\u2000 When configuring the Reset Pin as GPIO, there is a potential conflict between the GPIO actively driving the\noutput, and a 12V UPDI enable sequence initiation. To avoid this, the GPIO output driver is disabled for 768 OSC32K\ncycles after a System Reset. Enable any interrupts for this pin only after this period. |\n"
+              "description": "These bits select the Reset/UPDI pin configuration. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|GPIO |\n | 0x1|UPDI |\n | 0x2|RESET |\n | 0x3|Reserved<br>Note:\u2000 When configuring the Reset Pin as GPIO, there is a potential conflict between the GPIO actively driving the<br>output, and a 12V UPDI enable sequence initiation. To avoid this, the GPIO output driver is disabled for 768 OSC32K<br>cycles after a System Reset. Enable any interrupts for this pin only after this period. |\n"
             },
             {},
             {
@@ -508,7 +508,7 @@
               "name": "LOCKBIT",
               "size": 8,
               "title": "Lock Bits",
-              "description": "When the part is locked, UPDI cannot access the system bus, so it cannot read out anything but CS-space. \n | Value | Description |\n | ----- | ----------- |\n | 0xC5|The device is open\nother The device is locked |\n"
+              "description": "When the part is locked, UPDI cannot access the system bus, so it cannot read out anything but CS-space. \n | Value | Description |\n | ----- | ----------- |\n | 0xC5|The device is open |\n | other|The device is locked |\n"
             }
           ],
           "title": "Lock Bits",
@@ -790,7 +790,7 @@
               "name": "PDIV",
               "size": 4,
               "title": "Prescaler Division",
-              "description": "If the Prescaler Enable (PEN) bit is written to '1', these bits define the division ratio of the Main Clock prescaler. These bits can be written during run-time to vary the clock frequency of the system to suit the application requirements. User software must ensure a correct configuration of input frequency (CLK_MAIN) and Prescaler settings, such that the resulting frequency of CLK_PER never exceeds the allowed maximum (see Electrical Characteristics). \n | Value | Description |\n | ----- | ----------- |\n | 0x0|2 |\n | 0x1|4 |\n | 0x2|8 |\n | 0x3|16 |\n | 0x4|32 |\n | 0x5|64 |\n | 0x8|6 |\n | 0x9|10 |\n | 0xA|12 |\n | 0xB|24 |\n | 0xC|48\nother Reserved |\n"
+              "description": "If the Prescaler Enable (PEN) bit is written to '1', these bits define the division ratio of the Main Clock prescaler. These bits can be written during run-time to vary the clock frequency of the system to suit the application requirements. User software must ensure a correct configuration of input frequency (CLK_MAIN) and Prescaler settings, such that the resulting frequency of CLK_PER never exceeds the allowed maximum (see Electrical Characteristics). \n | Value | Description |\n | ----- | ----------- |\n | 0x0|2 |\n | 0x1|4 |\n | 0x2|8 |\n | 0x3|16 |\n | 0x4|32 |\n | 0x5|64 |\n | 0x8|6 |\n | 0x9|10 |\n | 0xA|12 |\n | 0xB|24 |\n | 0xC|48 |\n | other|Reserved |\n"
             },
             {
               "name": "PEN",
@@ -847,7 +847,7 @@
             {
               "name": "SOSC",
               "title": "Main Clock Oscillator Changing",
-              "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|The clock source for CLK_MAIN is not undergoing a switch. |\n | 1|The clock source for CLK_MAIN is undergoing a switch, and will change as soon as the new source is\nstable. |\n"
+              "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|The clock source for CLK_MAIN is not undergoing a switch. |\n | 1|The clock source for CLK_MAIN is undergoing a switch, and will change as soon as the new source is<br>stable. |\n"
             }
           ],
           "title": "Main Clock Status",
@@ -973,7 +973,7 @@
               "name": "SMODE",
               "size": 2,
               "title": "Sleep Mode",
-              "description": "Writing these bits selects the sleep mode entered when the Sleep Enable bit (SEN) is written to '1' and the SLEEP instruction is executed. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|IDLE|Idle sleep mode enabled |\n | 0x1|STANDBY|Standby sleep mode enabled |\n | 0x2|PDOWN|Power Down sleep mode enabled\nother - Reserved |\n"
+              "description": "Writing these bits selects the sleep mode entered when the Sleep Enable bit (SEN) is written to '1' and the SLEEP instruction is executed. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|IDLE|Idle sleep mode enabled |\n | 0x1|STANDBY|Standby sleep mode enabled |\n | 0x2|PDOWN|Power Down sleep mode enabled |\n | other|-|Reserved |\n"
             },
             {
               "name": "SEN",
@@ -1076,7 +1076,7 @@
             {
               "name": "LVL0RR",
               "title": "Round-Robin Priority Enable",
-              "description": "This bit is not protected by the Configuration Change Protection mechanism. \n | Value | Description |\n | ----- | ----------- |\n | 0|Priority is fixed for priority level 0 interrupt requests: The lowest interrupt vector address has highest\npriority. |\n | 1|Round Robin priority scheme is enabled for priority level 0 interrupt requests. |\n"
+              "description": "This bit is not protected by the Configuration Change Protection mechanism. \n | Value | Description |\n | ----- | ----------- |\n | 0|Priority is fixed for priority level 0 interrupt requests: The lowest interrupt vector address has highest<br>priority. |\n | 1|Round Robin priority scheme is enabled for priority level 0 interrupt requests. |\n"
             }
           ],
           "title": "Control A",
@@ -1534,7 +1534,7 @@
               "name": "ISC",
               "size": 3,
               "title": "Input/Sense Configuration",
-              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level\nother - Reserved |\n"
+              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level |\n | other|-|Reserved |\n"
             }
           ],
           "title": "Pin n Control",
@@ -1561,7 +1561,7 @@
               "name": "ISC",
               "size": 3,
               "title": "Input/Sense Configuration",
-              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level\nother - Reserved |\n"
+              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level |\n | other|-|Reserved |\n"
             }
           ],
           "title": "Pin n Control",
@@ -1588,7 +1588,7 @@
               "name": "ISC",
               "size": 3,
               "title": "Input/Sense Configuration",
-              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level\nother - Reserved |\n"
+              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level |\n | other|-|Reserved |\n"
             }
           ],
           "title": "Pin n Control",
@@ -1615,7 +1615,7 @@
               "name": "ISC",
               "size": 3,
               "title": "Input/Sense Configuration",
-              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level\nother - Reserved |\n"
+              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level |\n | other|-|Reserved |\n"
             }
           ],
           "title": "Pin n Control",
@@ -1642,7 +1642,7 @@
               "name": "ISC",
               "size": 3,
               "title": "Input/Sense Configuration",
-              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level\nother - Reserved |\n"
+              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level |\n | other|-|Reserved |\n"
             }
           ],
           "title": "Pin n Control",
@@ -1669,7 +1669,7 @@
               "name": "ISC",
               "size": 3,
               "title": "Input/Sense Configuration",
-              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level\nother - Reserved |\n"
+              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level |\n | other|-|Reserved |\n"
             }
           ],
           "title": "Pin n Control",
@@ -1696,7 +1696,7 @@
               "name": "ISC",
               "size": 3,
               "title": "Input/Sense Configuration",
-              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level\nother - Reserved |\n"
+              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level |\n | other|-|Reserved |\n"
             }
           ],
           "title": "Pin n Control",
@@ -1723,7 +1723,7 @@
               "name": "ISC",
               "size": 3,
               "title": "Input/Sense Configuration",
-              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level\nother - Reserved |\n"
+              "description": "These bits configure the input and sense configuration of pin n. The sense configuration determines how a port interrupt can be triggered. If the input buffer is disabled, the input cannot be read in the IN register. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTDISABLE|Interrupt disabled but input buffer enabled |\n | 0x1|BOTHEDGES|Sense both edges |\n | 0x2|RISING|Sense rising edge |\n | 0x3|FALLING|Sense falling edge |\n | 0x4|INPUT_DISABLE|Digital input buffer disabled |\n | 0x5|LEVEL|Sense low level |\n | other|-|Reserved |\n"
             }
           ],
           "title": "Pin n Control",
@@ -1836,7 +1836,7 @@
               "name": "LVL",
               "size": 3,
               "title": "BOD Level",
-              "description": "These bits select the BOD threshold level. The Reset value is loaded from the BOD Level bits (LVL) in the BOD Configuration Fuse (FUSE.BODCFG). \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|BODLEVEL0|1.8V |\n | 0x2|BODLEVEL2|2.6V |\n | 0x7|BODLEVEL7|4.2V\nNote:\n\u2022 Values in the description are typical values.\n\u2022 Refer to the BOD and POR Characteristics in Electrical Characteristics for maximum and minimum values. |\n"
+              "description": "These bits select the BOD threshold level. The Reset value is loaded from the BOD Level bits (LVL) in the BOD Configuration Fuse (FUSE.BODCFG). \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|BODLEVEL0|1.8V |\n | 0x2|BODLEVEL2|2.6V |\n | 0x7|BODLEVEL7|4.2V<br>Note:<br>\u2022 Values in the description are typical values.<br>\u2022 Refer to the BOD and POR Characteristics in Electrical Characteristics for maximum and minimum values. |\n"
             }
           ],
           "title": "Control B",
@@ -1853,7 +1853,7 @@
               "name": "VLMLVL",
               "size": 2,
               "title": "VLM Level",
-              "description": "These bit select the Voltage Level Monitor threshold relative to the BOD threshold (LVL in BOD.CTRLB). \n | Value | Description |\n | ----- | ----------- |\n | 0x0|VLM threshold 5% above BOD threshold |\n | 0x1|VLM threshold 15% above BOD threshold |\n | 0x2|VLM threshold 25% above BOD threshold\nother Reserved |\n"
+              "description": "These bit select the Voltage Level Monitor threshold relative to the BOD threshold (LVL in BOD.CTRLB). \n | Value | Description |\n | ----- | ----------- |\n | 0x0|VLM threshold 5% above BOD threshold |\n | 0x1|VLM threshold 15% above BOD threshold |\n | 0x2|VLM threshold 25% above BOD threshold |\n | other|Reserved |\n"
             }
           ],
           "title": "VLM Control A",
@@ -1870,7 +1870,7 @@
               "name": "VLMCFG",
               "size": 2,
               "title": "VLM Configuration",
-              "description": "These bits select which incidents will trigger a VLM interrupt. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|Voltage crosses VLM threshold from above |\n | 0x1|Voltage crosses VLM threshold from below |\n | 0x2|Either direction is triggering an interrupt request\nOther Reserved |\n"
+              "description": "These bits select which incidents will trigger a VLM interrupt. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|Voltage crosses VLM threshold from above |\n | 0x1|Voltage crosses VLM threshold from below |\n | 0x2|Either direction is triggering an interrupt request |\n | Other|Reserved |\n"
             },
             {
               "name": "VLMIE",
@@ -1930,14 +1930,14 @@
               "name": "ADC0REFSEL",
               "size": 3,
               "title": "ADC0 Reference Select",
-              "description": "These bits select the reference voltage for the ADC0. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|0.55V |\n | 0x1|1.1V |\n | 0x2|2.5V |\n | 0x3|4.3V |\n | 0x4|1.5V\nother Reserved |\n"
+              "description": "These bits select the reference voltage for the ADC0. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|0.55V |\n | 0x1|1.1V |\n | 0x2|2.5V |\n | 0x3|4.3V |\n | 0x4|1.5V |\n | other|Reserved |\n"
             },
             {},
             {
               "name": "DAC0REFSEL",
               "size": 3,
               "title": "DAC0 and AC0 Reference Select",
-              "description": "These bits select reference voltage for the DAC0 and AC0. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|0.55V |\n | 0x1|1.1V |\n | 0x2|2.5V |\n | 0x3|4.3V |\n | 0x4|1.5V\nother Reserved |\n"
+              "description": "These bits select reference voltage for the DAC0 and AC0. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|0.55V |\n | 0x1|1.1V |\n | 0x2|2.5V |\n | 0x3|4.3V |\n | 0x4|1.5V |\n | other|Reserved |\n"
             }
           ],
           "title": "Control A",
@@ -1978,13 +1978,13 @@
               "name": "WINDOW",
               "size": 4,
               "title": "Window",
-              "description": "Writing a non-zero value to these bits enables the window mode, and selects the according duration of the closed period. The bits are optionally lock protected: \u2022 If LOCK bit in WDT.STATUS is '1', all bits are change protected (Access = R) \u2022 If LOCK bit in WDT.STATUS is '0', all bits can be changed (Access = R/W) \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|OFF|- |\n | 0x1|8CLK|0.008s |\n | 0x2|16CLK|0.016s |\n | 0x3|32CLK|0.032s |\n | 0x4|64CLK|0.064s |\n | 0x5|128CLK|0.128s |\n | 0x6|256CLK|0.256s |\n | 0x7|512CLK|0.512s |\n | 0x8|1KCLK|1.024s |\n | 0x9|2KCLK|2.048s |\n | 0xA|4KCLK|4.096s |\n | 0xB|8KCLK|8.192s\nother - Reserved |\n"
+              "description": "Writing a non-zero value to these bits enables the window mode, and selects the according duration of the closed period. The bits are optionally lock protected: \u2022 If LOCK bit in WDT.STATUS is '1', all bits are change protected (Access = R) \u2022 If LOCK bit in WDT.STATUS is '0', all bits can be changed (Access = R/W) \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|OFF|- |\n | 0x1|8CLK|0.008s |\n | 0x2|16CLK|0.016s |\n | 0x3|32CLK|0.032s |\n | 0x4|64CLK|0.064s |\n | 0x5|128CLK|0.128s |\n | 0x6|256CLK|0.256s |\n | 0x7|512CLK|0.512s |\n | 0x8|1KCLK|1.024s |\n | 0x9|2KCLK|2.048s |\n | 0xA|4KCLK|4.096s |\n | 0xB|8KCLK|8.192s |\n | other|-|Reserved |\n"
             },
             {
               "name": "PERIOD",
               "size": 4,
               "title": "Period",
-              "description": "Writing a non-zero value to this bit enables the WDT, and selects the according timeout period in normal mode. In window mode, these bits select the duration of the open window. The bits are optionally lock protected: \u2022 If LOCK in WDT.STATUS is '1', all bits are change protected (Access = R) \u2022 If LOCK in WDT.STATUS is '0', all bits can be changed (Access = R/W) \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|OFF|- |\n | 0x1|8CLK|0.008s |\n | 0x2|16CLK|0.016s |\n | 0x3|32CLK|0.032s |\n | 0x4|64CLK|0.064s |\n | 0x5|128CLK|0.128s |\n | 0x6|256CLK|0.256s |\n | 0x7|512CLK|0.512s |\n | 0x8|1KCLK|1.0s |\n | 0x9|2KCLK|2.0s |\n | 0xA|4KCLK|4.1s |\n | 0xB|8KCLK|8.2s\nother - Reserved |\n"
+              "description": "Writing a non-zero value to this bit enables the WDT, and selects the according timeout period in normal mode. In window mode, these bits select the duration of the open window. The bits are optionally lock protected: \u2022 If LOCK in WDT.STATUS is '1', all bits are change protected (Access = R) \u2022 If LOCK in WDT.STATUS is '0', all bits can be changed (Access = R/W) \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|OFF|- |\n | 0x1|8CLK|0.008s |\n | 0x2|16CLK|0.016s |\n | 0x3|32CLK|0.032s |\n | 0x4|64CLK|0.064s |\n | 0x5|128CLK|0.128s |\n | 0x6|256CLK|0.256s |\n | 0x7|512CLK|0.512s |\n | 0x8|1KCLK|1.0s |\n | 0x9|2KCLK|2.0s |\n | 0xA|4KCLK|4.1s |\n | 0xB|8KCLK|8.2s |\n | other|-|Reserved |\n"
             }
           ],
           "title": "Control A",
@@ -2239,7 +2239,7 @@
               "name": "EVACT",
               "size": 2,
               "title": "Event Action",
-              "description": "These bits define on what type of event action the counter will increment or decrement. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|EVACT_POSEDGE|Count on positive edge event |\n | 0x1|EVACT_ANYEDGE|Count on any edge event |\n | 0x2|EVACT_HIGHLVL|Count on prescaled clock while event line is 1. |\n | 0x3|EVACT_UPDOWN|Count on prescaled clock. Event controls count direction. Up-count when event\nline is 0, down-count when event line is 1. |\n"
+              "description": "These bits define on what type of event action the counter will increment or decrement. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|EVACT_POSEDGE|Count on positive edge event |\n | 0x1|EVACT_ANYEDGE|Count on any edge event |\n | 0x2|EVACT_HIGHLVL|Count on prescaled clock while event line is 1. |\n | 0x3|EVACT_UPDOWN|Count on prescaled clock. Event controls count direction. Up-count when event<br>line is 0, down-count when event line is 1. |\n"
             },
             {
               "name": "CNTEI",
@@ -3300,7 +3300,7 @@
               "name": "CFG",
               "size": 2,
               "title": "Event Configuration",
-              "description": "When the Input Capture Noise canceler is activated (FILTERON), the Event input is filtered. The filter function requires four successive equal valued samples of the Retrigger pin for changing its output. The Input Capture is therefore delayed by four clock cycles when the noise canceler is enabled. When the Asynchronous Event is enabled (ASYNCON), the Event input will qualify the output directly. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|NEITHER|Neither Filter nor Asynchronous Event is enabled. |\n | 0x1|FILTERON|Input Capture Noise Cancellation Filter enabled. |\n | 0x2|ASYNCON|Asynchronous Event output qualification enabled.\nother - Reserved. |\n"
+              "description": "When the Input Capture Noise canceler is activated (FILTERON), the Event input is filtered. The filter function requires four successive equal valued samples of the Retrigger pin for changing its output. The Input Capture is therefore delayed by four clock cycles when the noise canceler is enabled. When the Asynchronous Event is enabled (ASYNCON), the Event input will qualify the output directly. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|NEITHER|Neither Filter nor Asynchronous Event is enabled. |\n | 0x1|FILTERON|Input Capture Noise Cancellation Filter enabled. |\n | 0x2|ASYNCON|Asynchronous Event output qualification enabled. |\n | other|-|Reserved. |\n"
             },
             {},
             {
@@ -3332,7 +3332,7 @@
               "name": "CFG",
               "size": 2,
               "title": "Event Configuration",
-              "description": "When the Input Capture Noise canceler is activated (FILTERON), the Event input is filtered. The filter function requires four successive equal valued samples of the Retrigger pin for changing its output. The Input Capture is therefore delayed by four clock cycles when the noise canceler is enabled. When the Asynchronous Event is enabled (ASYNCON), the Event input will qualify the output directly. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|NEITHER|Neither Filter nor Asynchronous Event is enabled. |\n | 0x1|FILTERON|Input Capture Noise Cancellation Filter enabled. |\n | 0x2|ASYNCON|Asynchronous Event output qualification enabled.\nother - Reserved. |\n"
+              "description": "When the Input Capture Noise canceler is activated (FILTERON), the Event input is filtered. The filter function requires four successive equal valued samples of the Retrigger pin for changing its output. The Input Capture is therefore delayed by four clock cycles when the noise canceler is enabled. When the Asynchronous Event is enabled (ASYNCON), the Event input will qualify the output directly. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|NEITHER|Neither Filter nor Asynchronous Event is enabled. |\n | 0x1|FILTERON|Input Capture Noise Cancellation Filter enabled. |\n | 0x2|ASYNCON|Asynchronous Event output qualification enabled. |\n | other|-|Reserved. |\n"
             },
             {},
             {
@@ -4171,7 +4171,7 @@
               "name": "RS485",
               "size": 2,
               "title": "RS485 Mode",
-              "description": "These bits enable the RS485 and select the operation mode. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|OFF|Disabled. |\n | 0x1|EXT|Enables RS485 mode with control of an external line driver through a dedicated Transmit\nEnable (TE) pin. |\n | 0x2|INT|Enables RS485 mode with control of the internal USART transmitter. |\n | 0x3|-|Reserved. |\n"
+              "description": "These bits enable the RS485 and select the operation mode. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|OFF|Disabled. |\n | 0x1|EXT|Enables RS485 mode with control of an external line driver through a dedicated Transmit<br>Enable (TE) pin. |\n | 0x2|INT|Enables RS485 mode with control of the internal USART transmitter. |\n | 0x3|-|Reserved. |\n"
             }
           ],
           "title": "Control A",
@@ -4417,7 +4417,7 @@
             {
               "name": "BUFWR",
               "title": "Buffer Mode Wait for Receive",
-              "description": "When writing this bit to '0' the first data transferred will be a dummy sample. \n | Value | Description |\n | ----- | ----------- |\n | 0|One SPI transfer must be completed before the data is copied into the shift register. |\n | 1|When writing to the data register when the SPI is enabled and SS is high, the first write will go directly\nto the shift register. |\n"
+              "description": "When writing this bit to '0' the first data transferred will be a dummy sample. \n | Value | Description |\n | ----- | ----------- |\n | 0|One SPI transfer must be completed before the data is copied into the shift register. |\n | 1|When writing to the data register when the SPI is enabled and SS is high, the first write will go directly<br>to the shift register. |\n"
             },
             {
               "size": 3
@@ -4431,7 +4431,7 @@
               "name": "MODE",
               "size": 2,
               "title": "Mode",
-              "description": "These bits select the transfer mode. The four combinations of SCK phase and polarity with respect to the serial data are shown in the table below. These bits decide whether the first edge of a clock cycle (leading edge) is rising or falling, and whether data setup and sample occur on the leading or trailing edge. When the leading edge is rising, the SCK signal is low when idle, and when the leading edge is falling, the SCK signal is high when idle. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|0|Leading edge: Rising, sample\nTrailing edge: Falling, setup |\n | 0x1|1|Leading edge: Rising, setup\nTrailing edge: Falling, sample |\n | 0x2|2|Leading edge: Falling, sample\nTrailing edge: Rising, setup |\n | 0x3|3|Leading edge: Falling, setup\nTrailing edge: Rising, sample |\n"
+              "description": "These bits select the transfer mode. The four combinations of SCK phase and polarity with respect to the serial data are shown in the table below. These bits decide whether the first edge of a clock cycle (leading edge) is rising or falling, and whether data setup and sample occur on the leading or trailing edge. When the leading edge is rising, the SCK signal is low when idle, and when the leading edge is falling, the SCK signal is high when idle. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|0|Leading edge: Rising, sample<br>Trailing edge: Falling, setup |\n | 0x1|1|Leading edge: Rising, setup<br>Trailing edge: Falling, sample |\n | 0x2|2|Leading edge: Falling, sample<br>Trailing edge: Rising, setup |\n | 0x3|3|Leading edge: Falling, setup<br>Trailing edge: Rising, sample |\n"
             }
           ],
           "title": "Control B",
@@ -4926,7 +4926,7 @@
               "name": "MODE",
               "size": 2,
               "title": "CRC Flash Access Mode",
-              "description": "The CRC can be enabled during internal Reset initialization to verify Flash sections before letting the CPU start (see the device data sheet fuse description). If the CRC is enabled during internal Reset initialization, the MODE bit field will read out non-zero when normal code execution starts. To ensure proper operation of the CRC under code execution, write the MODE bit to 0x0 again. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|PRIORITY|The CRC module runs a single check with priority to Flash. The CPU is halted until the\nCRC completes.\nother - Reserved |\n"
+              "description": "The CRC can be enabled during internal Reset initialization to verify Flash sections before letting the CPU start (see the device data sheet fuse description). If the CRC is enabled during internal Reset initialization, the MODE bit field will read out non-zero when normal code execution starts. To ensure proper operation of the CRC under code execution, write the MODE bit to 0x0 again. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|PRIORITY|The CRC module runs a single check with priority to Flash. The CPU is halted until the<br>CRC completes. |\n | other|-|Reserved |\n"
             },
             {
               "size": 2
@@ -4935,7 +4935,7 @@
               "name": "SRC",
               "size": 2,
               "title": "CRC Source",
-              "description": "The SRC bit field selects which section of the Flash the CRC module should check. To set up section sizes, refer to the fuse description. The CRC can be enabled during internal Reset initialization to verify Flash sections before letting the CPU start (see fuse description). If the CRC is enabled during internal Reset initialization, the SRC bit field will read out as FLASH, BOOTAPP, or BOOT when normal code execution starts (depending on the configuration). \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|FLASH|The CRC is performed on the entire Flash (boot, application code, and application data\nsections). |\n | 0x1|BOOTAPP|The CRC is performed on the boot and application code sections of Flash. |\n | 0x2|BOOT|The CRC is performed on the boot section of Flash. |\n | 0x3|-|Reserved. |\n"
+              "description": "The SRC bit field selects which section of the Flash the CRC module should check. To set up section sizes, refer to the fuse description. The CRC can be enabled during internal Reset initialization to verify Flash sections before letting the CPU start (see fuse description). If the CRC is enabled during internal Reset initialization, the SRC bit field will read out as FLASH, BOOTAPP, or BOOT when normal code execution starts (depending on the configuration). \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|FLASH|The CRC is performed on the entire Flash (boot, application code, and application data<br>sections). |\n | 0x1|BOOTAPP|The CRC is performed on the boot and application code sections of Flash. |\n | 0x2|BOOT|The CRC is performed on the boot section of Flash. |\n | 0x3|-|Reserved. |\n"
             }
           ],
           "title": "Control B",
@@ -5003,7 +5003,7 @@
               "name": "SEQSEL",
               "size": 4,
               "title": "Sequential Selection",
-              "description": "These bits select the sequential configuration. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|DISABLE|Sequential logic is disabled |\n | 0x1|DFF|D flip flop |\n | 0x2|JK|JK flip flop |\n | 0x3|LATCH|D latch |\n | 0x4|RS|RS latch\nOther - Reserved |\n"
+              "description": "These bits select the sequential configuration. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|DISABLE|Sequential logic is disabled |\n | 0x1|DFF|D flip flop |\n | 0x2|JK|JK flip flop |\n | 0x3|LATCH|D latch |\n | 0x4|RS|RS latch |\n | Other|-|Reserved |\n"
             }
           ],
           "title": "Sequential Control 0",
@@ -5060,7 +5060,7 @@
               "name": "INSEL0",
               "size": 4,
               "title": "LUT n Input 0 Source Selection",
-              "description": "These bits select the source for input 0 of LUT n: \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|MASK|Masked input |\n | 0x1|FEEDBACK|Feedback input |\n | 0x2|LINK|Linked other LUT as input source |\n | 0x3|EVENT0|Event input source 0 |\n | 0x4|EVENT1|Event input source 1 |\n | 0x5|IO|I/O pin LUTn-IN0 input source |\n | 0x6|AC0|AC0 OUT input source |\n | 0x7|TCB0|TCB WO input source |\n | 0x8|TCA0|TCA WO0 input source |\n | 0x9|TCD0|TCD WOAn input source |\n | 0xA|USART0|USART XCK input source |\n | 0xB|SPI0|SPI SCK input source\nOther - Reserved |\n"
+              "description": "These bits select the source for input 0 of LUT n: \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|MASK|Masked input |\n | 0x1|FEEDBACK|Feedback input |\n | 0x2|LINK|Linked other LUT as input source |\n | 0x3|EVENT0|Event input source 0 |\n | 0x4|EVENT1|Event input source 1 |\n | 0x5|IO|I/O pin LUTn-IN0 input source |\n | 0x6|AC0|AC0 OUT input source |\n | 0x7|TCB0|TCB WO input source |\n | 0x8|TCA0|TCA WO0 input source |\n | 0x9|TCD0|TCD WOAn input source |\n | 0xA|USART0|USART XCK input source |\n | 0xB|SPI0|SPI SCK input source |\n | Other|-|Reserved |\n"
             }
           ],
           "title": "LUT n Control B",
@@ -5077,7 +5077,7 @@
               "name": "INSEL2",
               "size": 4,
               "title": "LUT n Input 2 Source Selection",
-              "description": "These bits select the source for input 2 of LUT n: \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|MASK|Masked input |\n | 0x1|FEEDBACK|Feedback input |\n | 0x2|LINK|Linked other LUT as input source |\n | 0x3|EVENT0|Event input source 0 |\n | 0x4|EVENT1|Event input source 1 |\n | 0x5|IO|I/O pin LUTn-IN2 input source |\n | 0x6|AC0|AC0 OUT input source |\n | 0x7|TCB0|TCB WO input source |\n | 0x8|TCA0|TCA WO2 input source |\n | 0x9|TCD0|TCD WOA input source |\n | 0xA|-|Reserved |\n | 0xB|SPI0|SPI MISO input source\nother - Reserved |\n"
+              "description": "These bits select the source for input 2 of LUT n: \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|MASK|Masked input |\n | 0x1|FEEDBACK|Feedback input |\n | 0x2|LINK|Linked other LUT as input source |\n | 0x3|EVENT0|Event input source 0 |\n | 0x4|EVENT1|Event input source 1 |\n | 0x5|IO|I/O pin LUTn-IN2 input source |\n | 0x6|AC0|AC0 OUT input source |\n | 0x7|TCB0|TCB WO input source |\n | 0x8|TCA0|TCA WO2 input source |\n | 0x9|TCD0|TCD WOA input source |\n | 0xA|-|Reserved |\n | 0xB|SPI0|SPI MISO input source |\n | other|-|Reserved |\n"
             }
           ],
           "title": "LUT n Control C",
@@ -5148,7 +5148,7 @@
               "name": "INSEL0",
               "size": 4,
               "title": "LUT n Input 0 Source Selection",
-              "description": "These bits select the source for input 0 of LUT n: \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|MASK|Masked input |\n | 0x1|FEEDBACK|Feedback input |\n | 0x2|LINK|Linked other LUT as input source |\n | 0x3|EVENT0|Event input source 0 |\n | 0x4|EVENT1|Event input source 1 |\n | 0x5|IO|I/O pin LUTn-IN0 input source |\n | 0x6|AC0|AC0 OUT input source |\n | 0x7|TCB0|TCB WO input source |\n | 0x8|TCA0|TCA WO0 input source |\n | 0x9|TCD0|TCD WOAn input source |\n | 0xA|USART0|USART XCK input source |\n | 0xB|SPI0|SPI SCK input source\nOther - Reserved |\n"
+              "description": "These bits select the source for input 0 of LUT n: \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|MASK|Masked input |\n | 0x1|FEEDBACK|Feedback input |\n | 0x2|LINK|Linked other LUT as input source |\n | 0x3|EVENT0|Event input source 0 |\n | 0x4|EVENT1|Event input source 1 |\n | 0x5|IO|I/O pin LUTn-IN0 input source |\n | 0x6|AC0|AC0 OUT input source |\n | 0x7|TCB0|TCB WO input source |\n | 0x8|TCA0|TCA WO0 input source |\n | 0x9|TCD0|TCD WOAn input source |\n | 0xA|USART0|USART XCK input source |\n | 0xB|SPI0|SPI SCK input source |\n | Other|-|Reserved |\n"
             }
           ],
           "title": "LUT n Control B",
@@ -5165,7 +5165,7 @@
               "name": "INSEL2",
               "size": 4,
               "title": "LUT n Input 2 Source Selection",
-              "description": "These bits select the source for input 2 of LUT n: \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|MASK|Masked input |\n | 0x1|FEEDBACK|Feedback input |\n | 0x2|LINK|Linked other LUT as input source |\n | 0x3|EVENT0|Event input source 0 |\n | 0x4|EVENT1|Event input source 1 |\n | 0x5|IO|I/O pin LUTn-IN2 input source |\n | 0x6|AC0|AC0 OUT input source |\n | 0x7|TCB0|TCB WO input source |\n | 0x8|TCA0|TCA WO2 input source |\n | 0x9|TCD0|TCD WOA input source |\n | 0xA|-|Reserved |\n | 0xB|SPI0|SPI MISO input source\nother - Reserved |\n"
+              "description": "These bits select the source for input 2 of LUT n: \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|MASK|Masked input |\n | 0x1|FEEDBACK|Feedback input |\n | 0x2|LINK|Linked other LUT as input source |\n | 0x3|EVENT0|Event input source 0 |\n | 0x4|EVENT1|Event input source 1 |\n | 0x5|IO|I/O pin LUTn-IN2 input source |\n | 0x6|AC0|AC0 OUT input source |\n | 0x7|TCB0|TCB WO input source |\n | 0x8|TCA0|TCA WO2 input source |\n | 0x9|TCD0|TCD WOA input source |\n | 0xA|-|Reserved |\n | 0xB|SPI0|SPI MISO input source |\n | other|-|Reserved |\n"
             }
           ],
           "title": "LUT n Control C",
@@ -5314,7 +5314,7 @@
             {
               "name": "RESSEL",
               "title": "Resolution Selection",
-              "description": "This bit selects the ADC resolution. \n | Value | Description |\n | ----- | ----------- |\n | 0|Full 10-bit resolution. The 10-bit ADC results are accumulated or stored to the ADC Result register\n(ADC.RES). |\n | 1|8-bit resolution. The conversion results are truncated to 8 bits (MSBs) before they are accumulated or\nstored to the ADC Result register (ADC.RES). The two least significant bits are discarded. |\n"
+              "description": "This bit selects the ADC resolution. \n | Value | Description |\n | ----- | ----------- |\n | 0|Full 10-bit resolution. The 10-bit ADC results are accumulated or stored to the ADC Result register<br>(ADC.RES). |\n | 1|8-bit resolution. The conversion results are truncated to 8 bits (MSBs) before they are accumulated or<br>stored to the ADC Result register (ADC.RES). The two least significant bits are discarded. |\n"
             },
             {
               "name": "FREERUN",
@@ -5363,7 +5363,7 @@
               "name": "REFSEL",
               "size": 2,
               "title": "Reference Selection",
-              "description": "These bits selects the voltage reference for the ADC. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTERNAL|Internal reference |\n | 0x1|VDD|VDD\nOther - Reserved. |\n"
+              "description": "These bits selects the voltage reference for the ADC. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|INTERNAL|Internal reference |\n | 0x1|VDD|VDD |\n | Other|-|Reserved. |\n"
             },
             {},
             {
@@ -5384,7 +5384,7 @@
               "name": "INITDLY",
               "size": 3,
               "title": "Initialization Delay",
-              "description": "These bits defines the initialization/startup delay before the first sample when enabling the ADC or changing to internal reference voltage. Setting this delay will ensure that the reference, muxes, etc are ready before starting the first conversion. The initialization delay will also take place when waking up from deep sleep to do a measurement. The delay is expressed as a number of CLK_ADC cycles. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|DLY0|Delay 0 CLK_ADC cycles. |\n | 0x1|DLY16|Delay 16 CLK_ADC cycles. |\n | 0x2|DLY32|Delay 32 CLK_ADC cycles. |\n | 0x3|DLY64|Delay 64 CLK_ADC cycles. |\n | 0x4|DLY128|Delay 128 CLK_ADC cycles. |\n | 0x5|DLY256|Delay 256 CLK_ADC cycles.\nOther - Reserved |\n"
+              "description": "These bits defines the initialization/startup delay before the first sample when enabling the ADC or changing to internal reference voltage. Setting this delay will ensure that the reference, muxes, etc are ready before starting the first conversion. The initialization delay will also take place when waking up from deep sleep to do a measurement. The delay is expressed as a number of CLK_ADC cycles. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|DLY0|Delay 0 CLK_ADC cycles. |\n | 0x1|DLY16|Delay 16 CLK_ADC cycles. |\n | 0x2|DLY32|Delay 32 CLK_ADC cycles. |\n | 0x3|DLY64|Delay 64 CLK_ADC cycles. |\n | 0x4|DLY128|Delay 128 CLK_ADC cycles. |\n | 0x5|DLY256|Delay 256 CLK_ADC cycles. |\n | Other|-|Reserved |\n"
             },
             {
               "name": "ASDV",
@@ -5412,7 +5412,7 @@
               "name": "WINCM",
               "size": 3,
               "title": "Window Comparator Mode",
-              "description": "This field enable and define when the interrupt flag is set in Window Comparator mode. RESULT is the 16-bit accumulator result. WINLT and WINHT are 16-bit lower threshold value and 16-bit higher threshold value, respectively. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|NONE|No Window Comparison (default) |\n | 0x1|BELOW|RESULT < WINLT |\n | 0x2|ABOVE|RESULT > WINHT |\n | 0x3|INSIDE|WINLT < RESULT < WINHT |\n | 0x4|OUTSIDE|RESULT < WINLT or RESULT >WINHT)\nOther - Reserved |\n"
+              "description": "This field enable and define when the interrupt flag is set in Window Comparator mode. RESULT is the 16-bit accumulator result. WINLT and WINHT are 16-bit lower threshold value and 16-bit higher threshold value, respectively. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|NONE|No Window Comparison (default) |\n | 0x1|BELOW|RESULT < WINLT |\n | 0x2|ABOVE|RESULT > WINHT |\n | 0x3|INSIDE|WINLT < RESULT < WINHT |\n | 0x4|OUTSIDE|RESULT < WINLT or RESULT >WINHT) |\n | Other|-|Reserved |\n"
             }
           ],
           "title": "Control E",
@@ -5446,7 +5446,7 @@
               "name": "MUXPOS",
               "size": 5,
               "title": "MUXPOS",
-              "description": "This bit field selects which single-ended analog input is connected to the ADC. If these bits are changed during a conversion, the change will not take effect until this conversion is complete. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x00|AIN0|ADC input pin 0 |\n | 0x01|AIN1|ADC input pin 1 |\n | 0x02|AIN2|ADC input pin 2 |\n | 0x03|AIN3|ADC input pin 3 |\n | 0x04|AIN4|ADC input pin 4 |\n | 0x05|AIN5|ADC input pin 5 |\n | 0x06|AIN6|ADC input pin 6 |\n | 0x07|AIN7|ADC input pin 7 |\n | 0x08|-|Reserved |\n | 0x09|-|Reserved |\n | 0x0A|AIN10|ADC input pin 10 |\n | 0x0B|AIN11|ADC input pin 11 |\n | 0x1C|DAC0|DAC0 |\n | 0x1D|INTREF|Internal reference (from VREF peripheral) |\n | 0x1F|GND|0V (GND)\nOther - Reserved |\n"
+              "description": "This bit field selects which single-ended analog input is connected to the ADC. If these bits are changed during a conversion, the change will not take effect until this conversion is complete. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x00|AIN0|ADC input pin 0 |\n | 0x01|AIN1|ADC input pin 1 |\n | 0x02|AIN2|ADC input pin 2 |\n | 0x03|AIN3|ADC input pin 3 |\n | 0x04|AIN4|ADC input pin 4 |\n | 0x05|AIN5|ADC input pin 5 |\n | 0x06|AIN6|ADC input pin 6 |\n | 0x07|AIN7|ADC input pin 7 |\n | 0x08|-|Reserved |\n | 0x09|-|Reserved |\n | 0x0A|AIN10|ADC input pin 10 |\n | 0x0B|AIN11|ADC input pin 11 |\n | 0x1C|DAC0|DAC0 |\n | 0x1D|INTREF|Internal reference (from VREF peripheral) |\n | 0x1F|GND|0V (GND) |\n | Other|-|Reserved |\n"
             }
           ],
           "title": "MUXPOS",
@@ -5905,7 +5905,7 @@
               "name": "CRC_STATUS",
               "size": 3,
               "title": "CRC Execution Status",
-              "description": "These bits signalize the status of the CRC conversion. The bits are one-hot encoded. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|Not enabled |\n | 0x1|CRC enabled, busy |\n | 0x2|CRC enabled, done with OK signature |\n | 0x4|CRC enabled, done with FAILED signature\nOther Reserved |\n"
+              "description": "These bits signalize the status of the CRC conversion. The bits are one-hot encoded. \n | Value | Description |\n | ----- | ----------- |\n | 0x0|Not enabled |\n | 0x1|CRC enabled, busy |\n | 0x2|CRC enabled, done with OK signature |\n | 0x4|CRC enabled, done with FAILED signature |\n | Other|Reserved |\n"
             }
           ],
           "title": "ASI CRC Status",

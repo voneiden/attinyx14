@@ -141,23 +141,23 @@ class Parser(object):
                     if line == "Value Division":
                         continue # hack
                     if self.field_table_mode == FieldTableMode.DOUBLE:
-                        if re.match(r'\d', line):
+                        if re.match(r'\d', line) or line.lower().startswith('other'):
                             ftok = line.split(' ')
                             description = ' '.join(ftok[1:])
                             self.field_table_row_buffer.append([ftok[0], description])
                         else:
                             print("LINE IS" ,line)
                             print("BUFFER", self.field_table_row_buffer)
-                            self.field_table_row_buffer[-1][-1] += f'\n{line}'
+                            self.field_table_row_buffer[-1][-1] += f'<br>{line}'
                         #field_description_buffer.append(f'| {ftok[0]} | {description} |\n')
                     elif self.field_table_mode == FieldTableMode.TRIPLE:
-                        if re.match(r'\d', line):
+                        if re.match(r'\d', line) or line.lower().startswith('other'):
                             ftok = line.split(' ')
                             description = ' '.join(ftok[2:])
                             print("FTOK", ftok)
                             self.field_table_row_buffer.append([ftok[0], ftok[1], description])
                         else:
-                            self.field_table_row_buffer[-1][-1] += f'\n{line}'
+                            self.field_table_row_buffer[-1][-1] += f'<br>{line}'
                         #field_description_buffer.append(f'| {ftok[0]} | {ftok[1]} | {description} |\n')
 
                     elif re.match('Value Description', line):
