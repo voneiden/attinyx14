@@ -5,7 +5,7 @@
     text = """
 The ATtiny boots up with the 16/20 MHz oscillator (OSC20M) running at 20 MHz as the clock source and a prescaler division factor of 6 giving a frequency of at 3.333 MHz <ref>74</ref>.
 
-The clock source can be configured by temporarily disabling I/O register Configuration Change Protection (CCP) by setting 0xD8 as the value of <reg>CPU.CCP</reg> register, followed by setting the desired value to <reg>CLKCTRL.MCLKCTRLA.CLKSEL</reg> register.
+The clock source can be configured by temporarily disabling I/O register Configuration Change Protection (CCP) by setting 0xD8 as the value of <reg>CPU.CCP.CCP</reg> register, followed by setting the desired value to <reg>CLKCTRL.MCLKCTRLA.CLKSEL</reg> register.
 
 OSC20M frequency is defined by frequency select bits (FREQSEL, default 0x0 = 20 MHz) of the oscillator configurator fuse (FUSE.OSCCFG <ref>30</ref>).
 
@@ -143,7 +143,7 @@ TCA0_SPLIT_CTRLA |= TCA_SPLIT_ENABLE_bm; // Turn the counter on
     topic = "TCA-ALT"
     title = "16-bit Timer/Counter Type A (Alternative pin configuration)"
     text = """
-Alternative pin position for TCA0 waveform 0 (W0) output can be enabled via <reg>PORTMUX.CTRLC.TCA0</reg>
+Alternative pin position for TCA0 waveform 0 (W0) output can be enabled via <reg>PORTMUX.CTRLC.TCA00</reg>
 """
 
 
