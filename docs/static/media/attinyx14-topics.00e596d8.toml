@@ -7,14 +7,13 @@ The ATtiny boots up with the 16/20 MHz oscillator (OSC20M) running at 20 MHz as 
 
 The clock source and clock prescaler can be configured by temporarily disabling I/O register Configuration Change Protection (CCP). This is done by setting 0xD8 as the value of <reg>CPU.CCP.CCP</reg> register, followed by setting the desired values to <reg>CLKCTRL.MCLKCTRLA.CLKSEL</reg> and <reg>CLKCTRL.MCLKCTRLB.PDIV</reg> registers.
 
-OSC20M frequency is defined by frequency select bits (FREQSEL, default 0x0 = 20 MHz) of the oscillator configurator fuse (FUSE.OSCCFG <ref>30</ref>).
+<topic>Fuses</topic> define whether OSC20M runs at 16 or 20 MHz: <reg>FUSE.OSCCFG.FREQSEL</reg>.
 
 
-
-Ex 1: Disable prescaler to run at 20 MHz
+Ex 1: Disable prescaler to run at full 16/20 MHz
 ```C
 #include <avr/io.h>
-CPU_CCP = CCP_IOREG_gc; // 0xD8
+CPU_CCP = CCP_IOREG_gc;
 CLKCTRL_MCLKCTRLB = 0;
 ```
 
