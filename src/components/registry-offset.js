@@ -11,14 +11,13 @@ const RegistryOffset = function RegistryOffset(props) {
     const {registry, offset, field} = props;
     const fieldInt = parseInt(field);
     let bits = 0;
-    const {activeGroup} = useParams();
     const [activeField, setActiveField] = useState(null);
 
     let detailField = null;
 
     const fieldNameBlocks = offset.fields.map((fieldObj, i) => {
         bits += fieldObj.size;
-        const active = fieldObj.relatedGroups.includes(activeGroup) || field === fieldObj.name;
+        const active = (activeField === null && field === fieldObj.name) || (activeField && activeField === fieldObj.name);
         if (active) {
             detailField = fieldObj;
         }
@@ -27,11 +26,17 @@ const RegistryOffset = function RegistryOffset(props) {
         const name = fieldObj.name ? `${fieldObj.name}${range}` : '';
         return (
             <div className={cls(
+                `field-name`,
                 `field-size-${fieldObj.size}`,
                 active && `active`,
                 disabled && `disabled`,
             )}
                  key={name}
+                 onClick={() => {
+                     if (!active) {
+                         setActiveField(fieldObj.name)
+                     }
+                 }}
             >
                 {name}
             </div>
@@ -59,7 +64,7 @@ const RegistryOffset = function RegistryOffset(props) {
     });
 
     const title = `${registry.name}.${offset.name} - ${offset.title}`;
-
+    console.log("WAT WAT", detailField)
     return (
         <React.Fragment>
             <span className="title">{title}</span>

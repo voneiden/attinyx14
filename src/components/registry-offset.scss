@@ -16,7 +16,10 @@
         background-color: darken($green-font-color, 55%);
         border-bottom: 1px solid darken($green-font-color, 30%);;
       }
-
+      &.field-name:not(.active):hover {
+        cursor: pointer;
+        background-color: darken($green-font-color, 48%)
+      }
       &.active {
         background-color: gold;
         color: black;
