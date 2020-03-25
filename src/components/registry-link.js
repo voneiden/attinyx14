@@ -4,8 +4,7 @@ import PropTypes from "prop-types"
 const RegistryLink = function RegistryLink(props) {
     const {registry, offset, field} = props;
 
-    const text = offset ? `${registry}.${offset}` : `${registry}`;
-
+    const text = `${registry}${offset ? '.' + offset : ''}${field ? '[' + field + ']' : ''}`;
     return (
         <a>
             { text }

@@ -58,7 +58,7 @@ const RegistryOffset = function RegistryOffset(props) {
         )
     });
 
-    const title = `${registry.name}_${offset.name} - ${offset.title}`;
+    const title = `${registry.name}.${offset.name} - ${offset.title}`;
 
     return (
         <React.Fragment>
@@ -70,7 +70,8 @@ const RegistryOffset = function RegistryOffset(props) {
                 detailField &&
                 <div>
                     <div>{detailField.name} - {detailField.title}</div>
-                    <div className="field-description" dangerouslySetInnerHTML={{__html: md.render(detailField.description)}}/>
+                    <div className="field-description"
+                         dangerouslySetInnerHTML={{__html: md.render(detailField.description)}}/>
                 </div>
             }
 
