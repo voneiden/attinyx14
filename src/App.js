@@ -9,6 +9,7 @@ import store from './store';
 import TopicView from "./views/topic-view";
 import {HashRouter} from "react-router-dom";
 import {Route, Switch} from "react-router";
+import RegistryView from "./views/registry-view";
 
 function httpGet(theUrl)
 {
@@ -32,6 +33,10 @@ function App() {
                     <Route path="/topic/:activeGroup?/:activePin?">
                         <ChipView/>
                         <TopicView/>
+                    </Route>
+                    <Route path="/registry/:registry/:offset?/:field?">
+                        <ChipView/>
+                        <RegistryView/>
                     </Route>
                     <Route path="/">
                         <ChipView/>
