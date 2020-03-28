@@ -399,28 +399,44 @@
           "name": "TCD0CFG",
           "fields": [
             {
-              "name": "CMPDEN"
+              "name": "CMPDEN",
+              "title": "Compare x Enable",
+              "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|Compare x output on Pin is disabled |\n | 1|Compare x output on Pin is enabled |\n"
             },
             {
-              "name": "CMPCEN"
+              "name": "CMPCEN",
+              "title": "Compare x Enable",
+              "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|Compare x output on Pin is disabled |\n | 1|Compare x output on Pin is enabled |\n"
             },
             {
-              "name": "CMPBEN"
+              "name": "CMPBEN",
+              "title": "Compare x Enable",
+              "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|Compare x output on Pin is disabled |\n | 1|Compare x output on Pin is enabled |\n"
             },
             {
-              "name": "CMPAEN"
+              "name": "CMPAEN",
+              "title": "Compare x Enable",
+              "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|Compare x output on Pin is disabled |\n | 1|Compare x output on Pin is enabled |\n"
             },
             {
-              "name": "CMPD"
+              "name": "CMPD",
+              "title": "Compare x",
+              "description": "This bit selects the default state of Compare x after Reset, or when entering debug if FAULTDET is '1'. \n | Value | Description |\n | ----- | ----------- |\n | 0|Compare x default state is 0 |\n | 1|Compare x default state is 1 |\n"
             },
             {
-              "name": "CMPC"
+              "name": "CMPC",
+              "title": "Compare x",
+              "description": "This bit selects the default state of Compare x after Reset, or when entering debug if FAULTDET is '1'. \n | Value | Description |\n | ----- | ----------- |\n | 0|Compare x default state is 0 |\n | 1|Compare x default state is 1 |\n"
             },
             {
-              "name": "CMPB"
+              "name": "CMPB",
+              "title": "Compare x",
+              "description": "This bit selects the default state of Compare x after Reset, or when entering debug if FAULTDET is '1'. \n | Value | Description |\n | ----- | ----------- |\n | 0|Compare x default state is 0 |\n | 1|Compare x default state is 1 |\n"
             },
             {
-              "name": "CMPA"
+              "name": "CMPA",
+              "title": "Compare x",
+              "description": "This bit selects the default state of Compare x after Reset, or when entering debug if FAULTDET is '1'. \n | Value | Description |\n | ----- | ----------- |\n | 0|Compare x default state is 0 |\n | 1|Compare x default state is 1 |\n"
             }
           ],
           "title": "Timer Counter Type D Configuration",
@@ -561,8 +577,8 @@
             {
               "name": "SP",
               "size": 8,
-              "title": "Stack Pointer low byte",
-              "description": "These bits hold the LSB of the 16-bit register."
+              "title": "Stack Pointer high byte",
+              "description": "These bits hold the MSB of the 16-bit register."
             },
             {
               "name": "SP",
@@ -730,11 +746,15 @@
           "fields": [
             {
               "name": "DATA",
-              "size": 8
+              "size": 8,
+              "title": "Data Register",
+              "description": "This register is used by the UPDI for fuse write operations."
             },
             {
               "name": "DATA",
-              "size": 8
+              "size": 8,
+              "title": "Data Register",
+              "description": "This register is used by the UPDI for fuse write operations."
             }
           ],
           "title": "Data",
@@ -746,11 +766,15 @@
           "fields": [
             {
               "name": "ADDR",
-              "size": 8
+              "size": 8,
+              "title": "Address",
+              "description": "The Address register contains the address to the last memory location that has been updated."
             },
             {
               "name": "ADDR",
-              "size": 8
+              "size": 8,
+              "title": "Address",
+              "description": "The Address register contains the address to the last memory location that has been updated."
             }
           ],
           "title": "Address",
@@ -858,13 +882,14 @@
           "name": "OSC20MCTRLA",
           "fields": [
             {
-              "size": 7
+              "size": 6
             },
             {
               "name": "RUNSTDBY",
               "title": "Run Standby",
               "description": "This bit force the oscillator on in all modes, even when unused by the system. In standby sleep mode this can be used to ensure immediate wake-up and not waiting for oscillator start-up time. When not requested by peripherals, no oscillator output is provided. It takes 4 oscillator cycles to open the clock gate after a request but the oscillator analog start-up time will be removed when this bit is set."
-            }
+            },
+            {}
           ],
           "title": "16/20MHz Oscillator Control A",
           "description": null
@@ -891,12 +916,12 @@
           "name": "OSC20MCALIBB",
           "fields": [
             {
-              "size": 3
-            },
-            {
               "name": "LOCK",
               "title": "Oscillator Calibration Locked by Fuse",
               "description": "When this bit is set, the calibration settings in CLKCTRL.OSC20MCALIBA and CLKCTRL.OSC20MCALIBB cannot be changed. The Reset value is loaded from the OSCLOCK bit in the Oscillator Configuration fuse (FUSE.OSCCFG)."
+            },
+            {
+              "size": 3
             },
             {
               "name": "TEMPCAL20M",
@@ -913,13 +938,14 @@
           "name": "OSC32KCTRLA",
           "fields": [
             {
-              "size": 7
+              "size": 6
             },
             {
               "name": "RUNSTDBY",
               "title": "Run Standby",
               "description": "This bit force the oscillator on in all modes, even when unused by the system. In standby sleep mode this can be used to ensure immediate wake-up and not waiting for oscillator start-up time. When not requested by peripherals, no oscillator output is provided. It takes 4 oscillator cycles to open the clock gate after a request but the oscillator analog start-up time will be removed when this bit is set."
-            }
+            },
+            {}
           ],
           "title": "32KHz Oscillator Control A",
           "description": null
@@ -929,7 +955,7 @@
           "name": "XOSC32KCTRLA",
           "fields": [
             {
-              "size": 3
+              "size": 2
             },
             {
               "name": "CSUT",
@@ -937,6 +963,7 @@
               "title": "Crystal Start-Up Time",
               "description": "These bits select the start-up time for the XOSC32K. It is write protected when the oscillator is enabled (ENABLE=1). If SEL=1, the start-up time will not be applied. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|1K|1k cycles |\n | 0x1|16K|16k cycles |\n | 0x2|32K|32k cycles |\n | 0x3|64K|64k cycles |\n"
             },
+            {},
             {
               "name": "SEL",
               "title": "Source Select",
@@ -2047,13 +2074,19 @@
               "size": 1
             },
             {
-              "name": "CMPnEN2"
+              "name": "CMPnEN2",
+              "title": "Compare n Enable",
+              "description": "In the FRQ or PWM waveform generation mode, these bits will override the PORT output register for the corresponding pin. \n | Value | Description |\n | ----- | ----------- |\n | 0|PORT output settings for the pin with WOn output respected. |\n | 1|PORT output settings for pin with WOn output overridden in FRQ or PWM waveform generation mode. |\n"
             },
             {
-              "name": "CMPnEN1"
+              "name": "CMPnEN1",
+              "title": "Compare n Enable",
+              "description": "In the FRQ or PWM waveform generation mode, these bits will override the PORT output register for the corresponding pin. \n | Value | Description |\n | ----- | ----------- |\n | 0|PORT output settings for the pin with WOn output respected. |\n | 1|PORT output settings for pin with WOn output overridden in FRQ or PWM waveform generation mode. |\n"
             },
             {
-              "name": "CMPnEN0"
+              "name": "CMPnEN0",
+              "title": "Compare n Enable",
+              "description": "In the FRQ or PWM waveform generation mode, these bits will override the PORT output register for the corresponding pin. \n | Value | Description |\n | ----- | ----------- |\n | 0|PORT output settings for the pin with WOn output respected. |\n | 1|PORT output settings for pin with WOn output overridden in FRQ or PWM waveform generation mode. |\n"
             },
             {
               "name": "ALUPD",
@@ -2354,8 +2387,8 @@
             {
               "name": "CNT",
               "size": 8,
-              "title": "Counter low byte",
-              "description": "These bits hold the LSB of the 16-bit counter register."
+              "title": "Counter high byte",
+              "description": "These bits hold the MSB of the 16-bit counter register."
             },
             {
               "name": "CNT",
@@ -2374,8 +2407,8 @@
             {
               "name": "PER",
               "size": 8,
-              "title": "Periodic low byte",
-              "description": "These bits hold the LSB of the 16-bit period register."
+              "title": "Periodic high byte",
+              "description": "These bits hold the MSB of the 16-bit period register."
             },
             {
               "name": "PER",
@@ -2394,8 +2427,8 @@
             {
               "name": "CMP",
               "size": 8,
-              "title": "Compare low byte",
-              "description": "These bits hold the LSB of the 16-bit compare register."
+              "title": "Compare high byte",
+              "description": "These bits hold the MSB of the 16-bit compare register."
             },
             {
               "name": "CMP",
@@ -2414,8 +2447,8 @@
             {
               "name": "CMP",
               "size": 8,
-              "title": "Compare low byte",
-              "description": "These bits hold the LSB of the 16-bit compare register."
+              "title": "Compare high byte",
+              "description": "These bits hold the MSB of the 16-bit compare register."
             },
             {
               "name": "CMP",
@@ -2434,8 +2467,8 @@
             {
               "name": "CMP",
               "size": 8,
-              "title": "Compare low byte",
-              "description": "These bits hold the LSB of the 16-bit compare register."
+              "title": "Compare high byte",
+              "description": "These bits hold the MSB of the 16-bit compare register."
             },
             {
               "name": "CMP",
@@ -2454,8 +2487,8 @@
             {
               "name": "PERBUF",
               "size": 8,
-              "title": "Period Buffer low byte",
-              "description": "These bits hold the LSB of the 16-bit period buffer register."
+              "title": "Period Buffer high byte",
+              "description": "These bits hold the MSB of the 16-bit period buffer register."
             },
             {
               "name": "PERBUF",
@@ -2474,8 +2507,8 @@
             {
               "name": "CMPBUF",
               "size": 8,
-              "title": "Compare low byte",
-              "description": "These bits hold the LSB of the 16-bit compare buffer register."
+              "title": "Compare high byte",
+              "description": "These bits hold the MSB of the 16-bit compare buffer register."
             },
             {
               "name": "CMPBUF",
@@ -2494,8 +2527,8 @@
             {
               "name": "CMPBUF",
               "size": 8,
-              "title": "Compare low byte",
-              "description": "These bits hold the LSB of the 16-bit compare buffer register."
+              "title": "Compare high byte",
+              "description": "These bits hold the MSB of the 16-bit compare buffer register."
             },
             {
               "name": "CMPBUF",
@@ -2514,8 +2547,8 @@
             {
               "name": "CMPBUF",
               "size": 8,
-              "title": "Compare low byte",
-              "description": "These bits hold the LSB of the 16-bit compare buffer register."
+              "title": "Compare high byte",
+              "description": "These bits hold the MSB of the 16-bit compare buffer register."
             },
             {
               "name": "CMPBUF",
@@ -2560,7 +2593,7 @@
           "name": "CTRLB",
           "fields": [
             {
-              "size": 2
+              "size": 1
             },
             {
               "name": "HCMP2EN",
@@ -2577,6 +2610,7 @@
               "title": "High-byte Compare 0 Enable",
               "description": "See LCMP0EN."
             },
+            {},
             {
               "name": "LCMP2EN",
               "title": "Low-byte Compare 2 Enable",
@@ -2601,7 +2635,7 @@
           "name": "CTRLC",
           "fields": [
             {
-              "size": 2
+              "size": 1
             },
             {
               "name": "HCMP2OV",
@@ -2618,6 +2652,7 @@
               "title": "High-byte Compare 0 Output Value",
               "description": "See LCMP0OV."
             },
+            {},
             {
               "name": "LCMP2OV",
               "title": "Low-byte Compare 2 Output Value",
@@ -2658,13 +2693,16 @@
           "name": "CTRLECLR",
           "fields": [
             {
-              "size": 6
+              "size": 4
             },
             {
               "name": "CMD",
               "size": 2,
               "title": "Command",
               "description": "These bits are used for software control of update, restart, and reset of the timer/counter. The command bits are always read as zero. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|NONE|No command |\n | 0x1|UPDATE|Force update |\n | 0x2|RESTART|Force restart |\n | 0x3|RESET|Force hard Reset (ignored if TC is enabled) |\n"
+            },
+            {
+              "size": 2
             }
           ],
           "title": "Control Register E Clear - Split Mode",
@@ -2675,13 +2713,16 @@
           "name": "CTRLESET",
           "fields": [
             {
-              "size": 6
+              "size": 4
             },
             {
               "name": "CMD",
               "size": 2,
               "title": "Command",
               "description": "These bits are used for software control of update, restart, and reset of the timer/counter. The command bits are always read as zero. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|NONE|No command |\n | 0x1|UPDATE|Force update |\n | 0x2|RESTART|Force restart |\n | 0x3|RESET|Force hard Reset (ignored if TC is enabled) |\n"
+            },
+            {
+              "size": 2
             }
           ],
           "title": "Control Register E Set - Split Mode",
@@ -3108,8 +3149,8 @@
             {
               "name": "CNT",
               "size": 8,
-              "title": "Count Value low",
-              "description": "These bits hold the LSB of the 16-bit counter register."
+              "title": "Count Value high",
+              "description": "These bits hold the MSB of the 16-bit counter register."
             },
             {
               "name": "CNT",
@@ -3128,8 +3169,8 @@
             {
               "name": "CCMP",
               "size": 8,
-              "title": "Capture/Compare Value low byte",
-              "description": "These bits hold the LSB of the 16-bit compare, capture and top value"
+              "title": "Capture/Compare Value high byte",
+              "description": "These bits hold the MSB of the 16-bit compare, capture and top value"
             },
             {
               "name": "CCMP",
@@ -3241,11 +3282,15 @@
           "fields": [
             {
               "name": "CMPBVAL",
-              "size": 4
+              "size": 4,
+              "title": "Compare x Value (in active state)",
+              "description": "These bits sets the active state for the different ramps for compare x. These settings are only valid if the Compare Output Value Override bit in the Control C register (CTRLC.CMPOVR) is written to '1'. CMPxVAL A_off A_on B_off B_on PWMA CMPAVAL[0] CMPAVAL[1] CMPAVAL[2] CMPAVAL[3] PWMB CMPBVAL[0] CMPBVAL[1] CMPBVAL[2] CMPBVAL[3] In One Ramp mode, PWMA will only use A_off and A_on values and PWMB will only use B_off and B_on values. This is due to possible overlap between the values A_off, A_on, B_off and B_on."
             },
             {
               "name": "CMPAVAL",
-              "size": 4
+              "size": 4,
+              "title": "Compare x Value (in active state)",
+              "description": "These bits sets the active state for the different ramps for compare x. These settings are only valid if the Compare Output Value Override bit in the Control C register (CTRLC.CMPOVR) is written to '1'. CMPxVAL A_off A_on B_off B_on PWMA CMPAVAL[0] CMPAVAL[1] CMPAVAL[2] CMPAVAL[3] PWMB CMPBVAL[0] CMPBVAL[1] CMPBVAL[2] CMPBVAL[3] In One Ramp mode, PWMA will only use A_off and A_on values and PWMB will only use B_off and B_on values. This is due to possible overlap between the values A_off, A_on, B_off and B_on."
             }
           ],
           "title": "Control D",
@@ -3364,10 +3409,14 @@
               "size": 4
             },
             {
-              "name": "TRIGB"
+              "name": "TRIGB",
+              "title": "Trigger x Interrupt Enable",
+              "description": "Writing this bit to '1' enables executing an interrupt when trigger input x is received."
             },
             {
-              "name": "TRIGA"
+              "name": "TRIGA",
+              "title": "Trigger x Interrupt Enable",
+              "description": "Writing this bit to '1' enables executing an interrupt when trigger input x is received."
             },
             {},
             {
@@ -3387,10 +3436,14 @@
               "size": 4
             },
             {
-              "name": "TRIGB"
+              "name": "TRIGB",
+              "title": "Trigger x Interrupt Flag",
+              "description": "When a capture has occurred, the TRIGA/B is raised. This bit is cleared by writing a '1' to it."
             },
             {
-              "name": "TRIGA"
+              "name": "TRIGA",
+              "title": "Trigger x Interrupt Flag",
+              "description": "When a capture has occurred, the TRIGA/B is raised. This bit is cleared by writing a '1' to it."
             },
             {},
             {
@@ -3407,10 +3460,14 @@
           "name": "STATUS",
           "fields": [
             {
-              "name": "PWMACTB"
+              "name": "PWMACTB",
+              "title": "PWM Activity on x",
+              "description": "This bit is set by hardware each time the output WO1 toggles from 0 to 1 or from 1 to 0. This status bit must be cleared by software by writing a '1' to it before new PWM activity can be detected."
             },
             {
-              "name": "PWMACTA"
+              "name": "PWMACTA",
+              "title": "PWM Activity on x",
+              "description": "This bit is set by hardware each time the output WO1 toggles from 0 to 1 or from 1 to 0. This status bit must be cleared by software by writing a '1' to it before new PWM activity can be detected."
             },
             {
               "size": 4
@@ -3468,28 +3525,44 @@
           "name": "FAULTCTRL",
           "fields": [
             {
-              "name": "CMPDEN"
+              "name": "CMPDEN",
+              "title": "Compare x Enable",
+              "description": "These bits enable Compare as output on pin. At reset the content is kept and during the reset sequence loaded from the TCD Configuration Fuse (FUSE.TCDFG)."
             },
             {
-              "name": "CMPCEN"
+              "name": "CMPCEN",
+              "title": "Compare x Enable",
+              "description": "These bits enable Compare as output on pin. At reset the content is kept and during the reset sequence loaded from the TCD Configuration Fuse (FUSE.TCDFG)."
             },
             {
-              "name": "CMPBEN"
+              "name": "CMPBEN",
+              "title": "Compare x Enable",
+              "description": "These bits enable Compare as output on pin. At reset the content is kept and during the reset sequence loaded from the TCD Configuration Fuse (FUSE.TCDFG)."
             },
             {
-              "name": "CMPAEN"
+              "name": "CMPAEN",
+              "title": "Compare x Enable",
+              "description": "These bits enable Compare as output on pin. At reset the content is kept and during the reset sequence loaded from the TCD Configuration Fuse (FUSE.TCDFG)."
             },
             {
-              "name": "CMPD"
+              "name": "CMPD",
+              "title": "Compare Value x",
+              "description": "These bits set the default state from Reset, or when a input Event triggers a Fault causing changes to the output. At reset the content is kept and during the reset sequence loaded from the TCD Configuration Fuse (FUSE.TCDFG)."
             },
             {
-              "name": "CMPC"
+              "name": "CMPC",
+              "title": "Compare Value x",
+              "description": "These bits set the default state from Reset, or when a input Event triggers a Fault causing changes to the output. At reset the content is kept and during the reset sequence loaded from the TCD Configuration Fuse (FUSE.TCDFG)."
             },
             {
-              "name": "CMPB"
+              "name": "CMPB",
+              "title": "Compare Value x",
+              "description": "These bits set the default state from Reset, or when a input Event triggers a Fault causing changes to the output. At reset the content is kept and during the reset sequence loaded from the TCD Configuration Fuse (FUSE.TCDFG)."
             },
             {
-              "name": "CMPA"
+              "name": "CMPA",
+              "title": "Compare Value x",
+              "description": "These bits set the default state from Reset, or when a input Event triggers a Fault causing changes to the output. At reset the content is kept and during the reset sequence loaded from the TCD Configuration Fuse (FUSE.TCDFG)."
             }
           ],
           "title": "Fault Control",
@@ -3600,14 +3673,17 @@
           "fields": [
             {
               "name": "CAPTURE",
-              "size": 8
+              "size": 8,
+              "title": "Capture Byte"
             },
             {
-              "size": 4
+              "size": 4,
+              "title": "Capture Byte"
             },
             {
               "name": "CAPTURE",
-              "size": 4
+              "size": 4,
+              "title": "Capture Byte"
             }
           ],
           "title": "Capture x",
@@ -3619,14 +3695,17 @@
           "fields": [
             {
               "name": "CAPTURE",
-              "size": 8
+              "size": 8,
+              "title": "Capture Byte"
             },
             {
-              "size": 4
+              "size": 4,
+              "title": "Capture Byte"
             },
             {
               "name": "CAPTURE",
-              "size": 4
+              "size": 4,
+              "title": "Capture Byte"
             }
           ],
           "title": "Capture x",
@@ -3638,14 +3717,20 @@
           "fields": [
             {
               "name": "CMPSET",
-              "size": 8
+              "size": 8,
+              "title": "Compare Set",
+              "description": "These bits hold value of the compare register."
             },
             {
-              "size": 4
+              "size": 4,
+              "title": "Compare Set",
+              "description": "These bits hold value of the compare register."
             },
             {
               "name": "CMPSET",
-              "size": 4
+              "size": 4,
+              "title": "Compare Set",
+              "description": "These bits hold value of the compare register."
             }
           ],
           "title": "Compare Set x",
@@ -3657,14 +3742,20 @@
           "fields": [
             {
               "name": "CMPCLR",
-              "size": 8
+              "size": 8,
+              "title": "Compare x Clear",
+              "description": "These bits hold the value of the compare register."
             },
             {
-              "size": 4
+              "size": 4,
+              "title": "Compare x Clear",
+              "description": "These bits hold the value of the compare register."
             },
             {
               "name": "CMPCLR",
-              "size": 4
+              "size": 4,
+              "title": "Compare x Clear",
+              "description": "These bits hold the value of the compare register."
             }
           ],
           "title": "Compare Clear x",
@@ -3676,14 +3767,20 @@
           "fields": [
             {
               "name": "CMPSET",
-              "size": 8
+              "size": 8,
+              "title": "Compare Set",
+              "description": "These bits hold value of the compare register."
             },
             {
-              "size": 4
+              "size": 4,
+              "title": "Compare Set",
+              "description": "These bits hold value of the compare register."
             },
             {
               "name": "CMPSET",
-              "size": 4
+              "size": 4,
+              "title": "Compare Set",
+              "description": "These bits hold value of the compare register."
             }
           ],
           "title": "Compare Set x",
@@ -3695,14 +3792,20 @@
           "fields": [
             {
               "name": "CMPCLR",
-              "size": 8
+              "size": 8,
+              "title": "Compare x Clear",
+              "description": "These bits hold the value of the compare register."
             },
             {
-              "size": 4
+              "size": 4,
+              "title": "Compare x Clear",
+              "description": "These bits hold the value of the compare register."
             },
             {
               "name": "CMPCLR",
-              "size": 4
+              "size": 4,
+              "title": "Compare x Clear",
+              "description": "These bits hold the value of the compare register."
             }
           ],
           "title": "Compare Clear x",
@@ -3867,8 +3970,8 @@
             {
               "name": "CNT",
               "size": 8,
-              "title": "Counter low byte",
-              "description": "These bits hold the LSB of the 16-bit counter register."
+              "title": "Counter high byte",
+              "description": "These bits hold the MSB of the 16-bit counter register."
             },
             {
               "name": "CNT",
@@ -3887,8 +3990,8 @@
             {
               "name": "PER",
               "size": 8,
-              "title": "Period low byte",
-              "description": "These bits hold the LSB of the 16-bit period register."
+              "title": "Period high byte",
+              "description": "These bits hold the MSB of the 16-bit period register."
             },
             {
               "name": "PER",
@@ -3907,8 +4010,8 @@
             {
               "name": "CMP",
               "size": 8,
-              "title": "Compare low byte",
-              "description": "These bits hold the LSB of the 16-bit compare register."
+              "title": "Compare high byte",
+              "description": "These bits hold the MSB of the 16-bit compare register."
             },
             {
               "name": "CMP",
@@ -4056,7 +4159,9 @@
               "description": "If parity checking is enabled and the next character in the receive buffer has a Parity Error this flag is set. If Parity Check is not enabled the PERR will always be read as zero. This bit is valid until the receive buffer (USART.RXDATAL) is read. For details on parity calculation refer to 24.3.2.2.1 Parity . If USART is set to LINAUTO mode, this bit will be a Parity Check of the Protected identifier field and will be valid when DATA[8] in USART.RXDATAH reads low. This flag is not used in Master SPI mode of operation."
             },
             {
-              "name": "DATA[8]"
+              "name": "DATA",
+              "title": "Receiver Data Register",
+              "description": "When USART receiver is set to LINAUTO mode, this bit indicates if the received data is within the response space of a LIN frame. If the received data is the Protected identifier field, this bit will be read as zero. Otherwise the bit will be read as one. For receiver mode other than LINAUTO mode, DATA[8] holds the ninth data bit in the received character when operating with serial frames with nine data bits."
             }
           ],
           "title": "Receiver Data Register High Byte",
@@ -4083,7 +4188,9 @@
               "size": 7
             },
             {
-              "name": "DATA[8]"
+              "name": "DATA",
+              "title": "Transmit Data Register",
+              "description": "This bit is used when CHSIZE=9BIT in USART.CTRLC."
             }
           ],
           "title": "Transmit Data Register High Byte",
@@ -4219,13 +4326,13 @@
         },
         {
           "offset": "0x07",
-          "name": "CTRLC",
+          "name": "CTRLCASYNC",
           "fields": [
             {
               "name": "CMODE",
               "size": 2,
               "title": "USART Communication Mode",
-              "description": "Writing these bits selects the communication mode of the USART. Writing a value different than 0x3 to these bits alters the available bit fields in this register, see Control C - Async Mode. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|ASYNCHRONOUS|Asynchronous USART |\n | 0x1|SYNCHRONOUS|Synchronous USART |\n | 0x2|IRCOM|Infrared Communication |\n | 0x3|MSPI|Master SPI |\n"
+              "description": "Writing these bits selects the communication mode of the USART. Writing a 0x3 to these bits alters the available bit fields in this register, see Control C - Master SPI Mode- Master SPI Mode . \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0x0|ASYNCHRONOUS|Asynchronous USART |\n | 0x1|SYNCHRONOUS|Synchronous USART |\n | 0x2|IRCOM|Infrared Communication |\n | 0x3|MSPI|Master SPI |\n"
             },
             {
               "name": "PMODE",
@@ -4245,16 +4352,13 @@
               "description": "Writing these bits select the number of data bits in a frame. The Receiver and Transmitter use the same setting. For"
             }
           ],
-          "title": "Control C - Master SPI Mode",
-          "description": "This register description is only valid when the USART is in Master SPI mode (CMODE written to MSPI). For other\nCMODE values, see Control C - Async Mode the correct description.\nSee 24.3.2.5 USART in Master SPI mode for full description of the Master SPI Mode operation."
+          "title": "Control C - Async Mode",
+          "description": "This register description is valid for all modes except Master SPI mode. When the USART Communication Mode bits\n(CMODE) in this register are written to 'MSPI', see Control C - Master SPI Mode for the correct description."
         },
         {
           "offset": "0x07",
-          "name": "CTRLC",
+          "name": "CTRLCMASTER",
           "fields": [
-            {
-              "size": 1
-            },
             {
               "name": "CMODE",
               "size": 2,
@@ -4273,7 +4377,8 @@
               "name": "UCPHA",
               "title": "Clock Phase",
               "description": "The UCPHA bit setting determine if data is sampled on the leading (first) edge or tailing (last) edge of XCKn. Refer to the 24.3.2.1.5 Master SPI Mode Clock Generation for details."
-            }
+            },
+            {}
           ],
           "title": "Control C - Master SPI Mode",
           "description": "This register description is only valid when the USART is in Master SPI mode (CMODE written to MSPI). For other\nCMODE values, see Control C - Async Mode the correct description.\nSee 24.3.2.5 USART in Master SPI mode for full description of the Master SPI Mode operation."
@@ -4285,8 +4390,8 @@
             {
               "name": "BAUD",
               "size": 8,
-              "title": "USART Baud Rate low byte",
-              "description": "These bits hold the LSB of the 16-bit Baud register."
+              "title": "USART Baud Rate high byte",
+              "description": "These bits hold the MSB of the 16-bit Baud register."
             },
             {
               "name": "BAUD",
@@ -4534,24 +4639,25 @@
           "name": "CTRLA",
           "fields": [
             {
-              "size": 4
+              "size": 3
             },
             {
               "name": "SDASETUP",
-              "title": "SDA Setup Time",
+              "title": " SDA Setup Time",
               "description": "By default, there are 4 clock cycles of setup time on SDA out signal while reading from slave part of the TWI module. Writing this bit to '1' will change the setup time to 8 clocks. \n | Value | Name | Description |\n | ----- | ---- | ----------- |\n | 0|4CYC|SDA setup time is 4 clock cycles |\n | 1|8CYC|SDA setup time is 8 clock cycle |\n"
             },
             {
               "name": "SDAHOLD",
               "size": 2,
-              "title": "SDA Hold Time",
+              "title": " SDA Hold Time",
               "description": "Writing these bits selects the SDA hold time. Table 26-3.\u2000SDA Hold Time SDAHOLD[1:0] Nominal Hold Time Hold Time Range across All Corners (ns) Description"
             },
             {
               "name": "FMPEN",
-              "title": "FM Plus Enable",
+              "title": " FM Plus Enable",
               "description": "Writing these bits selects the 1MHz bus speed (Fast mode plus, Fm+) for the TWI in default configuration. \n | Value | Description |\n | ----- | ----------- |\n | 0|Fm+ disabled |\n | 1|Fm+ enabled |\n"
-            }
+            },
+            {}
           ],
           "title": "Control A",
           "description": null
@@ -4565,7 +4671,7 @@
             },
             {
               "name": "DBGRUN",
-              "title": "Debug Run",
+              "title": " Debug Run",
               "description": "\n | Value | Description |\n | ----- | ----------- |\n | 0|The peripheral is halted in break debug mode and ignores events. |\n | 1|The peripheral will continue to run in break debug mode when the CPU is halted. |\n"
             }
           ],
@@ -5262,7 +5368,7 @@
             },
             {
               "name": "CMP",
-              "title": "Analog Comparator Interrupt Enable",
+              "title": " Analog Comparator Interrupt Enable",
               "description": "Writing this bit to '1' enables Analog Comparator Interrupt."
             }
           ],
@@ -5563,8 +5669,8 @@
             {
               "name": "RES",
               "size": 8,
-              "title": "Result low byte",
-              "description": "These bits constitute the LSB of ADC/Accumulator Result, (RES) register. The data format in ADC and Digital Accumulation is 1\u2019s complement, where 0x0000 represents the zero and 0xFFFF represent the largest number (full scale)."
+              "title": "Result high byte",
+              "description": "These bits constitute the MSB of RES register, where the msb is RES[15]. The ADC itself has 10-bit output, ADC[9:0], where the msb is ADC[9]. The data format in ADC and Digital Accumulation is 1\u2019s complement, where"
             },
             {
               "name": "RES",
@@ -5583,8 +5689,8 @@
             {
               "name": "WINLT",
               "size": 8,
-              "title": "Window Comparator Low Threshold low byte",
-              "description": "These bits hold the LSB of the 16-bit register."
+              "title": "Window Comparator Low Threshold high byte",
+              "description": "These bits hold the MSB of the 16-bit register."
             },
             {
               "name": "WINLT",
@@ -5603,8 +5709,8 @@
             {
               "name": "WINHT",
               "size": 8,
-              "title": "Window Comparator High Threshold low byte",
-              "description": "These bits hold the LSB of the 16-bit register."
+              "title": "Window Comparator High Threshold high byte",
+              "description": "These bits hold the MSB of the 16-bit register."
             },
             {
               "name": "WINHT",
@@ -5689,13 +5795,13 @@
           "name": "STATUSA",
           "fields": [
             {
-              "size": 4
-            },
-            {
               "name": "UPDIREV",
               "size": 4,
               "title": "UPDI Revision",
               "description": "These bits are read-only and contain the revision of the current UPDI implementation."
+            },
+            {
+              "size": 4
             }
           ],
           "title": "Status A",
@@ -5758,7 +5864,7 @@
           "name": "CTRLB",
           "fields": [
             {
-              "size": 5
+              "size": 3
             },
             {
               "name": "NACKDIS",
@@ -5774,6 +5880,9 @@
               "name": "UPDIDIS",
               "title": "UPDI Disable",
               "description": "Writing a '1' to this bit disables the UPDI PHY interface. The clock request from the UPDI is lowered, and the UPDI is reset. All UPDI PHY configurations and KEYs will be reset when the UPDI is disabled."
+            },
+            {
+              "size": 2
             }
           ],
           "title": "Control B",
@@ -5784,7 +5893,7 @@
           "name": "ASI_KEY_STATUS",
           "fields": [
             {
-              "size": 5
+              "size": 2
             },
             {
               "name": "UROWWRITE",
@@ -5800,6 +5909,9 @@
               "name": "CHIPERASE",
               "title": "Chip Erase",
               "description": "This bit is set to '1' if the CHIPERASE KEY is active. This bit will automatically be reset when the chip erase sequence is completed. Otherwise this bit reads as zero."
+            },
+            {
+              "size": 3
             }
           ],
           "title": "ASI Key Status",
