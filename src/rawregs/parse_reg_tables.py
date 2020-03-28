@@ -44,6 +44,11 @@ def parse_fields(raw_fields):
         else:
             fields.append({'name': field_name})
 
+    if empty_space:
+        if empty_space > 1:
+            fields.append({'size': empty_space})
+        else:
+            fields.append({})
     total_size = sum([f.get('size', 1) for f in fields])
     if total_size < 8:
         fields = [{'size': (8 - total_size)}] + fields
