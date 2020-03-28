@@ -10323,7 +10323,7 @@ more detailed information see 24.3.2.10 Multiprocessor Communication Mode.
 USART - Universal Synchronous and Asynchrono...
 © 2019 Microchip Technology Inc. Preliminary Datasheet DS40001912C-page 335
 24.5.8 Control C - Async Mode
-Name:  CTRLC
+Name:  CTRLCASYNC
 Offset:  0x07
 Reset:  0x03
 Property:  -
@@ -10375,7 +10375,7 @@ Value Name Description
 USART - Universal Synchronous and Asynchrono...
 © 2019 Microchip Technology Inc. Preliminary Datasheet DS40001912C-page 336
 24.5.9 Control C - Master SPI Mode
-Name:  CTRLC
+Name:  CTRLCMASTER
 Offset:  0x07
 Reset:  0x00
 Property:  -
