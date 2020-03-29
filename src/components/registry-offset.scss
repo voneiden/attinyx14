@@ -38,6 +38,24 @@
 }
 .field-description {
   font-size: 12px;
+
+  table {
+    border-collapse: collapse;
+    th {
+      text-align: center;
+    }
+    tr:hover {
+      background-color: #1b361b;
+    }
+    td {
+      border: 1px #5ec95e solid;
+      padding-left: 3px;
+      padding-right: 3px;
+      &:not(:last-child) {
+        text-align: center;
+      }
+    }
+  }
 }
 
 @for $i from 1 through 16 {
