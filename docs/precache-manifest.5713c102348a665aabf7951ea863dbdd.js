@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1463a329df22fa2e38ba46a833ae236a",
+    "revision": "44692ae8e6b65737538500eaded09e58",
     "url": "/attinyx14/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/attinyx14/static/css/2.01fbdc85.chunk.css"
   },
   {
-    "revision": "78200cf454299cdf63ba",
-    "url": "/attinyx14/static/css/main.b76fb70a.chunk.css"
+    "revision": "9b1599cc30fd5eb41610",
+    "url": "/attinyx14/static/css/main.32a307fa.chunk.css"
   },
   {
     "revision": "597635c4755ba816d4b4",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/attinyx14/static/js/2.3110dafa.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "78200cf454299cdf63ba",
+    "revision": "9b1599cc30fd5eb41610",
     "url": "/attinyx14/static/js/main.3e858b8f.chunk.js"
   },
   {
