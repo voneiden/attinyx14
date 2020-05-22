@@ -88,7 +88,7 @@ See <topic>PORTA</topic> for generic examples on how to work with standard port 
     topic = "TWI"
     title = "Two-Wire Interface (I2C)"
     text = """
-Lorem ipsum about the horrors of I2C
+<a href="https://voneiden.github.io/twi-baud-calculator/" target="_blank">TWI Baud and pull-up resistor calculator</a>
 """
 
 [[topics]]
