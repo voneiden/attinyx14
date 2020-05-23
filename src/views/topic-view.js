@@ -63,6 +63,7 @@ const formatText = function formatText(text) {
       const literal = literalMap[node.children[0].data]
       if (literal) {
         node.attribs.title = `${literal[1]}\n${literal[2]}`
+        node.attribs.class = 'hljs-literal title-highlight'
       }
     } else if (node.attribs && node.attribs.class === 'hljs-built_in') {
       const nameCandidate = node.children[0].data.split('_')[0]
@@ -71,6 +72,7 @@ const formatText = function formatText(text) {
       const registryGroup = registryGroupMap[nameCandidate] ? registryGroupMap[nameCandidate] : registryGroupMap[nameCandidate2]
       if (registryGroup) {
         node.attribs.title = `${registryGroup[0]}: ${registryGroup[1]}`
+        node.attribs.class = 'hljs-built_in title-highlight'
       }
     } else if (node.name === 'reg') {
       const [registry, offset, field] = node.children[0].data.split(".");

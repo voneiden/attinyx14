@@ -20,6 +20,10 @@
       line-height: 1;
       > code {
         font-size: 80%;
+        span.title-highlight:hover {
+          font-weight: bold;
+          cursor: help;
+        }
       }
     }
   }
