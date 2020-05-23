@@ -4739,7 +4739,7 @@
               "name": "CMD",
               "size": 2,
               "title": "Command",
-              "description": "The master command bits are strobes. These bits are always read as zero. Writing to these bits triggers a master operation as defined by the table below. Table 26-4.\u2000Command Settings CMD[1:0] DIR Description"
+              "description": "The master command bits are strobes. These bits are always read as zero. Writing to these bits triggers a master operation as defined by the table below. \n\n NOTE: RECVTRANS is really only needed if you don't use smart mode \n | CMD[1:0] | DIR | Description | \n | ---- | ---- | ---- | \n | 0x0 | X | NOACT (used when setting only FLUSH or ACKACT) | \n | 0x1 | X | REPSTART - Execute Acknowledge Action succeeded by repeated Start. | \n | 0x2 | 0 | RECVTRANS - Execute Acknowledge Action succeeded by a byte read operation. | \n | 0x2 | 1 | RECVTRANS - Execute Acknowledge Action (no action) succeeded by a byte write operation. | \n | 0x3 | X | STOP - Execute Acknowledge Action succeeded by issuing a STOP condition. | \n"
             }
           ],
           "title": "Master Control B",
