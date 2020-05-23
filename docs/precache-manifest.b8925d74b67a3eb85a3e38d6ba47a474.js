@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "82591ba4aae6cc7b66644c27c9543132",
+    "revision": "394a3c670de3e7b777d31b3c9fb704ce",
     "url": "/attinyx14/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/attinyx14/static/css/2.9f6b16ab.chunk.css"
   },
   {
-    "revision": "9a8e549b217c28677d64",
+    "revision": "29f0a20c9d676561283e",
     "url": "/attinyx14/static/css/main.7109ea6a.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/attinyx14/static/js/2.77a29455.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9a8e549b217c28677d64",
-    "url": "/attinyx14/static/js/main.9af1e55c.chunk.js"
+    "revision": "29f0a20c9d676561283e",
+    "url": "/attinyx14/static/js/main.eb4d7a23.chunk.js"
   },
   {
     "revision": "589973ed1c31223d1df7",
@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/attinyx14/static/media/attinyx14-pins.8d32a0db.toml"
   },
   {
-    "revision": "a37831b169cad5e798c994b2beee1fc0",
-    "url": "/attinyx14/static/media/attinyx14-topics.a37831b1.toml"
+    "revision": "e1c43d33be7d11b241ecfa8ad622e87c",
+    "url": "/attinyx14/static/media/attinyx14-topics.e1c43d33.toml"
   }
 ]);

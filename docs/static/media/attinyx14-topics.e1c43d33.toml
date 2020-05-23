@@ -95,8 +95,23 @@ See <topic>PORTA</topic> for generic examples on how to work with standard port 
 [[topics]]
     topic = "EX_TWI_MASTER"
     title = "TWI Master"
+    activeGroupOverride = "TWI"
     text = """
 Setting up the device as TWI master requires a few lines of setup. Baud rate depends on multiple variables and can be determined along with pull-up resistors using <a href="https://voneiden.github.io/twi-baud-calculator/" target="_blank">TWI Baud Calculator</a>.
+
+### Relevant master registries for setup
+
+* <reg>TWI.MBAUD</reg> controls the bus frequency. Bigger = slower, actual frequency depends on bus capacitance and pull-up resistance.
+* <reg>TWI.MCTRLA</reg> controls the master settings.
+* <reg>TWI.MSTATUS</reg> keeps track of bus state machine.
+
+### Relevant master registries during transfer
+
+* <reg>TWI.MCTRLB</reg> controls acknowledge action (for smart mode) and can be used to issue stop condition. Without smart mode, can be used to issue ACKs
+* <reg>TWI.MADDR</reg> Set the address, read/write mode, and issue start condition
+* <reg>TWI.MDATA</reg> read & ack data, or write data
+
+Example setup
 
 ```c
 // 100 kHz @ 20 MHz, in practice slower due to T_rise
@@ -113,11 +128,103 @@ TWI0_MSTATUS = TWI_BUSSTATE_IDLE_gc;
 // lead to undefined behaviour
 PORTB_PIN0CTRL |= PORT_PULLUPEN_bm;
 PORTB_PIN1CTRL |= PORT_PULLUPEN_bm;
-
 ```
 
-* <topic>EX_TWI_MASTER_READ</topic>
-* <topic>EX_TWI_MASTER_WRITE</topic>
+Reading by polling
+-------
+
+Generic function example, assuming smart mode enabled.
+
+```avr
+uint8_t twi_master_read(uint8_t address, uint8_t *buffer, uint8_t length) {
+    // Goto label for retrying reading in case of error
+    start:
+
+    // Set ack action to ACK
+    TWI0_MCTRLB = TWI_ACKACT_ACK_gc;
+
+    // Perform START condition with read operation on address.
+    TWI0_MADDR = (uint8_t) (address << 1) | 1;
+
+    for (uint8_t bytesIn=0; bytesIn < length; bytesIn++ ) {
+        // Robust implementation should implement a timeout, in case
+        // the bus becomes stuck and the flags never go up
+        while (!(TWI0_MSTATUS & (TWI_WIF_bm | TWI_RIF_bm))) {}
+
+        // WIF when reading means something's not right
+        if (TWI0_MSTATUS & TWI_WIF_bm) {
+            // No ACK from address
+            if (TWI0_MSTATUS & TWI_RXACK_bm) {
+                // Perform stop condition
+                TWI0_MCTRLB = TWI_MCMD_STOP_gc;
+                return TWI_MASTER_ERROR_ADDRESS_NACK;
+            }
+            // Arbitration can be lost in multi master environments - retry or give up
+            // Bus error can be a coincidence - retry or give up
+            else if (TWI0_MSTATUS & (TWI_ARBLOST_bm | TWI_BUSERR_bm)) {
+                goto start;
+            }
+            // AFAIK no other error conditions exist
+            return TWI_MASTER_ERROR_UNKNOWN;
+        }
+
+        if ((bytesIn + 1) == length) {
+            // If last byte, set ack action to NACK so slave knows STOP is going to follow
+            TWI0_MCTRLB = TWI_ACKACT_NACK_gc;
+        }
+        buffer[bytesIn] = TWI0_MDATA;
+    }
+    // Issue stop condition
+    TWI0_MCTRLB = TWI_MCMD_STOP_gc;
+    return 0;
+}
+```
+
+Writing by polling
+-------
+
+Generic function example, assuming smart mode enabled.
+
+```avr
+uint8_t twi_master_write(uint8_t address, uint8_t *buffer, uint8_t length) {
+    start:
+    // Perform START condition with write operation on address.
+    TWI0_MADDR = (uint8_t) (address << 1);
+
+    // Looping length+1 so that every sent byte is checked for ACK
+    for (uint8_t bytesOut=0; bytesOut < (length + 1); bytesOut++ ) {
+        // Robust implementation should implement a timeout, in case
+        // the bus becomes stuck and the flags never go up
+        while (!(TWI0_MSTATUS & TWI_WIF_bm)) {}
+
+        // NACK'd either the address, or the data, game over
+        if (TWI0_MSTATUS & TWI_RXACK_bm) {
+            // Issue stop condition
+            TWI0_MCTRLB = TWI_MCMD_STOP_gc;
+            return TWI_MASTER_ERROR_ADDRESS_NACK;
+        }
+
+        // Retry on arbitration lost or bus error
+        else if (TWI0_MSTATUS & (TWI_ARBLOST_bm | TWI_BUSERR_bm)) {
+            goto start;
+        }
+        // If last byte was already sent, issue stop condition
+        if (bytesOut == length) {
+            TWI0_MCTRLB |= TWI_MCMD_STOP_gc;
+        }
+        // Otherwise transfer byte
+        else {
+            TWI0_MDATA = buffer[bytesOut];
+        }
+    }
+    return 0;
+}
+```
+
+Interrupts
+-------
+
+As an alternatively to polling, interrupts can be used and enabled via <reg>TWI.MCTRLA</reg> RIEN AND WIEN fields.
 
 
 """
@@ -126,7 +233,7 @@ PORTB_PIN1CTRL |= PORT_PULLUPEN_bm;
     topic = "TWI-ALT"
     title = "Two-Wire Interface (I2C) (Alternative pin configuration)"
     text = """
-Alternative pin position for TWI outputs can be enabled via <reg>PORTMUX.CTRLB</reg>
+Alternative pin position for <topic>TWI</topic> outputs can be enabled via <reg>PORTMUX.CTRLB</reg>
 """
 
 [[topics]]
