@@ -10,6 +10,7 @@ import TopicView from "./views/topic-view";
 import {HashRouter} from "react-router-dom";
 import {Route, Switch} from "react-router";
 import RegistryView from "./views/registry-view";
+import extendC from './utils/extend-c'
 
 function httpGet(theUrl)
 {
@@ -24,6 +25,11 @@ const attinyx14topics = httpGet(attinyx14topicsPath);
 store.setPins(toml.parse(attinyx14pins).pins);
 store.setTopics(toml.parse(attinyx14topics).topics);
 store.setRegistries(attinyx14registries.regs);
+
+
+
+extendC();
+
 function App() {
     return (
         <HashRouter>

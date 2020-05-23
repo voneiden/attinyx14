@@ -7,10 +7,14 @@ import Registry from "../components/registry";
 import DatasheetLink from "../components/datasheet-link";
 import MarkdownIt from 'markdown-it';
 import * as hljs from "highlight.js";
-import "highlight.js/styles/dracula.css";
+import "highlight.js/styles/darcula.css";
 import ReactHtmlParser, {convertNodeToElement} from 'react-html-parser';
 import TopicLink from "../components/topic-link";
 import {useParams} from "react-router";
+import isEmptyTextNode from "react-html-parser/lib/utils/isEmptyTextNode";
+import {literalMap} from "../utils/extend/literals";
+import {registryGroupMap} from "../utils/extend/builtins";
+
 
 const md = new MarkdownIt({
   highlight: function (str, lang) {
@@ -26,19 +30,58 @@ const md = new MarkdownIt({
 });
 
 
-
 const formatText = function formatText(text) {
   const references = [];
+  console.log(hljs.getLanguage('C'))
+
+  const preprocessNodes = function preprocessNodes(nodes) {
+    nodes.map(node => {
+      // Workaround for ReactHtmlParser destroying whitespace
+      // (https://github.com/wrakky/react-html-parser/issues/39)
+      if (node.name === 'pre' && node.children.length) {
+        const codes = node.children.filter(n => n.name === 'code')
+        for (const code of codes) {
+          for (const cnode of code.children) {
+            if (isEmptyTextNode(cnode)) {
+              cnode.type = "protected";
+            }
+          }
+        }
+      }
+      return node;
+    })
+    return nodes;
+  }
+
   const transform = function transform(node, index) {
-    if (node && node.name === 'reg') {
+    // Workaround for ReactHtmlParser destroying whitespace
+    // (https://github.com/wrakky/react-html-parser/issues/39)
+    console.log(node.attribs)
+    if (node.type === "protected") {
+      node.type = "text";
+    } else if (node.attribs && node.attribs.class === 'hljs-literal') {
+      const literal = literalMap[node.children[0].data]
+      if (literal) {
+        node.attribs.title = `${literal[1]}\n${literal[2]}`
+      }
+    } else if (node.attribs && node.attribs.class === 'hljs-built_in') {
+      const nameCandidate = node.children[0].data.split('_')[0]
+      const nameCandidate2 = nameCandidate.slice(0, -1)
+
+      const registryGroup = registryGroupMap[nameCandidate] ? registryGroupMap[nameCandidate] : registryGroupMap[nameCandidate2]
+      if (registryGroup) {
+        node.attribs.title = `${registryGroup[0]}: ${registryGroup[1]}`
+      }
+    } else if (node.name === 'reg') {
       const [registry, offset, field] = node.children[0].data.split(".");
-      references.push(<Registry key={`registry-${registry}-${offset}-${field}`} registry={registry} offset={offset} field={field}/>);
+      references.push(<Registry key={`registry-${registry}-${offset}-${field}`} registry={registry} offset={offset}
+                                field={field}/>);
       return <RegistryLink registry={registry} offset={offset} field={field}/>;
-    } else if (node && node.name === 'ref') {
+    } else if (node.name === 'ref') {
       return <DatasheetLink page={node.children[0].data}/>
-    } else if (node && node.name === 'topic') {
+    } else if (node.name === 'topic') {
       return <TopicLink topic={node.children[0].data}/>
-    } else if (node && node.name === 'example') {
+    } else if (node.name === 'example') {
       node.name = 'div';
       node.attribs = {
         'class': 'code-example',
@@ -48,7 +91,7 @@ const formatText = function formatText(text) {
     return undefined
   };
   const html = md.render(text);
-  const jsx = ReactHtmlParser(html, {transform: transform});
+  const jsx = ReactHtmlParser(html, {transform: transform, preprocessNodes: preprocessNodes});
   return (
     <React.Fragment>
       {jsx}

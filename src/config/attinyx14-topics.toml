@@ -88,7 +88,38 @@ See <topic>PORTA</topic> for generic examples on how to work with standard port 
     topic = "TWI"
     title = "Two-Wire Interface (I2C)"
     text = """
-<a href="https://voneiden.github.io/twi-baud-calculator/" target="_blank">TWI Baud and pull-up resistor calculator</a>
+* <topic>EX_TWI_MASTER</topic>
+* <topic>EX_TWI_SLAVE</topic>
+"""
+
+[[topics]]
+    topic = "EX_TWI_MASTER"
+    title = "TWI Master"
+    text = """
+Setting up the device as TWI master requires a few lines of setup. Baud rate depends on multiple variables and can be determined along with pull-up resistors using <a href="https://voneiden.github.io/twi-baud-calculator/" target="_blank">TWI Baud Calculator</a>.
+
+```c
+// 100 kHz @ 20 MHz, in practice slower due to T_rise
+TWI0_MBAUD = 95;
+
+// Smart mode enable and twi enable
+TWI0_MCTRLA =  TWI_SMEN_bm | TWI_ENABLE_bm;
+
+// Set bus state to idle
+TWI0_MSTATUS = TWI_BUSSTATE_IDLE_gc;
+
+// Internal pull-ups can be used for testing, however they will exceed
+// the I2C specs if bus capacitance is approximately 25 pF which may
+// lead to undefined behaviour
+PORTB_PIN0CTRL |= PORT_PULLUPEN_bm;
+PORTB_PIN1CTRL |= PORT_PULLUPEN_bm;
+
+```
+
+* <topic>EX_TWI_MASTER_READ</topic>
+* <topic>EX_TWI_MASTER_WRITE</topic>
+
+
 """
 
 [[topics]]
