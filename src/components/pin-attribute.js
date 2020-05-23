@@ -11,7 +11,14 @@ const PinAttribute = observer(function PinAttribute(props) {
     const { pin, attribute } = props;
     const { label, type, alt, groups } = attribute;
     const params = useParams();
-    const activeGroup = params.activeGroup;
+    let activeGroup = params.activeGroup;
+
+    // activeGroup can be overridden in topic
+    const topic = store.getTopic(activeGroup)
+    if (topic && topic.activeGroupOverride) {
+        activeGroup = topic.activeGroupOverride
+    }
+    console.log("ACT GROUUP IS", activeGroup)
     const activePin = parseInt(params.activePin);
     const pinPrimaryGroup = groups.length ? groups[0] : null;
 

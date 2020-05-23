@@ -17,7 +17,8 @@ const TopicModel = types.model( {
     topic: types.string,
     title: types.string,
     text: types.string,
-    chip: types.optional(types.boolean, false)
+    chip: types.optional(types.boolean, false),
+    activeGroupOverride: types.maybeNull(types.string),
 });
 
 const FieldModel = types.model({

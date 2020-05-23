@@ -1,5 +1,3 @@
-import literals from "./literals";
-
 /*****************************************************************************
  *
  * Copyright (C) 2020 Atmel Corporation, a wholly owned subsidiary of Microchip Technology Inc.

@@ -76,8 +76,11 @@ const formatText = function formatText(text) {
       }
     } else if (node.name === 'reg') {
       const [registry, offset, field] = node.children[0].data.split(".");
-      references.push(<Registry key={`registry-${registry}-${offset}-${field}`} registry={registry} offset={offset}
-                                field={field}/>);
+      const key = `registry-${registry}-${offset}`
+      if (!references.filter(r => r.key ===key).length) {
+        references.push(<Registry key={key} registry={registry} offset={offset}
+                                  field={field}/>);
+      }
       return <RegistryLink registry={registry} offset={offset} field={field}/>;
     } else if (node.name === 'ref') {
       return <DatasheetLink page={node.children[0].data}/>
