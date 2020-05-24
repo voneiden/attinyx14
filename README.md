@@ -1,4 +1,5 @@
 ATtinyx14 Quick Reference
 ---
 
-Work in progress, hol' fast.
+Live version of the project is available at https://voneiden.github.io/attinyx14
+
